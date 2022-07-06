@@ -1,0 +1,35 @@
+export const PackageData=[
+                   {
+                   	packageid:"4n5d6999",
+                   	packagename:"4N/5D Package",
+                   	packageprice:[{Alpine:6999},{Dome:9999},{BYOT:8999}],
+                   	packagetype:["Alpine","Dome","BYOT"],
+                   	packageimage:"https://i.picsum.photos/id/117/100/100.jpg?hmac=J2cABsNnkFL3LYpgaBy38oyKQN792Ul0X89GcHT-cfY",
+                   	packagedescription:"lorem ipsumsds sdsdd sdsd",
+                    defaulttype:"Alpine",
+                    packageimagelink:[{Alpine:"https://i.picsum.photos/id/117/100/100.jpg?hmac=J2cABsNnkFL3LYpgaBy38oyKQN792Ul0X89GcHT-cfY"},{Dome:"https://i.picsum.photos/id/177/100/100.jpg?hmac=H08LssfWnbwwby_PCc3hZ4-QIOtO0FLmkcebIcP3O-U"},{BYOT:"https://i.picsum.photos/id/466/100/100.jpg?hmac=15Hjzs5oHgFaNN41Kurw7PjUxX-7Bkg6Macv3z2p47c"}],
+                    carbonemiison:15,
+                   },
+                    {
+                   	packageid:"2n3d4999",
+                    carbonemiison:20,
+                   	packagename:"2N/3D Package",
+                   	packageprice:[{Alpine:3999},{Dome:4999},{BYOT:5999}],
+                   	packagetype:["Alpine","Dome","BYOT"],
+                   	packageimage:"https://i.picsum.photos/id/177/100/100.jpg?hmac=H08LssfWnbwwby_PCc3hZ4-QIOtO0FLmkcebIcP3O-U",
+                   	packagedescription:"lorem ipsumsds sdsdd sdsd",
+                    defaulttype:"Alpine",
+                    packageimagelink:[{Alpine:"https://i.picsum.photos/id/117/100/100.jpg?hmac=J2cABsNnkFL3LYpgaBy38oyKQN792Ul0X89GcHT-cfY"},{Dome:"https://i.picsum.photos/id/177/100/100.jpg?hmac=H08LssfWnbwwby_PCc3hZ4-QIOtO0FLmkcebIcP3O-U"},{BYOT:"https://i.picsum.photos/id/466/100/100.jpg?hmac=15Hjzs5oHgFaNN41Kurw7PjUxX-7Bkg6Macv3z2p47c"}],
+                   },
+                    {
+                   	packageid:"1n2d2999",
+                    carbonemiison:30,
+                   	packagename:"1N/2D Package",
+                   	packageprice:[{Alpine:2999},{Dome:3999},{BYOT:1999}],
+                   	packagetype:["Alpine","Dome","BYOT"],
+                   	packageimage:"https://i.picsum.photos/id/466/100/100.jpg?hmac=15Hjzs5oHgFaNN41Kurw7PjUxX-7Bkg6Macv3z2p47c",
+                   	packagedescription:"lorem ipsumsds sdsdd sdsd",
+                    defaulttype:"Alpine",
+                    packageimagelink:[{Alpine:"https://i.picsum.photos/id/117/100/100.jpg?hmac=J2cABsNnkFL3LYpgaBy38oyKQN792Ul0X89GcHT-cfY"},{Dome:"https://i.picsum.photos/id/177/100/100.jpg?hmac=H08LssfWnbwwby_PCc3hZ4-QIOtO0FLmkcebIcP3O-U"},{BYOT:"https://i.picsum.photos/id/466/100/100.jpg?hmac=15Hjzs5oHgFaNN41Kurw7PjUxX-7Bkg6Macv3z2p47c"}],
+                   }
+                  ]
