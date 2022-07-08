@@ -32,6 +32,7 @@ export default async function handler(req, res) {
         prductdetails:req.body.packagedetail,
         ordertotal:req.body.total,
         status:"pending",
+        checkindate:req.body.checkindate
 
       });
 //saving the order in our database
@@ -47,6 +48,7 @@ let datatosave = {
         prductdetails:req.body.packagedetail,
         ordertotal:req.body.total,
         status:"pending",
+        checkindate:req.body.checkindate
       };
 const localresponse = await adminapi.post("/addpayment",JSON.stringify(datatosave));
 

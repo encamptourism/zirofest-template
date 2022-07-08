@@ -1,6 +1,6 @@
 import {useState,useEffect} from "react";
 const Success=(props)=>{
-const {amount,name,order_id,ordertotal,payment_id,prductdetails,signature,contact,email} = props.paymentdetails;
+const {amount,name,order_id,ordertotal,payment_id,prductdetails,signature,contact,email,checkindate} = props.paymentdetails;
 return (<>
 	<div className="container">
 	 <div className="md:w-4/4 flex flex-col justify-center items-center py-3">
@@ -10,6 +10,7 @@ return (<>
       <div style={{width:"100%",textAlign:"center"}} className="text-xl text-gray-700">{name?`Name:-  ${name}`:""}</div>
       <div style={{width:"100%",textAlign:"center"}} className="text-xl text-gray-700">{email?`Email:-  ${email}`:""}</div>
       <div style={{width:"100%",textAlign:"center"}} className="text-xl text-gray-700">{contact?`Contact-Details:-  ${contact}`:""}</div>
+      <div style={{width:"100%",textAlign:"center"}} className="text-xl text-gray-700">{checkindate?`CheckIn Date:-  ${checkindate}`:""}</div>
       <div style={{width:"100%"}} className="md:flex md:flex-col mt-5">
         {prductdetails ? <div className="md:flex md:flex-row mt-5 justify-center items-center">
          <div className="text-xl md:w-1/5 flex flex-col justify-center items-center">Package Id</div>

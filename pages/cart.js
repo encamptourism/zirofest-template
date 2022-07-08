@@ -103,6 +103,7 @@ var options = {
                                                           ordertotal:data.ordertotal,
                                                           contact:data.phone,
                                                           email:data.email,
+                                                          checkindate:data.checkindate,
                                                           status:"success"
     
                                                     }));
@@ -120,7 +121,8 @@ if(localresponse.data !== 400){
                     prductdetails:data.prductdetails,
                     ordertotal:data.ordertotal,
                     contact:data.phone,
-                    email:data.email
+                    email:data.email,
+                    checkindate:data.checkindate
                   })
         
         let uniqueid = localStorage.getItem('cartid');

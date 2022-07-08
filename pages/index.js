@@ -9,8 +9,10 @@ import Addonservices from "../components/home/addonservices";
 import {PackageData} from "../components/home/packagedata/packagedata";
 import {AditionalData} from "../components/home/addondata/additional";
 import LoginSpinner from "../components/common/LoginSpinner";
+import Faq from "../components/faq/Faq";
+import {Datafaq} from "../components/faq/Datafaq";
 
-export default function Home({PackageData}) {
+export default function Home({PackageData,faqdata}) {
 const [addtocartdata,setAddtocartdata] = useState([]);
 const [isloading,setIsloading] = useState(true);
 useEffect(()=>{
@@ -41,6 +43,7 @@ setIsloading(false);
        addtocartdata={addtocartdata}
        setAddtocartdata ={setAddtocartdata}
       />
+      <Faq faqdata={faqdata}/>
      </div>
      <Cartpane addtocartdata = {addtocartdata} setAddtocartdata ={setAddtocartdata}/>
     </>
@@ -48,12 +51,16 @@ setIsloading(false);
 }
 
 
-export const getStaticProps = async () => {
-    const data = PackageData;
-return {
-  props:{
-  PackageData:data,
-}
-}
-  }
 
+export async function getServerSideProps() {
+ const data = PackageData;
+ let ds = [];
+ let ss = await Datafaq();
+ if(ss.length > 0){
+ds = ss.filter(
+  (item) => item.category.toLowerCase().indexOf("zero".toLowerCase()) > -1
+)
+ 
+}
+ return { props: { faqdata:ds,PackageData:data, } }
+}
