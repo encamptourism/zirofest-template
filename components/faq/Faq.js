@@ -6,7 +6,7 @@ export const Faqs=({data , id})=>{
 	const styles = {
 		question:{fontSize:"1.1rem",fontWeight:"500",paddingBottom: '15px'},
 		answer:{fontSize:"1rem",fontWeight:"300",paddingLeft:"10px",paddingBottom: '20px'},
-		plus:{color:"green",marginLeft: '5px',fontSize:"1.2rem",position: 'absolute',right:"35px",cursor:"pointer"}
+		plus:{color:"green",marginLeft: '5px',fontSize:"1.2rem",float:"right",cursor:"pointer"}
 	}
 const toggle=(e)=>{
 	setTogglew((prev)=>!prev);
@@ -41,10 +41,11 @@ setFaqss(faqdata);
 
 return(
 <>
-<div className="container my-10">
- <div className="flex flex-row justify-between">
 <h2 className="text-2xl">FAQs</h2>
 <hr className="mt-2 mb-10"/>
+<div className="container my-10" style={{maxWidth:"900px",margin:"0 auto"}}>
+ <div className="flex flex-row justify-between">
+
 </div>
 {(faqss || faqss.length > 0) ? faqss.map((d,id)=>{
 	return <Faqs data={d} id={id}/>		
