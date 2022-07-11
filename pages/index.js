@@ -11,6 +11,8 @@ import {AditionalData} from "../components/home/addondata/additional";
 import LoginSpinner from "../components/common/LoginSpinner";
 import Faq from "../components/faq/Faq";
 import {Datafaq} from "../components/faq/Datafaq";
+import Campsitefacilities from "../components/home/campsitefacilites"
+import OtherDetails from "../components/home/otherdetails"
 
 export default function Home({PackageData,faqdata}) {
 const [addtocartdata,setAddtocartdata] = useState([]);
@@ -38,11 +40,13 @@ setIsloading(false);
       <Pakage packages = {PackageData}
        addtocartdata={addtocartdata}
         setAddtocartdata ={setAddtocartdata}/>
+      <Campsitefacilities/>
       <Addonservices
        packages = {AditionalData}
        addtocartdata={addtocartdata}
        setAddtocartdata ={setAddtocartdata}
       />
+      <OtherDetails/>
       <Faq faqdata={faqdata}/>
      </div>
      <Cartpane addtocartdata = {addtocartdata} setAddtocartdata ={setAddtocartdata}/>
@@ -58,9 +62,10 @@ export async function getServerSideProps() {
  let ss = await Datafaq();
  if(ss.length > 0){
 ds = ss.filter(
-  (item) => item.category.toLowerCase().indexOf("zero".toLowerCase()) > -1
+(item) => item.category.toLowerCase().indexOf("zero".toLowerCase()) > -1
 )
  
 }
+
  return { props: { faqdata:ds,PackageData:data, } }
 }

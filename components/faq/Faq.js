@@ -41,7 +41,7 @@ setFaqss(faqdata);
 
 return(
 <>
-<h2 className="text-2xl">FAQs</h2>
+<h2 className="text-xl text-center">FAQs</h2>
 <hr className="mt-2 mb-10"/>
 <div className="container my-10" style={{maxWidth:"900px",margin:"0 auto"}}>
  <div className="flex flex-row justify-between">

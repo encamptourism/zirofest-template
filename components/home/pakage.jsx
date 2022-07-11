@@ -97,9 +97,13 @@ return (
         <>
           <div id="pakage" className="my-10">
           <div className="flex flex-row justify-between">
-                <h2  className="text-2xl">Our Camping Packages</h2>
+                <h2  className="text-xl">Our Camping Packages</h2>
             </div>
           <hr className="mt-2 mb-5"/>
+          <div style={{margin:"0 auto",letterSpacing: "1.5px",padding:"2rem"}}>While the music keeps you alive, your abode should certainly be a place of utmost
+comfort. Sit back and catch up with your friends or tent mates, or simply snooze off
+after a heavy day of blissful experiences. Choose from an array of package designed
+to delight you.</div>
           <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-10 ">
            { packages ? packages.map((data , key)=>{
                    return (
@@ -107,7 +111,7 @@ return (
                     
                          {data.packageimagelink ? data.packageimagelink.map((dd,kk)=>{     
                             return (
-                 (dd[selectedpack[data.packageid] || 'Alpine'])  ? <img key={kk} src = {dd[selectedpack[data.packageid] || 'Alpine']} className="w-full rounded-tl-lg rounded-tr-lg"/>:""                       
+                 (dd[selectedpack[data.packageid] || data.defaulttype])  ? <img key={kk} src = {dd[selectedpack[data.packageid] || data.defaulttype]} className="w-full rounded-tl-lg rounded-tr-lg"/>:""                       
                           )
 
                         }):""
@@ -122,7 +126,7 @@ return (
                     <div  className="text-md" >
                         {data.packageprice ? data.packageprice.map((dd,kk)=>{     
                             return (
-                  dd[selectedpack[data.packageid] || 'Alpine']  ? dd[selectedpack[data.packageid] || 'Alpine']:""
+                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
                        
                           )
 
@@ -134,7 +138,7 @@ return (
                     <div className="flex flex-row my-3">
                     {data.packagetype ? data.packagetype.map((ds,k)=>{
                          return (
-                        <div key={"ewe" + k} style={{cursor:"pointer"}} className={(ds === "Alpine" && allselected.packageid !== data.packageid) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200  bg-gray-500":(data.packageid === allselected.packageid && ds === allselected.packagetype) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200  bg-gray-500":"border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2"} onClick={()=>Selectpack(ds,data.packageid)}>{ds}</div>       
+                        <div key={"ewe" + k} style={{cursor:"pointer"}} className={(ds === data.defaulttype && allselected.packageid !== data.packageid) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200  bg-gray-500":(data.packageid === allselected.packageid && ds === allselected.packagetype) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200  bg-gray-500":"border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2"} onClick={()=>Selectpack(ds,data.packageid)}>{ds}</div>       
                           
                     )}):""}
                     </div>

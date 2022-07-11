@@ -15,7 +15,7 @@ if(addtocartdata.length > 0){
 
 	return (
              <>
-             <div className="grid content-around" style={{position:'fixed',backgroundColor:"white",width:"100%",top:"0",minHeight: '80px',margin: '0 auto',padding:"10px 20px",boxShadow:"0.5px 2px 3px rgba(0,0,0,0.2)"}}>
+             <div className="grid content-around" style={{position:'fixed',backgroundColor:"white",width:"100%",top:"0",minHeight: '80px',margin: '0 auto',padding:"10px 20px",boxShadow:"0.5px 2px 3px rgba(0,0,0,0.2)",zIndex:"999"}}>
             <div  className="md:flex md:flex-row md:justify-between text-center">
             <div className="flex flex-row justify-center">
                 <div className="bg-gradient-to-r from-purple-600 to-red-600 w-10 h-10 rounded-lg"></div>
