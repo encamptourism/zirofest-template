@@ -48,7 +48,7 @@ return(
 
 </div>
 {(faqss || faqss.length > 0) ? faqss.map((d,id)=>{
-	return <Faqs data={d} id={id}/>		
+	return <Faqs key={"sdsd" + id} data={d} id={id}/>		
 }):""}
 </div>
 </>
