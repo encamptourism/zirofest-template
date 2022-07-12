@@ -1,15 +1,15 @@
 import {useState} from "react";
 
 const Cartc=(props)=>{
-const {addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading} = props;
+const {addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,} = props;
 const [error,setError]=useState({name:"",email:"",mobile:"",checkindate:""})
 const RemoveItem=(id,pkid)=>{
-setIsloading(true);
+
 let removabledata = [...addtocartdata];
 removabledata.splice(id, 1);
 setAddtocartdata(removabledata);
 calcTotal();
-setIsloading(false);
+
 }
 const removeAll=()=>{
 setAddtocartdata([]);

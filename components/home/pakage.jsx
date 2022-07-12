@@ -7,10 +7,13 @@ const [selectedpack , setSelectedpack] = useState({});
 const [allselected,setAllselected] = useState("");
 const [viewDetails,setViewDetails] = useState({});
 
-const showDescription=(id,defaultid)=>{
-console.log(id,defaultid);
-
+const showDescription=(id)=>{
+setViewDetails({id:id});
 }
+const Cross=(id)=>{
+setViewDetails({...viewDetails,id:""});
+}
+
 
 
 const Selectpack=(ds ,pid)=>{
@@ -92,8 +95,7 @@ updatedcartdata = [allselected];
 }else{
  updatedcartdata = [...preparsedata,allselected];   
 }
-//end change
-// updatedcartdata = [...preparsedata,allselected]; 
+
 
 
 
@@ -129,11 +131,7 @@ let uniqueid = localStorage.getItem('cartid');
 localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
 }
 },[addtocartdata])
-useEffect(()=>{
 
-
-
-},[])
 
 const styles={
               overlap:{textAlign:"center",marginTop: '-5rem',position:"relative",zIndex:"600",color:"white",fontWeight: '600',fontSize:"1.4rem",backgroundColor:"rgba(0,0,0,0.4)",padding:"0.5rem",width:"auto"},
@@ -155,10 +153,73 @@ to delight you.</div>
                    return (
 
                 <div key ={"assw" + key} className="shadow-md rounded-lg border-2 border-gray-200">
-                 
-                         {data.packageimagelink ? data.packageimagelink.map((dd,kk)=>{     
+                  
+                  { viewDetails && viewDetails.id === data.packageid + key ? 
+                    <div className="rounded-lg p-3">
+                    <div onClick={()=>Cross(data.packageid + key)} style={{float:"right",fontSize:"1.8rem",cursor:"pointer"}} className="font-bold">x</div>
+                      <div style={{marginTop:"30%"}}>
+                      {data.packagedescription ? data.packagedescription.map((dd,kk)=>{     
                             return (
-                 (dd[selectedpack[data.packageid] || data.defaulttype])  ? <Image key={kk} width={180} height={200} layout='responsive'  src = {dd[selectedpack[data.packageid] || data.defaulttype]} className="w-full rounded-tl-lg rounded-tr-lg"/>:""                       
+                 (dd[selectedpack[data.packageid] || data.defaulttype])  ? dd[selectedpack[data.packageid] || data.defaulttype]:""                       
+                          )
+
+                        }):""
+                       
+                         }
+                         </div>
+                    <div className="py-2">
+                    <span style={{fontWeight:"600"}}>Carbon FootPrint</span>          {data.carbonemiison ? data.carbonemiison.map((dd,kk)=>{     
+                            return (
+                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
+                       
+                          )
+
+                        }):""
+                       
+                         } KgCO2/person
+                    </div>
+                     <div className="py-2">
+                    <span style={{fontWeight:"600"}}>Size of Tent: </span>
+                    {data.size ? data.size.map((dd,kk)=>{     
+                            return (
+                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
+                       
+                          )
+
+                        }):""
+                       
+                         }
+                    </div>
+                     <div className="py-2">
+                    <span style={{fontWeight:"600"}}>Essentials: </span>
+                    {data.essentials ? data.essentials.map((dd,kk)=>{     
+                            return (
+                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
+                       
+                          )
+
+                        }):""
+                       
+                         }
+                    </div>
+                    <div className="py-2">
+                    <span style={{fontWeight:"600"}}>Best For: </span>
+                    {data.bestfor ? data.bestfor.map((dd,kk)=>{     
+                            return (
+                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
+                       
+                          )
+
+                        }):""
+                       
+                         }
+                    </div>
+                  </div> : 
+
+<div>
+{data.packageimagelink ? data.packageimagelink.map((dd,kk)=>{     
+                            return (
+                 (dd[selectedpack[data.packageid] || data.defaulttype])  ? <Image alt="encamp" key={kk} width={180} height={200} layout='responsive'  src = {dd[selectedpack[data.packageid] || data.defaulttype]} className="w-full rounded-tl-lg rounded-tr-lg"/>:""                       
                           )
 
                         }):""
@@ -209,7 +270,7 @@ to delight you.</div>
                            <div className="font-thin text-sm">per person</div>
                         </div>
                     </div>
-                       <div onClick={()=>showDescription(data.packageid,data.defaulttype)} className="bg-white border-2 border-gray-100 rounded-full py-2 px-4 text-gray-500 hover:text-gray-200 text-sm flex flex-row hover:bg-gray-700 my-2 justify-center">
+                       <div onClick={()=>showDescription(data.packageid + key)} className="bg-white border-2 border-gray-100 rounded-full py-2 px-4 text-gray-500 hover:text-gray-200 text-sm flex flex-row hover:bg-gray-700 my-2 justify-center">
                             View Details
                         </div>
                         <div onClick={()=>addtoCart(data.packageid)} style={{cursor:"pointer"}}
@@ -223,7 +284,8 @@ to delight you.</div>
                     </div>
                    
                 </div>
-
+            }
+               </div>
               
             )}):""
             }

@@ -38,7 +38,7 @@ setAddtocartdata(Object.values(combined));
 
 return (
           <>
-          <div className="my-10">
+          <div id="addons" className="my-10">
             <div className="flex flex-row justify-between">
                 <h2 className="text-xl">Add-On Services</h2>
             </div>
@@ -62,7 +62,7 @@ are a few that are add-ons.</div>
                            <div className=" text-xl font-semibold">{data.carbonemiison ? data.carbonemiison.toFixed(2) : 0.00}</div>
                            <div className="font-thin text-sm">KgCO2/person</div>
                         </div>
-                        <div className="p-3 text-xl font-semibold">Rs {data.packageprice} /-</div>
+                        <div className="p-3 text-xl font-semibold">Rs. {data.packageprice}/-</div>
                        
                     </div>
                       <div onClick={()=>addtoCart(data.packageid)} style={{cursor:"pointer"}}  className="bg-gray-600 border-2 border-gray-100 rounded-full py-2 px-4 text-white hover:text-gray-200 hover:bg-gray-400 text-sm flex flex-row my-2 justify-center">

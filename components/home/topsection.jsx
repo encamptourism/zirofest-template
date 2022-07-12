@@ -3,7 +3,7 @@ const Topsection=()=>{
 
 return (
 	<>      
-        <div className="md:flex md:flex-row mt-5">
+        <div className="md:flex md:flex-row mt-14">
             <div className="md:w-2/5 flex flex-col justify-center items-center">
                 <h1 className="font-serif text-3xl text-gray-600 text-center md:self-start md:text-left">Experience Ziro Festival of Music</h1>
                 <h2 className="uppercase text-gray-500 mb-2 text-center md:self-start md:text-left">with Encamp Adventures</h2>

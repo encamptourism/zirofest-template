@@ -156,7 +156,8 @@ return (
 	<>
 	<Heads/> 
      <Header addtocartdata = {addtocartdata} />
-     <div className="container mx-auto py-5">
+     <div className="container mx-auto py-14">
+     <div className="py-14"></div>
      <LoginSpinner isloading={isloading}/>
      {paymentdetails !=="" ?<Success paymentdetails={paymentdetails}/> :<Cartc 
      addtocartdata = {addtocartdata}
