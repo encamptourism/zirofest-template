@@ -51,7 +51,6 @@ setAdd(adddata);
 
 return (
  <>
- <div><h2>Cart Package Details</h2></div>
 {addtocartdata && addtocartdata.length > 0 ? <div  className="flexcontainer">
 {addtocartdata.map((data,key)=>{
 
@@ -62,7 +61,7 @@ return (
   <div  className="desi">Package Name: {data.packagename} , Package Type: {data.packagetype} , Package Price : {data.packagepricetotal ? data.packagepricetotal:data.packageprice}/-</div>
   </div>
   <div className="pardesis">
-  {data.packageimage ? <img src ={data.packageimage} width="50%"/>:""}
+  {data.packageimage ? <img src ={data.packageimage} width="30%"/>:""}
   </div>
  </div>
  <div key={"discodiwane" + key} className="flexchilds" style={{justifyContent: 'flex-end'}}>

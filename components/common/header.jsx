@@ -26,7 +26,7 @@ if(addtocartdata.length > 0){
                 <a  className="text-gray-700 hover:text-purple-600 p-4">Home</a>
                 </Link>
                 <a href="" className="text-gray-700 hover:text-purple-600 p-4">Our Sustainability Pledge</a>
-                <a href="https://encampadventures.com/about" target="_new" className="text-gray-700 hover:text-purple-600 p-4">About Encamp</a>
+                <a href="#about" target="_new" className="text-gray-700 hover:text-purple-600 p-4">About Encamp</a>
                 <Link href="/cart">
                 <a  className="bg-purple-600 text-gray-50 hover:bg-purple-700 py-1 px-5 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">

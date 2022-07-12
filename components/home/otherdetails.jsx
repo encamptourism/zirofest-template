@@ -18,19 +18,18 @@ return (
   <div className="my-10">
   <h2 className="text-xl my-3">Our Sustainability Pledge</h2>
   <hr className="mt-1 mb-10"/>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-evenly">
+  <div className="grid grid-cols-1 gap-4 justify-evenly">
   <div>
-  	<li className="my-3">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words) Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words)</li>
-  	<li className="my-3">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words) Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words)</li>
+With a focus on transforming tourism through a responsible travel tech platform,
+which calculates carbon emission, promotes conscious reduction and provides offset
+options to make every travel itinerary nature-positive, we at Encamp, stand by an
+environment first approach in design and operation. We subscribe to practices that
+benefit not only our customers, but also local communities and the environment.
   </div>
-  <div>
-  	<h3 className="text-xl my-2">Measures we take our campsites</h3>
-  <li className="my-3 px-4">Lorem ipsum dolor sit amet consectetur</li>
-  <li className="my-3 px-4">Lorem ipsum dolor sit amet consectetur</li>
+
   </div>
   </div>
-  </div>
-  <div className="my-10">
+  <div id="about" className="my-10">
   <h2 className="text-xl my-3 text-center">About Encamp</h2>
   <hr className="mt-1 mb-10"/>
   <div className="container px-5">
@@ -44,11 +43,7 @@ activities to camping services in the most exotic locations, they deliver the be
 standard of services with unrivalled amenities and experiences.</p>	
   </div>
   </div>
-  <div className="my-10">
-  <h2 className="text-xl my-3 text-center">As Featured On </h2>
-  <hr className="mt-1 mb-10"/>
-  
-  </div>	
+ 	
 	</>)
 
 }

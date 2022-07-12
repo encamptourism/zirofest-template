@@ -1,11 +1,5 @@
 export const AditionalData=[
-                   {
-                   	packageid:"festivalticket6999",
-                   	packagename:"Festival Tickets",
-                   	packageprice:9440,
-                   	packagedescription:"Buy Festival Tickets from us.",
-                    carbonemiison:15,
-                   },
+                 
                     {
                    	packageid:"vehicle2999",
                     packagename:"Vehicle",

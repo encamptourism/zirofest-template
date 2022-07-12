@@ -2,6 +2,7 @@ import {useState,useEffect} from "react";
 import Image from 'next/image';
 import Heads from "../components/common/Heads";
 import Header from "../components/common/header";
+import Footer from "../components/common/footer";
 import Cartpane from "../components/common/cartpane";
 import Topsection from "../components/home/topsection";
 import Pakage from "../components/home/pakage";
@@ -48,6 +49,7 @@ setIsloading(false);
       />
       <OtherDetails/>
       <Faq faqdata={faqdata}/>
+      <Footer/>
      </div>
      <Cartpane addtocartdata = {addtocartdata} setAddtocartdata ={setAddtocartdata}/>
     </>
@@ -59,7 +61,7 @@ setIsloading(false);
 export async function getServerSideProps() {
  const data = PackageData;
  let ds = [];
- let ss = await Datafaq();
+let ss = await Datafaq();
  if(ss.length > 0){
 ds = ss.filter(
 (item) => item.category.toLowerCase().indexOf("zero".toLowerCase()) > -1

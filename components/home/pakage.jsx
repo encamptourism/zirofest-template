@@ -1,14 +1,21 @@
 import { v4 as uuidv4 } from 'uuid';
 import {useState,useEffect} from "react";
+import Image from "next/image";
 const Pakage=(props)=>{
 const {packages , addtocartdata , setAddtocartdata} = props;
 const [selectedpack , setSelectedpack] = useState({});
 const [allselected,setAllselected] = useState("");
+const [viewDetails,setViewDetails] = useState({});
 
+const showDescription=(id,defaultid)=>{
+console.log(id,defaultid);
+
+}
 
 
 const Selectpack=(ds ,pid)=>{
 let price;
+let packagedescription,essentials,carbonemiison,bestfor,size;
 packages.map((katcha)=>{
 if(pid === katcha.packageid){
   katcha.packageprice.map((sd)=> {
@@ -17,12 +24,42 @@ if(pid === katcha.packageid){
     }
     
 });
+    katcha.packagedescription.map((sd)=> {
+    if(sd[ds]){
+     packagedescription = sd[ds];   
+    }
+    
+});
+    katcha.essentials.map((sd)=> {
+    if(sd[ds]){
+     essentials = sd[ds];   
+    }
+    
+});
+   katcha.carbonemiison.map((sd)=> {
+    if(sd[ds]){
+     carbonemiison = sd[ds];   
+    }
+    
+});
+    katcha.bestfor.map((sd)=> {
+    if(sd[ds]){
+     bestfor = sd[ds];   
+    }
+    
+});
+    katcha.size.map((sd)=> {
+    if(sd[ds]){
+     size = sd[ds];   
+    }
+    
+});
 }
 })
 let datax = packages.filter((dssd)=>{
     return dssd.packageid === pid;
 })
-let hdfata = {...datax[0],packageprice:price,packagetype:ds};
+let hdfata = {...datax[0],packageprice:price,packagetype:ds,size:size,packagedescription:packagedescription,essentials:essentials,carbonemiison:carbonemiison,bestfor:bestfor};
 //get selected image
 let selectdataimage = "";
 hdfata.packageimagelink.map((data)=>{
@@ -92,7 +129,16 @@ let uniqueid = localStorage.getItem('cartid');
 localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
 }
 },[addtocartdata])
+useEffect(()=>{
 
+
+
+},[])
+
+const styles={
+              overlap:{textAlign:"center",marginTop: '-5rem',position:"relative",zIndex:"600",color:"white",fontWeight: '600',fontSize:"1.4rem",backgroundColor:"rgba(0,0,0,0.4)",padding:"0.5rem",width:"auto"},
+              chaos:{backgroundColor:"#bfbfbf",position:"absolute"},
+             }
 return (
         <>
           <div id="pakage" className="my-10">
@@ -107,35 +153,25 @@ to delight you.</div>
           <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-10 ">
            { packages ? packages.map((data , key)=>{
                    return (
+
                 <div key ={"assw" + key} className="shadow-md rounded-lg border-2 border-gray-200">
-                    
+                 
                          {data.packageimagelink ? data.packageimagelink.map((dd,kk)=>{     
                             return (
-                 (dd[selectedpack[data.packageid] || data.defaulttype])  ? <img key={kk} src = {dd[selectedpack[data.packageid] || data.defaulttype]} className="w-full rounded-tl-lg rounded-tr-lg"/>:""                       
+                 (dd[selectedpack[data.packageid] || data.defaulttype])  ? <Image key={kk} width={180} height={200} layout='responsive'  src = {dd[selectedpack[data.packageid] || data.defaulttype]} className="w-full rounded-tl-lg rounded-tr-lg"/>:""                       
                           )
 
                         }):""
                        
                          }
-        
-                    
+    
                     <div className="p-5">
-                     <div className="flex flex-row justify-between">
-                        <h3>{data.packagename}</h3>
+                     <div style={styles.overlap} className="flex flex-row justify-between">
+                        <h3 className="text-center">{data.packagename}</h3>
 
-                    <div  className="text-md" >
-                        {data.packageprice ? data.packageprice.map((dd,kk)=>{     
-                            return (
-                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
-                       
-                          )
-
-                        }):""
-                       
-                         }
-                          /- </div>                     
+                                 
                      </div>
-                    <div className="flex flex-row my-3">
+                    <div className="flex flex-row my-3" style={{marginTop:"2rem"}}>
                     {data.packagetype ? data.packagetype.map((ds,k)=>{
                          return (
                         <div key={"ewe" + k} style={{cursor:"pointer"}} className={(ds === data.defaulttype && allselected.packageid !== data.packageid) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200  bg-gray-500":(data.packageid === allselected.packageid && ds === allselected.packagetype) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200  bg-gray-500":"border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2"} onClick={()=>Selectpack(ds,data.packageid)}>{ds}</div>       
@@ -144,30 +180,55 @@ to delight you.</div>
                     </div>
 
                     <div className="flex flex-col md:flex-row justify-between">
-                        <div>
-                        <a href="" className="bg-white border-2 border-gray-100 rounded-full py-2 px-4 text-gray-500 hover:text-gray-200 text-sm flex flex-row hover:bg-gray-700 my-2 justify-center">
-                            View Details
-                        </a>
+                         <div>
+                           <div className="font-thin text-xs font-semibold">Carbon Footprint</div>
+                           <div className=" text-xl font-semibold">
+                                {data.carbonemiison ? data.carbonemiison.map((dd,kk)=>{     
+                            return (
+                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
+                       
+                          )
 
+                        }):""
+                       
+                         }
+                           </div>
+                           <div className="font-thin text-sm">KgCO2/person</div>
                         </div>
                         <div>
+                           
+                           <div className=" text-xl font-semibold"><span className="font-thin text-xs font-semibold">Rs.</span>  {data.packageprice ? data.packageprice.map((dd,kk)=>{     
+                            return (
+                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
+                       
+                          )
 
+                        }):""
+                       
+                         }/-</div>
+                           <div className="font-thin text-sm">per person</div>
+                        </div>
+                    </div>
+                       <div onClick={()=>showDescription(data.packageid,data.defaulttype)} className="bg-white border-2 border-gray-100 rounded-full py-2 px-4 text-gray-500 hover:text-gray-200 text-sm flex flex-row hover:bg-gray-700 my-2 justify-center">
+                            View Details
+                        </div>
                         <div onClick={()=>addtoCart(data.packageid)} style={{cursor:"pointer"}}
-                         className="bg-green-500 border-2 border-gray-100 rounded-full py-2 px-4 text-gray-200 hover:text-gray-200 hover:bg-purple-500 text-sm flex flex-row my-2 justify-center">
+                         className="bg-gray-600 border-2 border-gray-100 rounded-full py-2 px-4 text-white hover:text-gray-200 hover:bg-gray-400 text-sm flex flex-row my-2 justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                               </svg>
                               Add to cart
                         </div>
-                        </div>
-                    </div>
 
                     </div>
+                   
                 </div>
+
               
             )}):""
             }
           </div>
+
 
         </div>
         </>

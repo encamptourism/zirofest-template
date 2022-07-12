@@ -7,6 +7,7 @@ html {
 }
 .flexcontainer{
     position:fixed;
+    z-index: 850;
     bottom:0;
     min-height: 6rem;
     color:black;
