@@ -144,7 +144,7 @@ return (
                 <h2  className="text-xl">Our Camping Packages</h2>
             </div>
           <hr className="mt-2 mb-5"/>
-          <div style={{margin:"0 auto",letterSpacing: "1.5px",padding:"0.5rem"}}>While the music keeps you alive, your abode should certainly be a place of utmost
+          <div style={{margin:"0 auto",letterSpacing: "1.5px",padding:"0.5rem",paddingBottom:'2rem'}}>While the music keeps you alive, your abode should certainly be a place of utmost
 comfort. Sit back and catch up with your friends or tent mates, or simply snooze off
 after a heavy day of blissful experiences. Choose from an array of package designed
 to delight you.</div>
