@@ -268,7 +268,7 @@ return (
                            <div className="font-thin text-sm">per person</div>
                         </div>
                     </div>
-                       <div onClick={()=>showDescription(data.packageid + key)} className="bg-white border-2 border-gray-100 rounded-full py-2 px-4 text-gray-500 hover:text-gray-200 text-sm flex flex-row hover:bg-gray-700 my-2 justify-center">
+                       <div onClick={()=>showDescription(data.packageid + key)} className="bg-gray-400 border-2 border-gray-100 rounded-full py-2 px-4 text-white hover:text-gray-200 text-sm flex flex-row hover:bg-gray-700 my-2 justify-center">
                             View Details
                         </div>
                         <div onClick={()=>addtoCart(data.packageid)} style={{cursor:"pointer"}}
