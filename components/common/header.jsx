@@ -19,7 +19,7 @@ if(addtocartdata.length > 0){
   return (
     <div id ="header" style={{zIndex:"999",position:"relative"}}>
         {/* for main Nav container */}
-        <nav className='bg-gray-50 shadow-sm fixed w-full z-10'>
+        <nav className='bg-black shadow-sm fixed w-full z-10'>
             <div className='w-full'>
                 <div className='flex items-center h-20 w-full'>
                     {/* first block section outer part */}
@@ -32,20 +32,20 @@ if(addtocartdata.length > 0){
                         <div className='hidden lg:block'>
                                 <div className='ml-10 flex items-baseline space-x-4'>
                                     <Links href='/'>
-                                       <a className="cursor-pointer text-gray-500  px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-lg">
+                                       <a className="cursor-pointer text-gray-400  px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-lg">
                                         Home
                                     </a>
                                     </Links>
-                                    <Link  activeClass="Packages" to="pakage" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-500  px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-lg">
+                                    <Link  activeClass="Packages" to="pakage" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-400  px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-lg">
                                         Camping Packages
                                     </Link>
-                                    <Link activeClass="Addons" to="addons" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-500  px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-lg">
+                                    <Link activeClass="Addons" to="addons" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-400  px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-lg">
                                         Add-On Services
                                     </Link>
-                                    <Link activeClass="Sustainability" to="sustainability" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-500  px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-lg">
+                                    <Link activeClass="Sustainability" to="sustainability" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-400  px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-lg">
                                         Sustainability Pledge
                                     </Link>
-                                    <Link activeClass="About" to="about" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-500  px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-lg">
+                                    <Link activeClass="About" to="about" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-400  px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-lg">
                                         About
                                     </Link>
                                     <Links href="/cart">
@@ -80,7 +80,7 @@ if(addtocartdata.length > 0){
                 {(ref)=>(
                     // handle mobile tabs
                     <div className='lg:hidden id=mobile-menu'>
-                        <div ref={ref} className='bg-white px-3 pt-2 pb-3 space-y-1 sm:px-3'>
+                        <div ref={ref} className='bg-gray-800 px-3 pt-2 pb-3 space-y-1 sm:px-3'>
                          <Links href='/'>
                                        <a className="cursor-pointer text-gray-500 block px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-md text-base font-medium">
                                         Home

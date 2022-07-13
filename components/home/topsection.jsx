@@ -14,40 +14,38 @@ return (
  pagination={true} 
  modules={[Autoplay,Pagination]} 
  loop={true} autoplay={{
-          delay: 2500,
+          delay: 6000,
           disableOnInteraction: false,
         }} 
 className="mySwiper">
 <SwiperSlide>
- <div className="slidertext text-gray-900">Welcome to a multiverse!
-  <div className="text-base text-left text-gray-800 font-bold" style={{maxWidth:"600px"}}>
+ <div className="slidertext font-bold text-white uppercase">WELCOME TO A MULTIVERSE..
+  <div className="font-normal text-sm text-center md:text-left text-white" style={{maxWidth:"800px"}}>
   Ideal for those who wanna have a memorable time yet leave no carbon footprint.
   </div>
-  <a href="#pakage" className="bg-gradient-to-r from-green-600 to-green-500 rounded-full py-2 px-8 text-gray-50 text-base uppercase md:self-start mt-4">Book Now</a>
   </div>
-   <Image alt="zerofestival" src="https://encamp-media-files.s3.ap-south-1.amazonaws.com/dawki44.jpeg" layout='fill'  objectFit='cover'/>
+   <Image alt="zerofestival" src="/images/swiper-image-1.jpeg" layout='fill'  objectFit='cover'/>
 </SwiperSlide>
 
 <SwiperSlide>
- <div className="slidertext text-gray-900">Where music meets sustainability.
-    <div className="text-base text-left text-gray-800 font-bold" style={{maxWidth:"600px"}}>
+ <div className="slidertext font-bold text-white uppercase">WHERE MUSIC MEETS SUSTAINABILITY..
+    <div className="font-normal text-sm text-center md:text-left text-white" style={{maxWidth:"800px"}}>
     Step into to a multiverse of music, culture, joy and eco-friendly living at ZIRO, with Encamp.
     </div>
-    <a href="#pakage" className="bg-gradient-to-r from-green-600 to-green-500 rounded-full py-2 px-8 text-gray-50 text-base uppercase md:self-start mt-4">Book Now</a>
 </div>
-<Image alt="zerofestival" src="https://encamp-media-files.s3.ap-south-1.amazonaws.com/krem-chympe.jpeg" layout='fill'  objectFit='cover'/>
+<Image alt="zerofestival" src="/images/swiper-image-2.jpeg" layout='fill'  objectFit='cover'/>
 </SwiperSlide>
         
 <SwiperSlide>
-<div className="slidertext text-gray-900">Live ZIRO with ZERO impact!
- <div className="text-base text-left text-gray-800 font-bold" style={{maxWidth:"600px"}}>
+<div className="slidertext font-bold text-white uppercase">LIVE ZIRO WITH ZERO IMPACT!
+ <div className="font-normal text-sm text-center md:text-left text-white" style={{maxWidth:"800px"}}>
 While the vibe absolutely transports you to a parallel universe of serenity, you
 certainly don’t disrupt the physical ecosystem – thanks to our environment first
 approach.
  </div>
  <a href="#pakage" className="bg-gradient-to-r from-green-600 to-green-500 rounded-full py-2 px-8 text-gray-50 text-base uppercase md:self-start mt-4">Book Now</a>
 </div>
-<Image alt="zerofestival" src="https://encamp-media-files.s3.ap-south-1.amazonaws.com/khanapara33.jpeg" layout='fill'  objectFit='cover'/>
+<Image alt="zerofestival" src="/images/swiper-image-3.jpeg" layout='fill'  objectFit='cover'/>
 </SwiperSlide>
 
 </Swiper> 
