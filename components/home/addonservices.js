@@ -2,7 +2,6 @@ import { v4 as uuidv4 } from 'uuid';
 import {useState,useEffect} from "react";
 const Addonservices=(props)=>{
 const {packages , addtocartdata , setAddtocartdata} = props;
-
 const addtoCart=(id)=>{
 let uniqueid,updatedcartdata;
 let allselected = packages.find(x=>x.packageid === id);

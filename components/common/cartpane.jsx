@@ -1,80 +1,26 @@
 import {useState,useEffect} from "react";
+import Link from "next/link";
 const Cartpane=(props)=>{
 const {addtocartdata,setAddtocartdata} = props;
-const [add , setAdd] = useState("");
-const addQ=(id,e)=>{
+const [cartNumber,setCartnumber] = useState(0);
 
-		setAdd({...add,[id] : e.target.value})
-
-
-}
-
-const addPerson=(id)=>{
-if(id === "" || !id){
-	return;
-}
-if(add[id] < 1 || !add){
-	alert("Add Number of Person");
-	return;
-}
-
-let dis = [...addtocartdata];
-let qts = "";
-let pasa = dis.map((data)=>{
-if(data.id === id){
-data['packageqts'] = add[id];
-if(!data['packagepricetotal']){
-data['packagepricetotal'] = data['packageprice'];
-}else{
-	data['packagepricetotal'] = parseInt(add[id]) * data['packageprice'];
-}
-
-qts = add[id];
-
-
-}
-return data;
-
-})
-setAddtocartdata(pasa);
-}
 useEffect(()=>{
-let adddata={};
-addtocartdata.map((data)=>{
-let qts = data.packageqts ? data.packageqts:1;
-adddata = {...adddata,[data.id]:qts}
-})
+if(addtocartdata){
+if(addtocartdata.length > 0){
+ setCartnumber(addtocartdata.length);   
+}
 
-setAdd(adddata);
-},[addtocartdata])
+}
+
+},["",addtocartdata])
+
 
 
 return (
  <>
-{addtocartdata && addtocartdata.length > 0 ? <div  className="flexcontainer">
-{addtocartdata.map((data,key)=>{
-
-return (
-<>
-<div key={"disco" + key}  className="flexchild" style={{backgroundColor:"white"}}>
-  <div className="pardesi">
-  <div  className="desi">Package Name: {data.packagename} , Package Type: {data.packagetype} , Package Price : {data.packagepricetotal ? data.packagepricetotal:data.packageprice}/-</div>
-  </div>
-  <div className="pardesis">
-  {data.packageimage ? <img src ={data.packageimage} width="30%"/>:""}
-  </div>
- </div>
- <div key={"discodiwane" + key} className="flexchilds" style={{justifyContent: 'flex-end'}}>
-  <div className="desi">
-  Select Per Person Package <input key ={"dssqwpo" + key} className="disco" type ="number" name={data.id} id ="perperson" min="1" onChange={(e)=>addQ(data.id,e)} value={add[data.id]? add[data.id] :""}/>
-  </div>
-
-  <div className="button" onClick={()=>addPerson(data.id)}>Add Person</div>
- </div>
-</>
- )
-})
-}
+{cartNumber && cartNumber > 0 ? 
+<div  className="flexcontainer">
+<div className="aadga" style={{width:"100%"}}>{cartNumber} items selected.<Link href="/cart"><a className="bg-gradient-to-r from-green-600 to-green-500 rounded-full py-1 px-3 text-gray-50 text-sm md:self-start">click here</a></Link></div>
 </div>:""}
 </>
 )

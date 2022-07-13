@@ -21,14 +21,17 @@ setIsloading(true);
 let calcdata = [...addtocartdata];
 let totalprice = 0;
 let totalqts = 0;
+let eachqts = 0;
 let totalcarbonemiison=0;
+
 calcdata.map((data)=>{
  totalprice = totalprice + data.packagepricetotal || data.packageprice;
  totalqts = totalqts + (data.packageqts ? data.packageqts:1);
- totalcarbonemiison = totalcarbonemiison + (data.carbonemiison ? +data.carbonemiison * +data.packageqts:0);
+ eachqts = data.packageqts ? data.packageqts:1;
+ totalcarbonemiison = totalcarbonemiison + (data.carbonemiison ? +data.carbonemiison * +eachqts:0);
 })
 let gst= totalprice ? (totalprice * 18/100).toFixed(2) : 0;
-let grand = (+totalprice + +gst + +totalcarbonemiison*5);
+let grand = (+totalprice + +gst + +totalcarbonemiison*5).toFixed(2);
 setTotal([{totalprice:totalprice,totalqts:totalqts,gst:gst,grand:grand,totalcarbonemiison:totalcarbonemiison}])
 setIsloading(false);
 }
