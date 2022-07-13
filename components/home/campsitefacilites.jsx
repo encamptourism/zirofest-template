@@ -7,7 +7,7 @@ const styles={
 return (
 <>
  <div className="my-10">
-  <h2 className="text-xl my-10 text-center">Campsite Facilities</h2>
+  <h2 className="text-xl my-10 px-5">Campsite Facilities</h2>
   <hr className="mt-1 mb-10"/>
   <div className="grid grid-cols-3 md:grid-cols-7 gap-4 justify-evenly">
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="https://img.icons8.com/external-lylac-kerismaker/96/000000/external-Welcome-Drink-hotel-lylac-kerismaker.png" layout='responsive' width={80} height={80}/></div><div><h3 className="my-5">Welcome Drink</h3></div></div>

@@ -2,20 +2,20 @@ const OtherDetails=()=>{
 return (
 	<>
   <div className="my-10 px-3">
-  <h2 className="text-xl my-3">Terms & Conditions</h2>
+  <h2 className="text-xl my-3 px-2">Terms & Conditions</h2>
   <hr className="mt-1 mb-10"/>
-  <div className="container text-center">
+  <div className="container">
   
-   <li style={{maxWidth:"900px",textAlign: 'center',margin:"0 auto"}}>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words) Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.</li>
-   <li style={{maxWidth:"900px",textAlign: 'center',margin:"0 auto"}}>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words) Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.</li>
+   <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words) Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.</li>
+   <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words) Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.</li>
    
-   <li   id="sustainability"  style={{maxWidth:"900px",textAlign: 'center',margin:"0 auto"}}>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words) Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.</li>
+   <li   id="sustainability"  style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words) Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.</li>
   
   	
   </div>
   </div>
   <div className="my-10 px-3">
-  <h2 className="text-xl my-3">Our Sustainability Pledge</h2>
+  <h2 className="text-xl my-3 px-2">Our Sustainability Pledge</h2>
   <hr className="mt-1 mb-10"/>
   <div className="grid grid-cols-1 gap-4 justify-evenly">
   <div>
@@ -29,7 +29,7 @@ benefit not only our customers, but also local communities and the environment.
   </div>
   </div>
   <div id="about" className="my-10 px-3">
-  <h2 className="text-xl my-3 text-center">About Encamp</h2>
+  <h2 className="text-xl my-3 px-2">About Encamp</h2>
   <hr className="mt-1 mb-10"/>
   <div className="container px-1">
   <p>Started in 2018, Encamp Adventures have been partnering with ZIRO since 2019
