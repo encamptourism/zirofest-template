@@ -37,12 +37,12 @@ setAddtocartdata(Object.values(combined));
 
 return (
           <>
-          <div id="addons" className="my-10">
+          <div id="addons" className="my-10 px-3">
             <div className="flex flex-row justify-between">
                 <h2 className="text-xl">Add-On Services</h2>
             </div>
             <hr className="mt-2 mb-5"/>
-               <div style={{margin:"0 auto",letterSpacing: "1.5px",padding:"2rem"}}>If you thought ZIRO was all about music, good vibes, culture and socialising, well
+               <div style={{margin:"0 auto",letterSpacing: "1.5px",padding:"0.5rem"}}>If you thought ZIRO was all about music, good vibes, culture and socialising, well
 you were bang on! But, with us, there’s more to ZIRO. It’s a multitude of experiences
 
 waiting to mesmerise you. While you will explore much of it with our packages, there

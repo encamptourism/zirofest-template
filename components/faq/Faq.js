@@ -40,7 +40,7 @@ setFaqss(faqdata);
 },[])  
 
 return(
-<>
+<div className="px-3">
 <h2 className="text-xl text-center">FAQs</h2>
 <hr className="mt-2 mb-10"/>
 <div className="container my-10" style={{maxWidth:"900px",margin:"0 auto"}}>
@@ -51,7 +51,7 @@ return(
 	return <Faqs key={"sdsd" + id} data={d} id={id}/>		
 }):""}
 </div>
-</>
+</div>
 )
 
 }
