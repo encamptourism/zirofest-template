@@ -35,9 +35,9 @@ setIsloading(false);
     <>
     <Heads/> 
       <Header addtocartdata = {addtocartdata} />
-    <div className="container mx-auto p-5">
+    <Topsection/>
+    <div className="container mx-auto p-1">
     <LoginSpinner isloading={isloading}/>
-      <Topsection/>
       <Pakage packages = {PackageData}
        addtocartdata={addtocartdata}
         setAddtocartdata ={setAddtocartdata}/>
