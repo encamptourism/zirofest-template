@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      headlines:["Bebas Neue","cursive"],
+      ubuntu:["Ubuntu","sans-serif"]
+    }
   },
   plugins: [],
 }

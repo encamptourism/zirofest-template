@@ -139,15 +139,13 @@ const styles={
              }
 return (
         <>
-          <div id="pakage" className="my-10 px-3">
-          <div className="flex flex-row justify-between">
-                <h2  className="text-xl">Our Camping Packages</h2>
-            </div>
+          <div id="pakage" className="my-5 px-3">
+                <h1 className="text-center md:text-left text-2xl uppercase">Our Camping Packages</h1>
+          
           <hr className="mt-2 mb-5"/>
-          <div style={{margin:"0 auto",letterSpacing: "1.5px",padding:"0.5rem",paddingBottom:'2rem'}}>While the music keeps you alive, your abode should certainly be a place of utmost
-comfort. Sit back and catch up with your friends or tent mates, or simply snooze off
-after a heavy day of blissful experiences. Choose from an array of package designed
-to delight you.</div>
+          <div className='text-center md:text-left px-5 pb-5 text-gray-600'>
+            While the music keeps you alive, your abode should certainly be a place of utmost comfort. Sit back and catch up with your friends or tent mates, or simply snooze off after a heavy day of blissful experiences. Choose from an array of package designed to delight you.
+          </div>
           <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-10 ">
            { packages ? packages.map((data , key)=>{
                    return (
@@ -242,7 +240,7 @@ to delight you.</div>
 
                     <div className="flex flex-col md:flex-row justify-between">
                          <div>
-                           <div className="font-thin text-xs font-semibold">Carbon Footprint</div>
+                           <div className="font-thin text-xs">Carbon Footprint</div>
                            <div className=" text-xl font-semibold">
                                 {data.carbonemiison ? data.carbonemiison.map((dd,kk)=>{     
                             return (
@@ -258,7 +256,7 @@ to delight you.</div>
                         </div>
                         <div>
                            
-                           <div className=" text-xl font-semibold"><span className="font-thin text-xs font-semibold">Rs.</span>  {data.packageprice ? data.packageprice.map((dd,kk)=>{     
+                           <div className=" text-xl font-semibold"><span className="text-xs font-semibold">Rs.</span>{data.packageprice ? data.packageprice.map((dd,kk)=>{     
                             return (
                   dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
                        
