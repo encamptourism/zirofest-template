@@ -22,15 +22,12 @@ if(addingPerson[id] < 1 || !addingPerson){
 }
 let dis = [...addtocartdata];
 let qts = "";
+
 let pasa = dis.map((data)=>{
 if(data.id === id){
 data['packageqts'] = addingPerson[id];
-if(!data['packagepricetotal']){
-data['packagepricetotal'] = data['packageprice'];
-}else{
-    data['packagepricetotal'] = parseInt(addingPerson[id]) * data['packageprice'];
-}
 
+data['packagepricetotal'] = parseInt(addingPerson[id]) * data['packageprice'];
 qts = addingPerson[id];
 
 
@@ -42,7 +39,7 @@ return data;
 setAddperson(pasa);
 setIsloading(false);
 }
-
+console.log(addperson);
 useEffect(()=>{
 setAddtocartdata(addperson);
 },[addperson])

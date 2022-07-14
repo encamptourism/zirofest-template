@@ -25,14 +25,16 @@ let eachqts = 0;
 let totalcarbonemiison=0;
 calcdata.map((data)=>{
 if(data.packagepricetotal){
- totalprice = +totalprice + +data.packagepricetotal;   
+ totalprice = +totalprice + +data.packagepricetotal; 
+
 }else{
- totalprice = +totalprice + +data.packageprice;   
+ totalprice = +totalprice + +data.packageprice;
+
 }
  
  totalqts = +totalqts + (data.packageqts ? +data.packageqts:1);
  eachqts = data.packageqts ? +data.packageqts:1;
-// totalcarbonemiison = totalcarbonemiison + (data.carbonemiison ? +data.carbonemiison * +eachqts:0);
+
 })
 
 totalcarbonemiison = (totalprice * 0.025); 
