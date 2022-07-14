@@ -1,4 +1,5 @@
-import {useState,useEffect} from "react";
+import {useState,useEffect,useRef} from "react";
+import { scroller } from "react-scroll";
 
 function Cartc(props) {
 const {setIsloading,addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,} = props;
@@ -6,6 +7,7 @@ const [error,setError]=useState({name:"",email:"",mobile:"",checkindate:""})
 const [add , setAdd] = useState("");
 const [addperson , setAddperson] = useState("");
 const [show,setShow] = useState(false);
+const bottomRef = useRef(null);
 
 const addQ=(id,e)=>{
 setIsloading(true);
@@ -39,7 +41,7 @@ return data;
 setAddperson(pasa);
 setIsloading(false);
 }
-console.log(addperson);
+
 useEffect(()=>{
 setAddtocartdata(addperson);
 },[addperson])
@@ -112,6 +114,12 @@ const inputHandler=(e)=>{
 setSubmission({...submission , [e.target.name]:e.target.value})
 
 }
+useEffect(()=>{
+if(show === true){
+ bottomRef.current?.scrollIntoView({behavior: 'smooth'});
+}
+
+},[show]);
     return (
         <>
         <div>
@@ -177,7 +185,7 @@ setSubmission({...submission , [e.target.name]:e.target.value})
                                         </div>
                                     </div>
      
-     {show === true ? <div className="w-full">
+     {show === true ? <div className="w-full checkoutscroll">
      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
        <div className="mb-4">
        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
@@ -204,7 +212,7 @@ setSubmission({...submission , [e.target.name]:e.target.value})
       </label>
        <input value={submission.checkindate ? submission.checkindate:"" }  onChange={(e)=>inputHandler(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" id="checkindate" name="checkindate" placeholder="Date Required" required/>        
         </div>
-        <div className="mb-4">
+        <div ref={bottomRef} className="mb-4">
        <input onClick={(e)=>checkout(e)} className="text-base leading-none w-full py-3 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white" type="submit" value="Checkout"/>
      
        </div>
