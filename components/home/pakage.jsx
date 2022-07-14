@@ -79,6 +79,7 @@ setSelectedpack({[pid]:ds});
 
 const addtoCart=(id)=>{
 let uniqueid,updatedcartdata;
+
 if(allselected !== "" && id === allselected.packageid){
 uniqueid = (localStorage.getItem('cartid') && localStorage.getItem('cartid') !=="") ? localStorage.getItem('cartid') : uuidv4();
 if(uniqueid !== localStorage.getItem('cartid')){
@@ -95,10 +96,6 @@ updatedcartdata = [allselected];
 }else{
  updatedcartdata = [...preparsedata,allselected];   
 }
-
-
-
-
 let combine = [...updatedcartdata];
 const combined = {};
 for (let std of combine) {
@@ -111,17 +108,77 @@ for (let std of combine) {
 }
 
 setAddtocartdata(Object.values(combined));
-setAllselected("");   
+setAllselected("");
 }else{
 updatedcartdata = [{...allselected}];
 setAddtocartdata(updatedcartdata);
 setAllselected(""); 
 }
-
 }else{
-    alert("Select stay type");
-}
 
+let price;
+let defaulttype;
+let packagedescription,essentials,carbonemiison,bestfor,size;
+packages.map((katcha)=>{
+if(id === katcha.packageid){
+defaulttype = katcha.defaulttype;
+  katcha.packageprice.map((sd)=> {
+    if(sd[defaulttype]){
+     price = sd[defaulttype];   
+    }
+    
+});
+
+    katcha.packagedescription.map((sd)=> {
+    if(sd[defaulttype]){
+     packagedescription = sd[defaulttype];   
+    }
+    
+});
+    katcha.essentials.map((sd)=> {
+    if(sd[defaulttype]){
+     essentials = sd[defaulttype];   
+    }
+    
+});
+   katcha.carbonemiison.map((sd)=> {
+    if(sd[defaulttype]){
+     carbonemiison = sd[defaulttype];   
+    }
+    
+});
+    katcha.bestfor.map((sd)=> {
+    if(sd[defaulttype]){
+     bestfor = sd[defaulttype];   
+    }
+    
+});
+  
+    katcha.size.map((sd)=> {
+    if(sd[defaulttype]){
+     size = sd[defaulttype];   
+    }
+    
+});
+}
+})
+
+let datax = packages.filter((dssd)=>{
+    return dssd.packageid === id;
+})
+let hdfata = {...datax[0],packageprice:price,packagetype:defaulttype,size:size,packagedescription:packagedescription,essentials:essentials,carbonemiison:carbonemiison,bestfor:bestfor};
+//get selected image
+let selectdataimage = "";
+hdfata.packageimagelink.map((data)=>{
+    if(data[hdfata.packagetype]){
+   selectdataimage =  data[hdfata.packagetype];
+    }
+})
+updatedcartdata = [{...hdfata,id:id + defaulttype,packageimage:selectdataimage}];
+setAddtocartdata(updatedcartdata);
+setAllselected(""); 
+
+}
 }
 
 useEffect(()=>{
