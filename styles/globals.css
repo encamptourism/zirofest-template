@@ -90,7 +90,7 @@ html {
 
 @media only screen and (max-width: 767px) {
   .flexcontainer{
-    flex-direction: column;
+    flex-direction: row;
     padding: 3px 5px;
   }
   .flexchild{
@@ -176,7 +176,7 @@ text-align: center;
 }
 .aadga{
   text-align: left;
-  padding-left: 15vw;
+  padding-left: 10vw;
 }
   }
 
