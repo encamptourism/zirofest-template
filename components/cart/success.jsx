@@ -39,9 +39,9 @@ return (<>
         <div  className="md:flex md:flex-row mt-5">
         <div className="text-xl md:w-1/2 flex flex-col justify-center items-center"><h3>Total Summery </h3></div>
         <div className="text-xl md:w-1/2 flex flex-col justify-center items-center"><h3>Total Price {ordertotal[0].totalprice}/-</h3>
-           <h3>Total GST @ 18%:  {ordertotal[0].gst}/-</h3>
-           <h3><b>Total Carbon Footprint</b> {ordertotal[0].totalcarbonemiison} X 5 = {ordertotal[0].totalcarbonemiison * 5}/-</h3>
-           <h3>Grand Total {ordertotal[0].grand}  /-</h3>
+           <h3><b>Total GST @ 5%:</b>  {ordertotal[0].gst}/-</h3>
+           <h3><b>Total C.F.(@2.5%)</b>  = {ordertotal[0].totalcarbonemiison}/-</h3>
+           <h3><b>Grand Total</b> {ordertotal[0].grand}  /-</h3>
 
         </div>
         </div>

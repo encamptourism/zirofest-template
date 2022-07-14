@@ -89,7 +89,7 @@ if(predata && predata.length > 0 && typeof predata !== undefined ){
 
 let preparsedata = JSON.parse(predata);
 //new change
-if(preparsedata.filter(x => x.id === allselected.id)){
+if(preparsedata && preparsedata.filter(x => x.id === allselected.id)){
 updatedcartdata = [allselected];
 
 }else{

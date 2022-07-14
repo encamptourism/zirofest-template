@@ -1,54 +1,62 @@
 import {useState,useEffect} from "react";
 
 function Cartc(props) {
-const {addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,} = props;
+const {setIsloading,addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,} = props;
 const [error,setError]=useState({name:"",email:"",mobile:"",checkindate:""})
 const [add , setAdd] = useState("");
+const [addperson , setAddperson] = useState("");
+const [show,setShow] = useState(false);
 
 const addQ=(id,e)=>{
+setIsloading(true);
+let addingPerson;
+setAdd({...add,[id] : e.target.value})
+addingPerson = {...addingPerson,[id] : e.target.value};
 
-        setAdd({...add,[id] : e.target.value})
-
-
-}
-const addPerson=(id)=>{
 if(id === "" || !id){
     return;
 }
-if(add[id] < 1 || !add){
-    alert("Add Number of Person");
+if(addingPerson[id] < 1 || !addingPerson){
+
     return;
 }
-
 let dis = [...addtocartdata];
 let qts = "";
 let pasa = dis.map((data)=>{
 if(data.id === id){
-data['packageqts'] = add[id];
+data['packageqts'] = addingPerson[id];
 if(!data['packagepricetotal']){
 data['packagepricetotal'] = data['packageprice'];
 }else{
-    data['packagepricetotal'] = parseInt(add[id]) * data['packageprice'];
+    data['packagepricetotal'] = parseInt(addingPerson[id]) * data['packageprice'];
 }
 
-qts = add[id];
+qts = addingPerson[id];
 
 
 }
 return data;
 
 })
-setAddtocartdata(pasa);
+
+setAddperson(pasa);
+setIsloading(false);
 }
+
+useEffect(()=>{
+setAddtocartdata(addperson);
+},[addperson])
+
 useEffect(()=>{
 let adddata={};
-addtocartdata.map((data)=>{
+addtocartdata && addtocartdata.map((data)=>{
 let qts = data.packageqts ? data.packageqts:1;
 adddata = {...adddata,[data.id]:qts}
 })
 
 setAdd(adddata);
 },[addtocartdata])
+
 
 const RemoveItem=(id,pkid)=>{
 
@@ -124,11 +132,8 @@ setSubmission({...submission , [e.target.name]:e.target.value})
                                             <p className="text-xs leading-3 text-gray-800 md:pt-0 pt-4">{data.id ? data.id :"" }</p>
                                             <div className="flex items-center justify-between w-full pt-1">
                                                 <p className="text-base font-black leading-none text-gray-800">{data.packagename ? data.packagename : ""}</p>
-                                                <select className="py-2 px-1 border border-gray-200 mr-6 focus:outline-none">
-                                                    <option>01</option>
-                                                    <option>02</option>
-                                                    <option>03</option>
-                                                </select>
+                                                <input key ={"dssqwpo" + key} className="disco" type ="number" name={data.id} id ="perperson" min="1" onChange={(e)=>addQ(data.id,e)} value={add[data.id]? add[data.id] :""}/>
+                                             
                                             </div>
                                             <p className="text-xs leading-3 text-gray-600 pt-2">{data.packagetype ? `Package Type: ${data.packagetype}` : ""}</p>
                                             <p className="text-xs leading-3 text-gray-600 py-2">Persons : {data.packageqts ? data.packageqts: 1 }</p>
@@ -137,7 +142,7 @@ setSubmission({...submission , [e.target.name]:e.target.value})
                                                 <div className="flex itemms-center">
                                                     <p className="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer" onClick={()=>RemoveItem(key,data.id)}>Remove</p>
                                                 </div>
-                                                <p className="text-base font-black leading-none text-gray-800">Rs. {data.packageprice ? `${data.packageprice} /-`: 0}</p>
+                                                <p className="text-base font-black leading-none text-gray-800">Rs. {data.packagepricetotal ? `${data.packagepricetotal} /-` : `${data.packageprice} /-`}</p>
                                             </div>
                                         </div>
                                     )}):""
@@ -156,11 +161,11 @@ setSubmission({...submission , [e.target.name]:e.target.value})
                                                 <p className="text-base leading-none text-gray-800">Rs. {totalcollectable ? totalcollectable : ""}/-</p>
                                             </div>
                                             <div className="flex items-center justify-between pt-5">
-                                                <p className="text-base leading-none text-gray-800">Total C.F.({totalcarbonfootprint.toFixed(1)} X 5)</p>
-                                                <p className="text-base leading-none text-gray-800">Rs. {totalcarbonfootprint ? totalcarbonfootprint.toFixed(2) * 5 : ""}/-</p>
+                                                <p className="text-base leading-none text-gray-800">Total C.F. (@ 2.5%)</p>
+                                                <p className="text-base leading-none text-gray-800">Rs. {totalcarbonfootprint ? totalcarbonfootprint.toFixed(2) : ""}/-</p>
                                             </div>
                                             <div className="flex items-center justify-between pt-5">
-                                                <p className="text-base leading-none text-gray-800">Total GST (@ 18%)</p>
+                                                <p className="text-base leading-none text-gray-800">Total GST (@ 5%)</p>
                                                 <p className="text-base leading-none text-gray-800">Rs. {totalgst ? totalgst : ""}/-</p>
                                             </div>
                                         </div>
@@ -170,10 +175,45 @@ setSubmission({...submission , [e.target.name]:e.target.value})
                                                 <p className="text-2xl font-bold leading-normal text-right text-gray-800">Rs. {totalgrand ? totalgrand : ""} /-</p>
                                             </div>
                                             <button onClick={() => setShow(!show)} className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
-                                                Checkout
+                                                Proceed to Checkout
                                             </button>
                                         </div>
                                     </div>
+     
+     {show === true ? <div className="w-full">
+     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+       <div className="mb-4">
+       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+        Name{error.name ? <span style={{color:'red',fontSize:'0.8rem',padding: '2px 10px'}}>{error.name}</span>:""}
+      </label>
+       <input  value={submission.name ? submission.name:"" } onChange={(e)=>inputHandler(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="name" name="name" placeholder="Enter Your Name" required/>
+       </div>
+       <div className="mb-4">
+       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+        Email{error.email ? <span style={{color:'red',fontSize:'0.8rem',padding: '2px 10px'}}>{error.email}</span>:""}
+      </label>
+      <input value={submission.email ? submission.email:"" }  onChange={(e)=>inputHandler(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" id="email" name="email" placeholder="Enter Your Email Id" required/>
+       </div>
+       
+       <div className="mb-4">
+       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+        Mobile{error.mobile ? <span style={{color:'red',fontSize:'0.8rem',padding: '2px 10px'}}>{error.mobile}</span>:""}
+      </label>
+       <input value={submission.mobile ? submission.mobile:"" }  onChange={(e)=>inputHandler(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="mobile" name="mobile" placeholder="Enter Your Mobile Number" required/>        
+        </div>
+        <div className="mb-4">
+       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+        Check-in Date{error.checkindate ? <span style={{color:'red',fontSize:'0.8rem',padding: '2px 10px'}}>{error.mobile}</span>:""}
+      </label>
+       <input value={submission.checkindate ? submission.checkindate:"" }  onChange={(e)=>inputHandler(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" id="checkindate" name="checkindate" placeholder="Date Required" required/>        
+        </div>
+        <div className="mb-4">
+       <input onClick={(e)=>checkout(e)} className="text-base leading-none w-full py-3 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white" type="submit" value="Checkout"/>
+     
+       </div>
+     </form>
+     </div> : ""}
+
                                 </div>
                             </div>
                         </div>

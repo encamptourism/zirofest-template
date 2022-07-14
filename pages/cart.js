@@ -24,13 +24,20 @@ let totalqts = 0;
 let eachqts = 0;
 let totalcarbonemiison=0;
 calcdata.map((data)=>{
- totalprice = +totalprice + +data.packageprice;
+if(data.packagepricetotal){
+ totalprice = +totalprice + +data.packagepricetotal;   
+}else{
+ totalprice = +totalprice + +data.packageprice;   
+}
+ 
  totalqts = +totalqts + (data.packageqts ? +data.packageqts:1);
  eachqts = data.packageqts ? +data.packageqts:1;
- totalcarbonemiison = totalcarbonemiison + (data.carbonemiison ? +data.carbonemiison * +eachqts:0);
+// totalcarbonemiison = totalcarbonemiison + (data.carbonemiison ? +data.carbonemiison * +eachqts:0);
 })
-let gst= totalprice ? (totalprice * 18/100).toFixed(2) : 0;
-let grand = (+totalprice + +gst + +totalcarbonemiison*5).toFixed(2);
+
+totalcarbonemiison = (totalprice * 0.025); 
+let gst= totalprice ? ((+totalprice + +totalcarbonemiison) * 5/100).toFixed(2) : 0;
+let grand = (+totalprice + +gst + +totalcarbonemiison).toFixed(2);
 setTotal([{totalprice:totalprice,totalqts:totalqts,gst:gst,grand:grand,totalcarbonemiison:totalcarbonemiison}])
 setIsloading(false);
 }
@@ -168,6 +175,7 @@ return (
      submission={submission}
      setSubmission={setSubmission}
      makePayment={makePayment}
+     setIsloading={setIsloading}
       />}  
       
      </div>
