@@ -120,7 +120,7 @@ var options = {
 
 if(localresponse.data !== 400){
  setAddtocartdata([]);
-      // Validate payment at server - using webhooks is a better idea.
+      // Validate payment at serverv - using webhooks is a better idea.
  setPaymentdetails({
                     payment_id:response.razorpay_payment_id,
                     order_id:response.razorpay_order_id,
