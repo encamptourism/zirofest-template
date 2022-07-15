@@ -42,7 +42,7 @@ return (<>
            <h3><b>Total GST @ 5%:</b>  {ordertotal[0].gst}/-</h3>
            <h3><b>Total C.F.(@2.5%)</b>  = {ordertotal[0].totalcarbonemiison}/-</h3>
            <h3><b>Grand Total</b> {ordertotal[0].grand}  /-</h3>
-
+          <small>All additional packages except Vehicle prices are per person per day. vehicle prices is per day basis.</small>
         </div>
         </div>
         </div> 

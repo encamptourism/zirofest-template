@@ -1,7 +1,9 @@
 import {useState,useEffect,useRef} from "react";
 import { scroller } from "react-scroll";
+import { useRouter } from 'next/router';
 
 function Cartc(props) {
+const router = useRouter();
 const {setIsloading,addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,} = props;
 const [error,setError]=useState({name:"",email:"",mobile:"",checkindate:""})
 const [add , setAdd] = useState("");
@@ -71,41 +73,48 @@ setAddtocartdata([]);
 }
 const checkout=(e)=>{
 e.preventDefault();
+let newerror = {...error};
 if(addtocartdata.length === 0){
   alert("Cart is Empty");
+  router.push("/");
   return;
 }
+
 if(submission.name.length < 5){
-setError({...error,name:"Full Name Required"});
+newerror['name'] = "Full Name Required";
 }else{
-  setError({...error,name:""});
+newerror['name'] = "";
 }
 if (/^\d{10}$/.test(submission.mobile)) {
-setError({...error,mobile:"Valid Mobile Number Required"});
+newerror['mobile'] = "Valid Mobile Number Required";
 }else{
- setError({...error,mobile:""}); 
+ newerror['mobile'] ="";
 }
 if(submission.email.length < 5 && !submission.email.includes("@")){
-setError({...error,email:"Valid Email Required"});
+newerror['email'] = "Valid Email Required";
 }else{
-  setError({...error,email:""}); 
+  newerror['email'] = ""; 
 }
-if(!submission.checkindate){
-setError({...error,checkindate:"Valid Date Required"});
+if(!submission.checkindate || new Date(submission.checkindate) < new Date("2022-09-25") || new Date(submission.checkindate) > new Date("2022-10-02")  ){
+newerror['checkindate'] = "Check in Date should be between 25-sep to 02-Oct";
 }else{
-  setError({...error,checkindate:""}); 
+  newerror['checkindate'] =""; 
 }
-if(error.checkindate ==="" && error.name ==="" && error.email ==="" && error.mobile ===""){
+
+if(newerror.checkindate ==="" && newerror.name ==="" && newerror.email ==="" && newerror.mobile ===""){
+
 let submissiondata = {...submission,packagedetail:addtocartdata,total};
 
 makePayment({...submission ,...submissiondata}); 
 setSubmission([]);
 submissiondata = [];
+}else{
+
+    setError(newerror);
 }
 
 
 }
-
 const totalcollectable = total.length > 0 ? total[0].totalprice : 0;
 const totalgst = total.length > 0 ? total[0].gst : 0;
 const totalgrand = total.length > 0 ? total[0].grand : 0;
@@ -141,8 +150,8 @@ if(show === true){
                                              
                                             </div>
                                             <p className="text-xs leading-3 text-gray-600 pt-2">{data.packagetype ? `Package Type: ${data.packagetype}` : ""}</p>
-                                            <p className="text-xs leading-3 text-gray-600 py-2">Persons : {data.packageqts ? data.packageqts: 1 }</p>
-                                            <p className="text-xs leading-3 text-gray-600 py-2">Unit Package Price per Person : {data.packageprice ? `${data.packageprice} /-`: 0 }</p>                                          
+                                            <p className="text-xs leading-3 text-gray-600 py-2">{data.packageid ==="vehicle2999" ? 'Vehicle (per Day)' : 'Number of Persons'} : {data.packageqts ? data.packageqts: 1 }</p>
+                                            <p className="text-xs leading-3 text-gray-600 py-2">Unit Package Price per {data.packageid ==="vehicle2999" ? 'Day' :'Person'} : {data.packageprice ? `${data.packageprice} /-`: 0 }</p>                                          
                                             <div className="flex items-center justify-between pt-3 pr-4">
                                                 <div className="flex itemms-center">
                                                     <p className="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer" onClick={()=>RemoveItem(key,data.id)}>Remove</p>
@@ -186,7 +195,7 @@ if(show === true){
                                     </div>
      
      {show === true ? <div className="w-full checkoutscroll">
-     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" autoComplete="off">
        <div className="mb-4">
        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
         Name{error.name ? <span style={{color:'red',fontSize:'0.8rem',padding: '2px 10px'}}>{error.name}</span>:""}
@@ -208,9 +217,9 @@ if(show === true){
         </div>
         <div className="mb-4">
        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-        Check-in Date{error.checkindate ? <span style={{color:'red',fontSize:'0.8rem',padding: '2px 10px'}}>{error.mobile}</span>:""}
+        Check-in Date{error.checkindate ? <span style={{color:'red',fontSize:'0.8rem',padding: '2px 10px'}}>{error.checkindate}</span>:""}
       </label>
-       <input value={submission.checkindate ? submission.checkindate:"" }  onChange={(e)=>inputHandler(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" id="checkindate" name="checkindate" placeholder="Date Required" required/>        
+       <input value={submission.checkindate ? submission.checkindate:"" }  onChange={(e)=>inputHandler(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" id="checkindate" name="checkindate" placeholder="Date Required" min="2022-09-25" max="2022-10-02"  required/>        
         </div>
         <div ref={bottomRef} className="mb-4">
        <input onClick={(e)=>checkout(e)} className="text-base leading-none w-full py-3 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white" type="submit" value="Checkout"/>
@@ -224,24 +233,6 @@ if(show === true){
                         </div>
                     </div>
             </div>
-
-            <style>
-                {` /* width */
-                #scroll::-webkit-scrollbar {
-                    width: 1px;
-                }
-
-                /* Track */
-                #scroll::-webkit-scrollbar-track {
-                    background: #f1f1f1;
-                }
-
-                /* Handle */
-                #scroll::-webkit-scrollbar-thumb {
-                    background: rgb(133, 132, 132);
-                }
-`}
-            </style>
         </>
     );
 }
