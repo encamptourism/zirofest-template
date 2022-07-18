@@ -11,7 +11,7 @@ if(addtocartdata.length > 0){
  setCartnumber(addtocartdata.length);
 
 addtocartdata.map((data)=>{
- totcart = +totcart + (data.packageprice * data.packageqts);   
+ totcart = +totcart + (data.packageqts ? data.packageprice * data.packageqts : data.packageprice);   
 });
 setTotal(totcart);
 }
