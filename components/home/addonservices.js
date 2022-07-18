@@ -34,6 +34,13 @@ for (let std of combine) {
 setAddtocartdata(Object.values(combined));
 
 }
+const RemoveItem=(id,pkid)=>{
+
+let removabledata = [...addtocartdata];
+removabledata.splice(id, 1);
+setAddtocartdata(removabledata);
+
+}
 
 return (
           <>
@@ -70,6 +77,9 @@ are a few that are add-ons.</div>
                               </svg>
                               Add to cart
                         </div>
+
+                
+
                 </div>
                 )}):""}
             

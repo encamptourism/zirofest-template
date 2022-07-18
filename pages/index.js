@@ -1,10 +1,11 @@
 import {useState,useEffect} from "react";
+import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 import Heads from "../components/common/Heads";
 import Header from "../components/common/header";
 import Footer from "../components/common/footer";
 import Cartpane from "../components/common/cartpane";
-import Topsection from "../components/home/topsection";
+/*import Topsection from "../components/home/topsection";*/
 import Pakage from "../components/home/pakage";
 import Addonservices from "../components/home/addonservices";
 import {PackageData} from "../components/home/packagedata/packagedata";
@@ -19,27 +20,46 @@ export default function Home({PackageData,faqdata}) {
 const [addtocartdata,setAddtocartdata] = useState([]);
 const [addpersona , setAddpersona] = useState({});
 const [isloading,setIsloading] = useState(true);
-useEffect(()=>{
-let uniqueid = localStorage.getItem('cartid');
 
+
+useEffect(()=>{ 
+let uniqueid = (localStorage.getItem('cartid') && localStorage.getItem('cartid') !=="") ? localStorage.getItem('cartid') : uuidv4();
+
+if(uniqueid !== localStorage.getItem('cartid')){
+    localStorage.setItem('cartid' , uniqueid);
+}
+
+
+let personas,predata;
 if(uniqueid){
- let predata = localStorage.getItem(uniqueid);
-
+predata = localStorage.getItem(uniqueid);
  if(predata){
   JSON.parse(predata).map((data)=>{
-    setAddpersona({...addpersona,[data.packageid] : data.packageqts ? data.packageqts : 1 })
+   if(data.packageqts){
+    personas = {...addpersona,[data.id] : data.packageqts}
+   }
+    
   })
    setAddtocartdata(JSON.parse(predata));
+   setAddpersona(personas);
  }   
 }
 setIsloading(false);
-},[])
 
+},[])
+ 
+useEffect(()=>{
+if(addtocartdata && addtocartdata.length > 0){
+let uniqueid = localStorage.getItem('cartid');
+localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
+}
+
+},[addtocartdata]) 
   return (
     <>
     <Heads/> 
       <Header addtocartdata = {addtocartdata} />
-    <Topsection/>
+    {/*<Topsection/>*/}
     <div className="container mx-auto p-1">
     <LoginSpinner isloading={isloading}/>
       <Pakage packages = {PackageData}

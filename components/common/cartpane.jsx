@@ -14,6 +14,9 @@ addtocartdata.map((data)=>{
  totcart = +totcart + (data.packageqts ? data.packageprice * data.packageqts : data.packageprice);   
 });
 setTotal(totcart);
+}else{
+   setCartnumber(0); 
+   setTotal(0) 
 }
 
 }

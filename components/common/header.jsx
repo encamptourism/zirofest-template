@@ -11,6 +11,8 @@ useEffect(()=>{
 if(addtocartdata){
 if(addtocartdata.length > 0){
  setCartnumber(addtocartdata.length);   
+}else{
+setCartnumber(0);     
 }
 
 }

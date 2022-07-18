@@ -10,6 +10,7 @@ const [viewDetails,setViewDetails] = useState({});
 
 
 
+
 const showDescription=(id)=>{
 setViewDetails({id:id});
 }
@@ -81,12 +82,9 @@ setAddpersona({});
 }
 
 const addtoCart=(id)=>{
-let uniqueid,updatedcartdata;
+let updatedcartdata;
 if(allselected !== "" && id === allselected.packageid){
-uniqueid = (localStorage.getItem('cartid') && localStorage.getItem('cartid') !=="") ? localStorage.getItem('cartid') : uuidv4();
-if(uniqueid !== localStorage.getItem('cartid')){
-    localStorage.setItem('cartid' , uniqueid);
-}
+let uniqueid = localStorage.getItem('cartid');
 let predata = localStorage.getItem(uniqueid);
 if(predata && predata.length > 0 && typeof predata !== undefined ){
 
@@ -178,29 +176,31 @@ hdfata.packageimagelink.map((data)=>{
 })
 updatedcartdata = [{...hdfata,id:id + defaulttype,packageimage:selectdataimage}];
 setAddtocartdata(updatedcartdata);
-setAllselected(""); 
+
 
 }
 }
+
+const RemoveItem=(id,pkid)=>{
+
+let removabledata = [...addtocartdata];
+removabledata.splice(id, 1);
+setAddtocartdata(removabledata);
+setAddpersona({})
+}
+
 
 useEffect(()=>{
-if(addtocartdata.length > 0){
 
-let uniqueid = localStorage.getItem('cartid');
-localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
-
-}
-},[addtocartdata])
-
-useEffect(()=>{
 let addqtsdata =[...addtocartdata];
- addqtsdata && addqtsdata.map((data)=>{
-if(data.packageid === Object.keys(addpersona)[0]){
-    data.packageqts = addpersona[data.packageid];
-data['packagepricetotal'] = parseInt(addpersona[data.packageid]) * data['packageprice'];
+ addqtsdata && addpersona && addqtsdata.map((data)=>{
+if(data.id === Object.keys(addpersona)[0]){
+    data.packageqts = addpersona[data.id];
+data['packagepricetotal'] = parseInt(addpersona[data.id]) * data['packageprice'];
 }
 
  }) 
+ 
 setAddtocartdata(addqtsdata);
 
 },[addpersona])
@@ -313,8 +313,8 @@ return (
                     )}):""}
                     </div>
                        {
-                        addtocartdata ? addtocartdata.map((datas,key)=>(datas.packageid === data.packageid) ? 
-                        <Incrementor key={"ramanauj" + key}  id={data.packageid} addpersona={addpersona} setAddpersona={setAddpersona}/>:""    
+                        addtocartdata ? addtocartdata.map((datas,key)=>(datas.id === (data.packageid + datas.packagetype)) ? 
+                        <Incrementor key={"ramanauj" + key}  id={data.packageid + datas.packagetype} addpersona={addpersona} setAddpersona={setAddpersona}/>:""    
 
                        ):""
 
@@ -356,14 +356,37 @@ return (
                        <div onClick={()=>showDescription(data.packageid + key)} className="bg-gray-400 border-2 border-gray-100 rounded-full py-2 px-4 text-white hover:text-gray-200 text-sm flex flex-row hover:bg-gray-700 my-2 justify-center">
                             View Details
                         </div>
-                        <div onClick={()=>addtoCart(data.packageid)} style={{cursor:"pointer"}}
+                        {(addtocartdata && addtocartdata.length > 0)  ? addtocartdata.map((datas,key)=>{
+                         
+                         return (
+                               ((data.packageid + datas.packagetype) === datas.id) ? 
+                                <div key={key} onClick={()=>RemoveItem(data.packageid + datas.packagetype , "jkjkjk")} style={{cursor:"pointer"}}
+                         className="bg-red-600 border-2 border-red-100 rounded-full py-2 px-4 text-white hover:text-gray-200 hover:bg-gray-400 text-sm flex flex-row my-2 justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                              </svg>
+                              Remove
+                        </div> : (key === 0) ?
+                        <div key={key} onClick={()=>addtoCart(data.packageid)} style={{cursor:"pointer"}}
+                         className="bg-gray-600 border-2 border-gray-100 rounded-full py-2 px-4 text-white hover:text-gray-200 hover:bg-gray-400 text-sm flex flex-row my-2 justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                              </svg>
+                              Add to cart
+                        </div>:""
+                                )
+                        }):<div key={key} onClick={()=>addtoCart(data.packageid)} style={{cursor:"pointer"}}
                          className="bg-gray-600 border-2 border-gray-100 rounded-full py-2 px-4 text-white hover:text-gray-200 hover:bg-gray-400 text-sm flex flex-row my-2 justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                               </svg>
                               Add to cart
                         </div>
+                      }
+                       
+                    
                       </div>
+                    
                     </div>
                    
                 </div>
