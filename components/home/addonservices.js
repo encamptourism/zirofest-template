@@ -47,15 +47,15 @@ you were bang on! But, with us, there’s more to ZIRO. It’s a multitude of ex
 
 waiting to mesmerise you. While you will explore much of it with our packages, there
 are a few that are add-ons.</div>
-            <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-8">
                 { packages ? packages.map((data , key)=>{
                    return (
-                <div key ={"assw" + key} className="shadow-md rounded-lg border-2 border-gray-200 flex flex-col md:flex-col justify-between px-5 bg-gray-100">
-                    <div className="p-5">
+                <div key ={"assw" + key} className="shadow-md rounded-lg border-2 border-gray-200 flex flex-col md:flex-col justify-between px-1 bg-gray-100">
+                    <div className="p-1">
                         <h3 className="text-xl p-2 text-gray-900 font-semibold">{data.packagename}</h3>
-                        <p className="text-sm text-gray-500 p-2">{data.packagedescription}</p>
+                        <p className="text-sm text-gray-500 p-1">{data.packagedescription}</p>
                     </div>
-                    <div className="flex flex-row p-4 justify-between">
+                    <div className="flex flex-row p-2 justify-between">
                         <div>
                            <div className="font-thin text-xs font-semibold">Carbon Footprint</div>
                            <div className=" text-xl font-semibold">{data.carbonemiison ? data.carbonemiison.toFixed(2) : 0.00}</div>

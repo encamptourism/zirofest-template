@@ -17,6 +17,7 @@ import OtherDetails from "../components/home/otherdetails"
 
 export default function Home({PackageData,faqdata}) {
 const [addtocartdata,setAddtocartdata] = useState([]);
+const [addpersona , setAddpersona] = useState({});
 const [isloading,setIsloading] = useState(true);
 useEffect(()=>{
 let uniqueid = localStorage.getItem('cartid');
@@ -25,6 +26,9 @@ if(uniqueid){
  let predata = localStorage.getItem(uniqueid);
 
  if(predata){
+  JSON.parse(predata).map((data)=>{
+    setAddpersona({...addpersona,[data.packageid] : data.packageqts ? data.packageqts : 1 })
+  })
    setAddtocartdata(JSON.parse(predata));
  }   
 }
@@ -40,7 +44,7 @@ setIsloading(false);
     <LoginSpinner isloading={isloading}/>
       <Pakage packages = {PackageData}
        addtocartdata={addtocartdata}
-        setAddtocartdata ={setAddtocartdata}/>
+        setAddtocartdata ={setAddtocartdata} addpersona ={addpersona} setAddpersona={setAddpersona}/>
       <Campsitefacilities/>
       <Addonservices
        packages = {AditionalData}

@@ -12,7 +12,7 @@ const [show,setShow] = useState(false);
 const bottomRef = useRef(null);
 
 const addQ=(id,e)=>{
-setIsloading(true);
+
 let addingPerson;
 setAdd({...add,[id] : e.target.value})
 addingPerson = {...addingPerson,[id] : e.target.value};
@@ -41,7 +41,7 @@ return data;
 })
 
 setAddperson(pasa);
-setIsloading(false);
+
 }
 
 useEffect(()=>{

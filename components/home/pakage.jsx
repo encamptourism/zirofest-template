@@ -1,11 +1,14 @@
 import { v4 as uuidv4 } from 'uuid';
 import {useState,useEffect} from "react";
 import Image from "next/image";
+import Incrementor from "../functions/incrementor";
 const Pakage=(props)=>{
-const {packages , addtocartdata , setAddtocartdata} = props;
+const {packages , addtocartdata , setAddtocartdata , addpersona , setAddpersona} = props;
 const [selectedpack , setSelectedpack] = useState({});
 const [allselected,setAllselected] = useState("");
 const [viewDetails,setViewDetails] = useState({});
+
+
 
 const showDescription=(id)=>{
 setViewDetails({id:id});
@@ -74,12 +77,11 @@ hdfata.packageimagelink.map((data)=>{
 
 setAllselected({...hdfata,id:pid + ds,packageimage:selectdataimage});
 setSelectedpack({[pid]:ds});
-
+setAddpersona({});
 }
 
 const addtoCart=(id)=>{
 let uniqueid,updatedcartdata;
-
 if(allselected !== "" && id === allselected.packageid){
 uniqueid = (localStorage.getItem('cartid') && localStorage.getItem('cartid') !=="") ? localStorage.getItem('cartid') : uuidv4();
 if(uniqueid !== localStorage.getItem('cartid')){
@@ -186,8 +188,23 @@ if(addtocartdata.length > 0){
 
 let uniqueid = localStorage.getItem('cartid');
 localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
+
 }
 },[addtocartdata])
+
+useEffect(()=>{
+let addqtsdata =[...addtocartdata];
+ addqtsdata && addqtsdata.map((data)=>{
+if(data.packageid === Object.keys(addpersona)[0]){
+    data.packageqts = addpersona[data.packageid];
+data['packagepricetotal'] = parseInt(addpersona[data.packageid]) * data['packageprice'];
+}
+
+ }) 
+setAddtocartdata(addqtsdata);
+
+},[addpersona])
+
 
 
 const styles={
@@ -203,7 +220,7 @@ return (
           <div className='text-center md:text-left px-5 pb-5 text-gray-600'>
             While the music keeps you alive, your abode should certainly be a place of utmost comfort. Sit back and catch up with your friends or tent mates, or simply snooze off after a heavy day of blissful experiences. Choose from an array of package designed to delight you.
           </div>
-          <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-10 ">
+          <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-5">
            { packages ? packages.map((data , key)=>{
                    return (
 
@@ -212,7 +229,7 @@ return (
                   { viewDetails && viewDetails.id === data.packageid + key ? 
                     <div className="rounded-lg p-3">
                     <div onClick={()=>Cross(data.packageid + key)} style={{float:"right",fontSize:"1.8rem",cursor:"pointer"}} className="font-bold">x</div>
-                      <div style={{marginTop:"30%"}}>
+                      <div style={{marginTop:"15%"}}>
                       {data.packagedescription ? data.packagedescription.map((dd,kk)=>{     
                             return (
                  (dd[selectedpack[data.packageid] || data.defaulttype])  ? dd[selectedpack[data.packageid] || data.defaulttype]:""                       
@@ -222,7 +239,7 @@ return (
                        
                          }
                          </div>
-                    <div className="py-2">
+                    <div className="py-1">
                     <span style={{fontWeight:"600"}}>Carbon FootPrint</span>          {data.carbonemiison ? data.carbonemiison.map((dd,kk)=>{     
                             return (
                   dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
@@ -274,31 +291,41 @@ return (
 <div>
 {data.packageimagelink ? data.packageimagelink.map((dd,kk)=>{     
                             return (
-                 (dd[selectedpack[data.packageid] || data.defaulttype])  ? <Image alt="encamp" key={kk} width={180} height={200} layout='responsive'  src = {dd[selectedpack[data.packageid] || data.defaulttype]} className="w-full rounded-tl-lg rounded-tr-lg"/>:""                       
+                 (dd[selectedpack[data.packageid] || data.defaulttype])  ? <Image alt="encamp" key={kk} width={60} height={40} layout='responsive'  src = {dd[selectedpack[data.packageid] || data.defaulttype]} className="w-full rounded-tl-lg rounded-tr-lg"/>:""                       
                           )
 
                         }):""
                        
                          }
     
-                    <div className="p-5">
+                    <div className="p-3">
                      <div style={styles.overlap} className="flex flex-row justify-between">
                         <h3 className="text-center">{data.packagename}</h3>
 
                                  
                      </div>
-                    <div className="flex flex-row my-3" style={{marginTop:"2rem"}}>
+                     <div className="flex flex-row md:flex-row justify-between" style={{marginTop:"2rem"}}>
+                    <div className="flex flex-row my-1" >
                     {data.packagetype ? data.packagetype.map((ds,k)=>{
                          return (
                         <div key={"ewe" + k} style={{cursor:"pointer"}} className={(ds === data.defaulttype && allselected.packageid !== data.packageid) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200  bg-gray-500":(data.packageid === allselected.packageid && ds === allselected.packagetype) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200  bg-gray-500":"border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2"} onClick={()=>Selectpack(ds,data.packageid)}>{ds}</div>       
                           
                     )}):""}
                     </div>
+                       {
+                        addtocartdata ? addtocartdata.map((datas,key)=>(datas.packageid === data.packageid) ? 
+                        <Incrementor key={"ramanauj" + key}  id={data.packageid} addpersona={addpersona} setAddpersona={setAddpersona}/>:""    
 
-                    <div className="flex flex-col md:flex-row justify-between">
+                       ):""
+
+                        }
+                    
+                    </div>
+
+                    <div className="flex flex-row md:flex-row justify-between">
                          <div>
                            <div className="font-thin text-xs">Carbon Footprint</div>
-                           <div className=" text-xl font-semibold">
+                           <div className=" text-basic font-semibold">
                                 {data.carbonemiison ? data.carbonemiison.map((dd,kk)=>{     
                             return (
                   dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
@@ -313,7 +340,7 @@ return (
                         </div>
                         <div>
                            
-                           <div className=" text-xl font-semibold"><span className="text-xs font-semibold">Rs.</span>{data.packageprice ? data.packageprice.map((dd,kk)=>{     
+                           <div className=" text-basic font-semibold"><span className="text-xs font-semibold">Rs.</span>{data.packageprice ? data.packageprice.map((dd,kk)=>{     
                             return (
                   dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
                        
@@ -325,6 +352,7 @@ return (
                            <div className="font-thin text-sm">per person</div>
                         </div>
                     </div>
+                    <div className="flex flex-row my-1 justify-between">
                        <div onClick={()=>showDescription(data.packageid + key)} className="bg-gray-400 border-2 border-gray-100 rounded-full py-2 px-4 text-white hover:text-gray-200 text-sm flex flex-row hover:bg-gray-700 my-2 justify-center">
                             View Details
                         </div>
@@ -335,7 +363,7 @@ return (
                               </svg>
                               Add to cart
                         </div>
-
+                      </div>
                     </div>
                    
                 </div>
