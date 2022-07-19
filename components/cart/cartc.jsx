@@ -4,12 +4,13 @@ import { useRouter } from 'next/router';
 
 function Cartc(props) {
 const router = useRouter();
-const {setIsloading,addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,} = props;
+const {setIsloading,addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,numberofperson,setNumberofperson} = props;
 const [error,setError]=useState({name:"",email:"",mobile:"",checkindate:""})
 const [add , setAdd] = useState("");
 const [addperson , setAddperson] = useState("");
 const [show,setShow] = useState(false);
 const bottomRef = useRef(null);
+
 
 const addQ=(id,e)=>{
 
@@ -33,7 +34,9 @@ data['packageqts'] = addingPerson[id];
 
 data['packagepricetotal'] = parseInt(addingPerson[id]) * data['packageprice'];
 qts = addingPerson[id];
-
+if(data.packageid === "1n2d2999" || data.packageid === "2n3d4999" || data.packageid === "4n5d6999"){
+    setNumberofperson(data.packageqts);
+}
 
 }
 return data;
@@ -53,6 +56,7 @@ let adddata={};
 addtocartdata && addtocartdata.map((data)=>{
 let qts = data.packageqts ? data.packageqts:1;
 adddata = {...adddata,[data.id]:qts}
+
 })
 
 setAdd(adddata);
@@ -143,15 +147,16 @@ if(show === true){
                                          {addtocartdata && addtocartdata.length > 0 ? addtocartdata.map((data,key)=>{
                                          return(
                                         <div key={"cartitems" + key} className="md:pl-3 md:w-full mb-9">
-                                            <p className="text-xs leading-3 text-gray-800 md:pt-0 pt-4">{data.id ? data.id :"" }</p>
+                                        
                                             <div className="flex items-center justify-between w-full pt-1">
                                                 <p className="text-base font-black leading-none text-gray-800">{data.packagename ? data.packagename : ""}</p>
                                                 <input key ={"dssqwpo" + key} className="disco" type ="number" name={data.id} id ="perperson" min="1" onChange={(e)=>addQ(data.id,e)} value={add[data.id]? add[data.id] :""}/>
                                              
                                             </div>
                                             <p className="text-xs leading-3 text-gray-600 pt-2">{data.packagetype ? `Package Type: ${data.packagetype}` : ""}</p>
-                                            <p className="text-xs leading-3 text-gray-600 py-2">{data.packageid ==="vehicle2999" ? 'Vehicle (per Day)' : 'Number of Persons'} : {data.packageqts ? data.packageqts: 1 }</p>
-                                            <p className="text-xs leading-3 text-gray-600 py-2">Unit Package Price per {data.packageid ==="vehicle2999" ? 'Day' :'Person'} : {data.packageprice ? `${data.packageprice} /-`: 0 }</p>                                          
+                                            <p className="text-xs leading-3 text-gray-600 py-2">{data.packageid ==="vehicle2999" ? 'Number of Persons' : (data.packageid ==="lunch449" || data.packageid ==="dinner449" )?"Number of Meals":'Number of Persons'} : {data.packageqts ? data.packageqts: 1 }</p>
+                                           {(data.packageid ==="lunch449" || data.packageid ==="dinner449" ) ? <p className="text-xs leading-3 text-gray-600 py-2">Number of Persons: {numberofperson > 0 ? numberofperson : ""}</p>:""}
+                                            <p className="text-xs leading-3 text-gray-600 py-2">Unit Package Price per person : {data.packageprice ? `${data.packageprice} /-`: 0 }</p>                                          
                                             <div className="flex items-center justify-between pt-3 pr-4">
                                                 <div className="flex itemms-center">
                                                     <p className="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer" onClick={()=>RemoveItem(key,data.id)}>Remove</p>

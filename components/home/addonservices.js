@@ -52,10 +52,14 @@ if(data.packageid == 'lunch449' || data.packageid == 'dinner449'){
 data.packageqts = disaqts * disperson;
 data.packagepricetotal = data.packageqts * data.packageprice; 
 }
+if(data.packageid !== 'lunch449' && data.packageid !== 'dinner449'){
+data.packageqts = disperson;
+data.packagepricetotal = data.packageqts * data.packageprice; 
+}
 })
 
 }
-setAddtocartdata(Object.values(finalcheck));
+setAddtocartdata(finalcheck);
 //setAddtocartdata(Object.values(combined));
 
 }

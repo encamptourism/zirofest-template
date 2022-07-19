@@ -15,6 +15,7 @@ const [submission,setSubmission] = useState({name:"",email:"",mobile:"",packaged
 const [paymentdetails,setPaymentdetails] = useState("");
 const [salert,setSalert] = useState({success:"",fail:""});
 const [isloading,setIsloading] = useState(true);
+const [numberofperson,setNumberofperson] = useState(0);
 
 const calcTotal=()=>{
 setIsloading(true);   
@@ -52,6 +53,15 @@ if(uniqueid){
 
  if(predata){
    setAddtocartdata(JSON.parse(predata));
+if(JSON.parse(predata).length > 0){
+  JSON.parse(predata).map((data)=>{
+if(data.packageid === "1n2d2999" || data.packageid === "2n3d4999" || data.packageid === "4n5d6999"){
+    setNumberofperson(data.packageqts);
+}
+
+})  
+}  
+
  }   
 }
 
@@ -178,6 +188,8 @@ return (
      setSubmission={setSubmission}
      makePayment={makePayment}
      setIsloading={setIsloading}
+     numberofperson={numberofperson}
+     setNumberofperson={setNumberofperson}
       />}  
       
      </div>
