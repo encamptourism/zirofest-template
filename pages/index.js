@@ -20,7 +20,7 @@ export default function Home({PackageData,faqdata}) {
 const [addtocartdata,setAddtocartdata] = useState([]);
 const [addpersona , setAddpersona] = useState({});
 const [isloading,setIsloading] = useState(true);
-
+const [removalid , setRemovalid] = useState({});
 
 useEffect(()=>{ 
 let uniqueid = (localStorage.getItem('cartid') && localStorage.getItem('cartid') !=="") ? localStorage.getItem('cartid') : uuidv4();
@@ -30,7 +30,7 @@ if(uniqueid !== localStorage.getItem('cartid')){
 }
 
 
-let personas,predata;
+let personas,predata,parsedata;
 if(uniqueid){
 predata = localStorage.getItem(uniqueid);
  if(predata){
@@ -40,14 +40,20 @@ predata = localStorage.getItem(uniqueid);
    }
     
   })
+parsedata = JSON.parse(predata);
    setAddtocartdata(JSON.parse(predata));
    setAddpersona(personas);
  }   
 }
 setIsloading(false);
+let removal = {};
+parsedata ? parsedata.map((data)=>{
+removal = {...removal,[data.packageid] : 1}
 
+}):""
+setRemovalid(removal);
 },[])
- 
+
 useEffect(()=>{
 if(addtocartdata && addtocartdata.length > 0){
 let uniqueid = localStorage.getItem('cartid');
@@ -70,6 +76,8 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
        packages = {AditionalData}
        addtocartdata={addtocartdata}
        setAddtocartdata ={setAddtocartdata}
+       removalid={removalid}
+       setRemovalid={setRemovalid}
       />
       <OtherDetails/>
       <Faq faqdata={faqdata}/>
