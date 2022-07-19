@@ -5,7 +5,7 @@ import Heads from "../components/common/Heads";
 import Header from "../components/common/header";
 import Footer from "../components/common/footer";
 import Cartpane from "../components/common/cartpane";
-/*import Topsection from "../components/home/topsection";*/
+import Topsection from "../components/home/topsection";
 import Pakage from "../components/home/pakage";
 import Addonservices from "../components/home/addonservices";
 import {PackageData} from "../components/home/packagedata/packagedata";
@@ -65,7 +65,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
     <>
     <Heads/> 
       <Header addtocartdata = {addtocartdata} />
-    {/*<Topsection/>*/}
+    <Topsection/>
     <div className="container mx-auto p-1">
     <LoginSpinner isloading={isloading}/>
       <Pakage packages = {PackageData}
