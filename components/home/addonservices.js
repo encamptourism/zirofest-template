@@ -34,7 +34,29 @@ for (let std of combine) {
     combined[std.id] = { ...std };
   }
 }
-setAddtocartdata(Object.values(combined));
+let finalcheck = Object.values(combined);
+let disha = false;
+let disaqts = 1;
+let disperson = 1;
+finalcheck.map((data)=>{
+if(data.packageid === '1n2d2999' || data.packageid === '2n3d4999'|| data.packageid === '4n5d6999'){
+disha = true;
+disaqts = data.defaultqts;
+disperson = data.packageqts;
+}
+})
+
+if(disha === true){
+finalcheck.map((data,key)=>{
+if(data.packageid == 'lunch449' || data.packageid == 'dinner449'){
+data.packageqts = disaqts * disperson;
+data.packagepricetotal = data.packageqts * data.packageprice; 
+}
+})
+
+}
+setAddtocartdata(Object.values(finalcheck));
+//setAddtocartdata(Object.values(combined));
 
 }
 const RemoveItem=(id,pkid)=>{
