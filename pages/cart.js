@@ -44,7 +44,7 @@ totalcarbonemiison = (totalprice * 0.025);
 let gst= totalprice ? ((+totalprice + +totalcarbonemiison) * 5/100).toFixed(2) : 0;
 let grand = (+totalprice + +gst + +totalcarbonemiison).toFixed(2);
 setTotal([{totalprice:totalprice,totalqts:totalqts,gst:gst,grand:grand,totalcarbonemiison:totalcarbonemiison}])
-setAdvance((grand * 0.5).toFixed(2));
+setAdvance(Math.ceil((grand * 0.5)));
 setIsloading(false);
 }
 
@@ -68,9 +68,9 @@ if(data.packageid === "1n2d2999" || data.packageid === "2n3d4999" || data.packag
 
  }   
 }
-
 setSetter(true);
 setIsloading(false);
+setPaymentdetails("");
 },[])
 
 
@@ -179,7 +179,7 @@ return (
      <Header addtocartdata = {addtocartdata} />
      <div className="py-14">
      <LoginSpinner isloading={isloading}/>
-     {paymentdetails !=="" ?<Success paymentdetails={paymentdetails}/> :
+     {paymentdetails && paymentdetails.payment_id  ?<Success paymentdetails={paymentdetails}/> :
      <Cartc 
      addtocartdata = {addtocartdata}
      setAddtocartdata={setAddtocartdata}

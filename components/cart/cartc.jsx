@@ -109,7 +109,7 @@ newerror['name'] = "Full Name Required";
 }else{
 newerror['name'] = "";
 }
-if (/^\d{10}$/.test(submission.mobile)) {
+if (/^([+]\d{2})?\d{10}$/.test(submission.mobile)) {
 newerror['mobile'] = "Valid Mobile Number Required";
 }else{
  newerror['mobile'] ="";
@@ -119,8 +119,8 @@ newerror['email'] = "Valid Email Required";
 }else{
   newerror['email'] = ""; 
 }
-if(!submission.checkindate || new Date(submission.checkindate) < new Date("2022-09-25") || new Date(submission.checkindate) > new Date("2022-10-02")  ){
-newerror['checkindate'] = "Check in Date should be between 25-sep to 02-Oct";
+if(!submission.checkindate || new Date(submission.checkindate) < new Date("2022-09-28") || new Date(submission.checkindate) > new Date("2022-10-02")  ){
+newerror['checkindate'] = "Check in Date should be between 28-sep to 02-Oct";
 }else{
   newerror['checkindate'] =""; 
 }
@@ -272,7 +272,7 @@ const advcheck=(e)=>{
        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
         Check-in Date{error.checkindate ? <span style={{color:'red',fontSize:'0.8rem',padding: '2px 10px'}}>{error.checkindate}</span>:""}
       </label>
-       <input value={submission.checkindate ? submission.checkindate:"" }  onChange={(e)=>inputHandler(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" id="checkindate" name="checkindate" placeholder="Date Required" min="2022-09-25" max="2022-10-02"  required/>        
+       <input value={submission.checkindate ? submission.checkindate:"" }  onChange={(e)=>inputHandler(e)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" id="checkindate" name="checkindate" placeholder="Date Required" min="2022-09-28" max="2022-10-02"  required/>        
         </div>
         <div ref={bottomRef} className="mb-4">
        <input onClick={(e)=>checkout(e)} className="text-base leading-none w-full py-3 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white" type="submit" value="Checkout"/>
