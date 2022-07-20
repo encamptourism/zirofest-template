@@ -31,7 +31,7 @@ export default async function handler(req, res) {
 
     try {
       const response = await razorpay.orders.create(options);
-      res.status(200).json({
+      let responsedata ={
         id: response.id,
         currency: response.currency,
         amount: response.amount,
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
         checkindate:req.body.checkindate,
         isadvance:isadvance
 
-      });
+      }
 //saving the order in our database
 let datatosave = {
         payment_id:"",
@@ -62,8 +62,12 @@ let datatosave = {
         isadvance:isadvance
       };
 const localresponse = await adminapi.post("/addpayment",JSON.stringify(datatosave));
-
-
+       if(localresponse.data._id !== ""){
+        res.status(200).json(responsedata);
+      }else{
+        res.status(400).json("data not save");
+      }
+       
         } catch (err) {
       console.log(err);
       res.status(400).json(err);
