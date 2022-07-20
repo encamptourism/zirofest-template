@@ -161,7 +161,7 @@ if(show === true){
 const partial=(e)=>{
  if(e.target.checked === true){
 setIsChecked(true);
-setAdvance((totalgrand * 0.5).toFixed(2));
+setAdvance(Math.ceil((totalgrand * 0.5)));
 
 
  }else{

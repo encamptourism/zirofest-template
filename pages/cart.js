@@ -110,7 +110,7 @@ var options = {
       description: "Thankyou for your Payment",
       image: "https://encampadventures.com/images/logo1.png",
       handler: async function (response) {
-       if(data.id === response.razorpay_order_id){
+       if(data.id == await response.razorpay_order_id){
   let path = `/payment/${response.razorpay_order_id}`;
   const localresponse = await adminapi.put(path,JSON.stringify({
                                                           payment_id:response.razorpay_payment_id,
