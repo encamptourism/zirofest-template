@@ -23,6 +23,7 @@ className="mySwiper">
   <div className="font-normal text-sm text-center md:text-left text-white" style={{maxWidth:"800px"}}>
   Ideal for those who wanna have a memorable time yet leave no carbon footprint.
   </div>
+  <a href="#pakage" className="bg-gradient-to-r from-green-600 to-green-500 rounded-full py-2 px-8 text-gray-50 text-base uppercase md:self-start mt-4">Book Now</a>
   </div>
    <Image alt="zerofestival" src="/images/swiper-image-1.jpeg" layout='fill'  objectFit='cover'/>
 </SwiperSlide>
@@ -32,6 +33,7 @@ className="mySwiper">
     <div className="font-normal text-sm text-center md:text-left text-white" style={{maxWidth:"800px"}}>
     Step into to a multiverse of music, culture, joy and eco-friendly living at ZIRO, with Encamp.
     </div>
+    <a href="#pakage" className="bg-gradient-to-r from-green-600 to-green-500 rounded-full py-2 px-8 text-gray-50 text-base uppercase md:self-start mt-4">Book Now</a>
 </div>
 <Image alt="zerofestival" src="/images/swiper-image-2.jpeg" layout='fill'  objectFit='cover'/>
 </SwiperSlide>
