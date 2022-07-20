@@ -1,6 +1,6 @@
 import {useState,useEffect} from "react";
 const Success=(props)=>{
-const {amount,name,order_id,ordertotal,payment_id,prductdetails,signature,contact,email,checkindate} = props.paymentdetails;
+const {amount,name,order_id,ordertotal,payment_id,prductdetails,signature,contact,email,checkindate,isadvance} = props.paymentdetails;
 return (<>
 	<div className="container">
 	 <div className="md:w-4/4 flex flex-col justify-center items-center py-3">
@@ -42,7 +42,9 @@ return (<>
            <h3><b>Total GST @ 5%:</b>  {ordertotal[0].gst}/-</h3>
            <h3><b>Total C.F.(@2.5%)</b>  = {ordertotal[0].totalcarbonemiison}/-</h3>
            <h3><b>Grand Total</b> {ordertotal[0].grand}  /-</h3>
-          <small>All additional packages except Vehicle prices are per person per day. vehicle prices is per day basis.</small>
+           {isadvance === "yes" ? <h3><b>Advance Paid</b> {+amount/100}  /-</h3>:""}
+           {isadvance === "yes" ? <h3><b>Outstanding</b> {(ordertotal[0].grand - +amount/100).toFixed(2)}  /-</h3>:""}
+          <small>All additional packages except Vehicle prices are per person per day. vehicle prices is per person that includes pickup and drop to destined location.</small>
         </div>
         </div>
         </div> 

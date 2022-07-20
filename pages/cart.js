@@ -16,6 +16,8 @@ const [paymentdetails,setPaymentdetails] = useState("");
 const [salert,setSalert] = useState({success:"",fail:""});
 const [isloading,setIsloading] = useState(true);
 const [numberofperson,setNumberofperson] = useState(0);
+const [isChecked,setIsChecked] = useState(false);
+const [advance,setAdvance] = useState(0);
 
 const calcTotal=()=>{
 setIsloading(true);   
@@ -42,6 +44,7 @@ totalcarbonemiison = (totalprice * 0.025);
 let gst= totalprice ? ((+totalprice + +totalcarbonemiison) * 5/100).toFixed(2) : 0;
 let grand = (+totalprice + +gst + +totalcarbonemiison).toFixed(2);
 setTotal([{totalprice:totalprice,totalqts:totalqts,gst:gst,grand:grand,totalcarbonemiison:totalcarbonemiison}])
+setAdvance((grand * 0.5).toFixed(2));
 setIsloading(false);
 }
 
@@ -57,6 +60,7 @@ if(JSON.parse(predata).length > 0){
   JSON.parse(predata).map((data)=>{
 if(data.packageid === "1n2d2999" || data.packageid === "2n3d4999" || data.packageid === "4n5d6999"){
     setNumberofperson(data.packageqts);
+
 }
 
 })  
@@ -68,15 +72,7 @@ if(data.packageid === "1n2d2999" || data.packageid === "2n3d4999" || data.packag
 setSetter(true);
 setIsloading(false);
 },[])
-useEffect(()=>{
-setIsloading(true);
-if(addtocartdata.length > 0){
 
-let uniqueid = localStorage.getItem('cartid');
-localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
-}
-setIsloading(false);
-},[addtocartdata])
 
 useEffect(()=>{
  setIsloading(true);   
@@ -87,6 +83,8 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
 calcTotal();
 setIsloading(false);
 },[addtocartdata])
+
+
 const makePayment=async (cartdata)=>{
  setIsloading(true);   
 const res = await initializeRazorpay();
@@ -125,7 +123,8 @@ var options = {
                                                           contact:data.phone,
                                                           email:data.email,
                                                           checkindate:data.checkindate,
-                                                          status:"success"
+                                                          status:"success",
+                                                          isadvance:data.isadvance
     
                                                     }));
   
@@ -143,7 +142,8 @@ if(localresponse.data !== 400){
                     ordertotal:data.ordertotal,
                     contact:data.phone,
                     email:data.email,
-                    checkindate:data.checkindate
+                    checkindate:data.checkindate,
+                    isadvance:data.isadvance
                   })
         
         let uniqueid = localStorage.getItem('cartid');
@@ -179,7 +179,8 @@ return (
      <Header addtocartdata = {addtocartdata} />
      <div className="py-14">
      <LoginSpinner isloading={isloading}/>
-     {paymentdetails !=="" ?<Success paymentdetails={paymentdetails}/> :<Cartc 
+     {paymentdetails !=="" ?<Success paymentdetails={paymentdetails}/> :
+     <Cartc 
      addtocartdata = {addtocartdata}
      setAddtocartdata={setAddtocartdata}
      calcTotal={calcTotal}
@@ -190,6 +191,10 @@ return (
      setIsloading={setIsloading}
      numberofperson={numberofperson}
      setNumberofperson={setNumberofperson}
+     isChecked={isChecked}
+     setIsChecked={setIsChecked}
+     advance={advance}
+     setAdvance={setAdvance}
       />}  
       
      </div>

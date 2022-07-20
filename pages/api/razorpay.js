@@ -11,7 +11,16 @@ export default async function handler(req, res) {
     });
 
     const payment_capture = 1;
-    const amount = Math.round(req.body.total[0].grand) || 0;
+    let amount,isadvance;
+    if(req.body.advance){
+    amount = Math.round(req.body.advance) || 0;
+    isadvance = "yes";
+    }else{
+    amount = Math.round(req.body.total[0].grand) || 0;
+     isadvance = "no";
+    }
+
+    //const amount = Math.round(req.body.total[0].grand) || 0;
     const currency = "INR";
     const options = {
       amount: (amount * 100).toString(),
@@ -32,7 +41,8 @@ export default async function handler(req, res) {
         prductdetails:req.body.packagedetail,
         ordertotal:req.body.total,
         status:"pending",
-        checkindate:req.body.checkindate
+        checkindate:req.body.checkindate,
+        isadvance:isadvance
 
       });
 //saving the order in our database
@@ -48,7 +58,8 @@ let datatosave = {
         prductdetails:req.body.packagedetail,
         ordertotal:req.body.total,
         status:"pending",
-        checkindate:req.body.checkindate
+        checkindate:req.body.checkindate,
+        isadvance:isadvance
       };
 const localresponse = await adminapi.post("/addpayment",JSON.stringify(datatosave));
 

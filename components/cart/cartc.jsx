@@ -4,12 +4,13 @@ import { useRouter } from 'next/router';
 
 function Cartc(props) {
 const router = useRouter();
-const {setIsloading,addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,numberofperson,setNumberofperson} = props;
+const {setIsloading,addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,numberofperson,setNumberofperson,isChecked,setIsChecked,advance,setAdvance} = props;
 const [error,setError]=useState({name:"",email:"",mobile:"",checkindate:""})
 const [add , setAdd] = useState("");
 const [addperson , setAddperson] = useState("");
 const [show,setShow] = useState(false);
 const bottomRef = useRef(null);
+
 
 
 const addQ=(id,e)=>{
@@ -75,6 +76,25 @@ const removeAll=()=>{
 setAddtocartdata([]);
 
 }
+const proceedtocheckout=()=>{
+if(isChecked){
+
+if(advance == "" || isNaN(advance)){
+ alert("Advance amount should be numeric");   
+return;
+}
+if(advance < totalgrand * 0.5){
+ alert("Advance amount should be 50% or higher of Invoice amount");   
+return;
+}
+if(advance > totalgrand){
+ alert("Advance amount cannot be greater than total invoice value");   
+return;
+}
+    
+}
+setShow(!show);
+}
 const checkout=(e)=>{
 e.preventDefault();
 let newerror = {...error};
@@ -106,8 +126,13 @@ newerror['checkindate'] = "Check in Date should be between 25-sep to 02-Oct";
 }
 
 if(newerror.checkindate ==="" && newerror.name ==="" && newerror.email ==="" && newerror.mobile ===""){
+let submissiondata ={};
+if(isChecked === true){
+submissiondata = {...submission,packagedetail:addtocartdata,total,advance:advance};
+}else{
+ submissiondata = {...submission,packagedetail:addtocartdata,total};   
+}
 
-let submissiondata = {...submission,packagedetail:addtocartdata,total};
 
 makePayment({...submission ,...submissiondata}); 
 setSubmission([]);
@@ -133,6 +158,20 @@ if(show === true){
 }
 
 },[show]);
+const partial=(e)=>{
+ if(e.target.checked === true){
+setIsChecked(true);
+setAdvance((totalgrand * 0.5).toFixed(2));
+
+
+ }else{
+ setIsChecked(false);   
+ }
+}
+const advcheck=(e)=>{
+   setAdvance(e.target.value); 
+}
+
     return (
         <>
         <div>
@@ -192,8 +231,17 @@ if(show === true){
                                             <div className="flex items-center pb-6 justify-between lg:pt-5 pt-20">
                                                 <p className="text-2xl leading-normal text-gray-800">Total</p>
                                                 <p className="text-2xl font-bold leading-normal text-right text-gray-800">Rs. {totalgrand ? totalgrand : ""} /-</p>
+
                                             </div>
-                                            <button onClick={() => setShow(!show)} className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
+                                            <div className="flex items-center justify-between pb-6">
+                                             <p className="text-sm font-bold leading-normal text-right text-gray-800">
+                                             <input type="checkbox" name="ispartial" onClick={(e)=>partial(e)}/>Pay Advance and book ?</p>
+                                        
+                                             </div>
+                                            {isChecked ? <div className="flex items-center justify-between pb-6">
+                                                <input type="text" name="advancepayment" placeholder="Enter amount 50% of invoice value or higher" style={{padding:"8px 3px", width:"100%"}} value={advance} onChange ={(e)=>advcheck(e)}/>
+                                            </div> :""}
+                                            <button onClick={() => proceedtocheckout()} className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
                                                 Proceed to Checkout
                                             </button>
                                         </div>

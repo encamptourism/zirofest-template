@@ -65,7 +65,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
   return (
     <>
     <Heads/> 
-      <Header addtocartdata = {addtocartdata} />
+    <Header addtocartdata = {addtocartdata} />
     <Topsection/>
     <div className="container mx-auto p-1">
     <LoginSpinner isloading={isloading}/>
