@@ -1,8 +1,8 @@
 const OtherDetails=()=>{
 return (
 	<>
-  <div id="about" className="my-10 px-3">
-  <h2 className="text-xl my-3 px-2">About Encamp</h2>
+  <div className="my-10 px-3">
+  <h2  id="about" className="text-xl my-3 px-2">About Encamp</h2>
   <hr className="mt-1 mb-10"/>
   <div className="container px-1">
   <p>Started in 2018, Encamp Adventures have been partnering with ZIRO since 2019
@@ -15,8 +15,8 @@ activities to camping services in the most exotic locations, they deliver the be
 standard of services with unrivalled amenities and experiences.</p> 
   </div>
   </div>
-  <div id="sustainability" className="my-10 px-3">
-  <h2 className="text-xl my-3 px-2">Our Sustainability Pledge</h2>
+  <div className="my-10 px-3">
+  <h2 id="sustainability" className="text-xl my-3 px-2">Our Sustainability Pledge</h2>
   <hr className="mt-1 mb-10"/>
   <div className="grid grid-cols-1 gap-4 justify-evenly">
   <div>
