@@ -2,7 +2,7 @@ const OtherDetails=()=>{
 return (
 	<>
 
-  <div className="my-10 px-3">
+  <div id="sustainability" className="my-10 px-3">
   <h2 className="text-xl my-3 px-2">Our Sustainability Pledge</h2>
   <hr className="mt-1 mb-10"/>
   <div className="grid grid-cols-1 gap-4 justify-evenly">
@@ -38,7 +38,7 @@ standard of services with unrivalled amenities and experiences.</p>
    <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words) Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.</li>
    <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words) Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.</li>
    
-   <li   id="sustainability"  style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words) Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.</li>
+   <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.. (30-40 words) Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.</li>
   
     
   </div>
