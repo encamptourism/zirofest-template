@@ -83,11 +83,12 @@ if(advance == "" || isNaN(advance)){
  alert("Advance amount should be numeric");   
 return;
 }
-if(advance < totalgrand * 0.5){
+if(+advance < totalgrand * 0.5){
  alert("Advance amount should be 50% or higher of Invoice amount");   
 return;
 }
-if(advance > totalgrand){
+
+if(+advance > +totalgrand){
  alert("Advance amount cannot be greater than total invoice value");   
 return;
 }
