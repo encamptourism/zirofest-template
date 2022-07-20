@@ -72,7 +72,6 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
       <Pakage packages = {PackageData}
        addtocartdata={addtocartdata}
         setAddtocartdata ={setAddtocartdata} addpersona ={addpersona} setAddpersona={setAddpersona}/>
-      <Campsitefacilities/>
       <Addonservices
        packages = {AditionalData}
        addtocartdata={addtocartdata}
@@ -80,6 +79,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
        removalid={removalid}
        setRemovalid={setRemovalid}
       />
+      <Campsitefacilities/>
       <OtherDetails/>
       <Faq faqdata={faqdata}/>
       <Footer/>
