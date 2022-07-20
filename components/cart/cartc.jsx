@@ -104,6 +104,19 @@ if(addtocartdata.length === 0){
   router.push("/");
   return;
 }
+if(advance == "" || isNaN(advance)){
+ alert("Advance amount should be numeric");   
+return;
+}
+if(+advance < +totalgrand * 0.5){
+ alert("Advance amount should be 50% or higher of Invoice amount");   
+return;
+}
+
+if(+advance > +totalgrand){
+ alert("Advance amount cannot be greater than total invoice value");   
+return;
+}
 
 if(submission.name.length < 5){
 newerror['name'] = "Full Name Required";
