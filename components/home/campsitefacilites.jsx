@@ -10,7 +10,7 @@ return (
   <h2 className="text-xl my-10 px-5">Campsite Facilities</h2>
   <hr className="mt-1 mb-10"/>
   <div className="grid grid-cols-3 md:grid-cols-7 gap-4 justify-evenly">
- <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="https://img.icons8.com/external-lylac-kerismaker/96/000000/external-Welcome-Drink-hotel-lylac-kerismaker.png" layout='responsive' width={80} height={80}/></div><div><h3 className="my-5">Welcome Drink</h3></div></div>
+ <div id="about"  className="text-center"><div style={styles.circle}><Image alt="encamp" src="https://img.icons8.com/external-lylac-kerismaker/96/000000/external-Welcome-Drink-hotel-lylac-kerismaker.png" layout='responsive' width={80} height={80}/></div><div><h3 className="my-5">Welcome Drink</h3></div></div>
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="https://img.icons8.com/emoji/96/000000/guitar-emoji.png" layout='responsive' width={80} height={80}/></div><div><h3 className="my-5">Jam Sessions</h3></div></div>
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="https://img.icons8.com/fluency/96/000000/film-reel.png" layout='responsive' width={80} height={80}/></div><div><h3 className="my-5">Movies Under The Stars</h3></div></div>
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="https://img.icons8.com/color/96/000000/trekking.png" layout='responsive' width={80} height={80}/></div><div><h3 className="my-5">Trekking</h3></div></div>
@@ -23,7 +23,7 @@ return (
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="https://img.icons8.com/external-filled-outline-wichaiwi/64/000000/external-drinking-water-services-business-filled-outline-wichaiwi.png" layout='responsive' width={80} height={80}/></div><div><h3 className="my-5">Hot &amp; Cold Drinking Water</h3></div></div>
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="https://img.icons8.com/external-victoruler-linear-colour-victoruler/64/000000/external-hygienic-furniture-and-home-decor-vol2-victoruler-linear-colour-victoruler.png" layout='responsive' width={80} height={80}/></div><div><h3 className="my-5">Hygienic Washrooms</h3></div></div>
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="https://img.icons8.com/external-photo3ideastudio-flat-photo3ideastudio/64/000000/external-plastic-plastic-pollution-photo3ideastudio-flat-photo3ideastudio-1.png" layout='responsive' width={80} height={80}/></div><div><h3 className="my-5">Dry Plastic Collection Unit</h3></div></div>
- <div  id="about" className="text-center"><div style={styles.circle}><Image alt="encamp" src="https://img.icons8.com/bubbles/50/000000/last-24-hours.png" layout='responsive' width={80} height={80}/></div><div><h3 className="my-5">24/7 Campteen For Food All Day</h3></div></div>
+ <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="https://img.icons8.com/bubbles/50/000000/last-24-hours.png" layout='responsive' width={80} height={80}/></div><div><h3 className="my-5">24/7 Campteen For Food All Day</h3></div></div>
 </div>
 </div>
 
