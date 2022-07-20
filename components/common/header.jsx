@@ -94,10 +94,10 @@ setCartnumber(0);
                                     <Link activeClass="Addons" to="addons" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-500 block px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-md text-base font-medium">
                                         Add-On Services
                                     </Link>
-                                    <Link activeClass="Sustainability" to="sustainability" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-500 block px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-md text-base font-medium">
+                                    <Link activeClass="Sustainability" to="sustainabilitymobile" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-500 block px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-md text-base font-medium">
                                         Sustainability Pledge
                                     </Link>
-                                    <Link activeClass="About" to="about" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-500 block px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-md text-base font-medium">
+                                    <Link activeClass="About" to="aboutmobile" smooth={true} offset={50} duration={500} className="cursor-pointer text-gray-500 block px-3 py-2 hover:text-gray-50 hover:bg-green-500 rounded-md text-base font-medium">
                                         About
                                     </Link>
                                     <Links href="/cart">
