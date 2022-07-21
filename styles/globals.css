@@ -8,6 +8,7 @@
 html {
   scroll-behavior: smooth;
   letter-spacing: 0.8px;
+  background-color:#E2E8F0;
 }
 .flexcontainer{
     position:fixed;
@@ -125,7 +126,7 @@ html {
 
 .swiper-slide {
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   background: #fff;
 
   /* Center slide text vertically */
@@ -151,13 +152,13 @@ html {
 }
 .slidertext{
     position: absolute;
-    bottom: 5rem;
+    bottom: 1.5rem;
     z-index: 850;
     left: 3rem;
     text-transform: capitalize;
     font-size: 2.5rem;
     letter-spacing: 1.5px;
-    background-color:rgba(0,0,0,0.4);
+    background-color:rgba(0,0,0,0.6);
     padding: 15px;
     border-radius: 5px;
     text-align: left;

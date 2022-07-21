@@ -42,7 +42,7 @@ return () => window.removeEventListener('scroll', onScroll);
   return (
     <div id ="header" style={{zIndex:"999",position:"relative"}}>
         {/* for main Nav container */}
-        <nav className='bg-black shadow-sm fixed w-full z-10'>
+        <nav className='bg-gray-800 shadow-sm fixed w-full z-10'>
             <div className='w-full'>
                 <div className='flex items-center h-20 w-full'>
                     {/* first block section outer part */}
