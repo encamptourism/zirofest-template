@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 function Cartc(props) {
 const router = useRouter();
-const {setIsloading,addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,numberofperson,setNumberofperson,isChecked,setIsChecked,advance,setAdvance} = props;
+const {setIsloading,addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,numberofperson,setNumberofperson,isChecked,setIsChecked,advance,setAdvance,makeBypassPayment,setPaymentdetails} = props;
 const [error,setError]=useState({name:"",email:"",mobile:"",checkindate:""})
 const [add , setAdd] = useState("");
 const [addperson , setAddperson] = useState("");
@@ -96,8 +96,9 @@ return;
 }
 setShow(!show);
 }
-const checkout=(e)=>{
+const checkout= async (e)=>{
 e.preventDefault();
+setIsloading(true);
 let newerror = {...error};
 if(addtocartdata.length === 0){
   alert("Cart is Empty");
@@ -123,8 +124,8 @@ newerror['name'] = "Full Name Required";
 }else{
 newerror['name'] = "";
 }
-if (/^([+]\d{2})?\d{10}$/.test(submission.mobile)) {
-newerror['mobile'] = "Valid Mobile Number Required";
+if (submission.mobile.length !== 10 || isNaN(submission.mobile)) {
+newerror['mobile'] = "10 digit Mobile Required";
 }else{
  newerror['mobile'] ="";
 }
@@ -147,13 +148,32 @@ submissiondata = {...submission,packagedetail:addtocartdata,total,advance:advanc
  submissiondata = {...submission,packagedetail:addtocartdata,total};   
 }
 
+let getdata = await makeBypassPayment({...submission ,...submissiondata});
+if(getdata){
+    setPaymentdetails({
+                    payment_id:'',
+                    order_id:getdata.order_id,
+                    signature:'',
+                    name:getdata.name,
+                    amount:getdata.amount,
+                    prductdetails:getdata.prductdetails,
+                    ordertotal:getdata.ordertotal,
+                    contact:getdata.phone,
+                    email:getdata.email,
+                    checkindate:getdata.checkindate,
+                    isadvance:getdata.isadvance
 
-makePayment({...submission ,...submissiondata}); 
+                  })
+    setIsloading(false);
+}
+
+//makePayment({...submission ,...submissiondata}); 
 setSubmission([]);
 submissiondata = [];
 }else{
 
     setError(newerror);
+    setIsloading(false);
 }
 
 
@@ -192,7 +212,7 @@ const advcheck=(e)=>{
             <div className="w-full h-full bg-opacity-90 top-0 overflow-y-auto overflow-x-hidden fixed sticky-0 py-14" id="chec-div">
                 <div className="w-full absolute z-10 right-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700" id="checkout">
                     <div className="flex md:flex-row flex-col justify-end" id="cart">
-                        <div className="w-full md:pl-10 pl-4 pr-10 md:pr-4 md:py-12 py-8 bg-white overflow-y-auto overflow-x-hidden h-screen" id="scroll">
+                        <div className="w-full md:pl-10 pl-4 pr-10 md:pr-4 md:py-12 py-8 bg-white overflow-y-auto overflow-x-hidden" id="scroll">
                     
                                     <p className="text-3xl font-black leading-10 text-gray-800 pt-3">Cart</p>
                                     <div className="md:flex flex-col items-center mt-14 py-8 border-t border-gray-200">

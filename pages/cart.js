@@ -7,6 +7,8 @@ import Cartc from "../components/cart/cartc";
 import Success from "../components/cart/success";
 import {initializeRazorpay} from "../components/functions/razorpay/initializerazorpay"
 import LoginSpinner from "../components/common/LoginSpinner";
+import {makeBypassPayment} from "../components/functions/makebypasspayment";
+
 const Cart=()=>{
 const [addtocartdata,setAddtocartdata] = useState([]);
 const [setter,setSetter] = useState(false);
@@ -144,6 +146,7 @@ if(localresponse.data !== 400){
                     email:data.email,
                     checkindate:data.checkindate,
                     isadvance:data.isadvance
+
                   })
         
         let uniqueid = localStorage.getItem('cartid');
@@ -179,7 +182,7 @@ return (
      <Header addtocartdata = {addtocartdata} />
      <div className="py-14">
      <LoginSpinner isloading={isloading}/>
-     {paymentdetails && paymentdetails.payment_id  ?<Success paymentdetails={paymentdetails}/> :
+     {paymentdetails && paymentdetails.order_id  ?<Success paymentdetails={paymentdetails}/> :
      <Cartc 
      addtocartdata = {addtocartdata}
      setAddtocartdata={setAddtocartdata}
@@ -188,6 +191,7 @@ return (
      submission={submission}
      setSubmission={setSubmission}
      makePayment={makePayment}
+     makeBypassPayment={makeBypassPayment}
      setIsloading={setIsloading}
      numberofperson={numberofperson}
      setNumberofperson={setNumberofperson}
@@ -195,6 +199,7 @@ return (
      setIsChecked={setIsChecked}
      advance={advance}
      setAdvance={setAdvance}
+     setPaymentdetails={setPaymentdetails}
       />}  
       
      </div>
