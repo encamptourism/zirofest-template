@@ -267,14 +267,14 @@ const advcheck=(e)=>{
                                                 <p className="text-2xl font-bold leading-normal text-right text-gray-800">Rs. {totalgrand ? totalgrand : ""} /-</p>
 
                                             </div>
-                                            <div className="flex items-center justify-between pb-6">
+                                          {/*  <div className="flex items-center justify-between pb-6">
                                              <p className="text-sm font-bold leading-normal text-right text-gray-800">
                                              <input type="checkbox" name="ispartial" onClick={(e)=>partial(e)}/>Pay Advance and book ?</p>
                                         
                                              </div>
                                             {isChecked ? <div className="flex items-center justify-between pb-6">
                                                 <input type="text" name="advancepayment" placeholder="Enter amount 50% of invoice value or higher" style={{padding:"8px 3px", width:"100%"}} value={advance} onChange ={(e)=>advcheck(e)}/>
-                                            </div> :""}
+                                            </div> :""}*/}
                                             <button onClick={() => proceedtocheckout()} className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
                                                 Proceed to Checkout
                                             </button>
