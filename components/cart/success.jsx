@@ -32,7 +32,7 @@ return (<>
         <div className="text-xl md:w-1/2 flex flex-col justify-center items-center text-center"><h3>Total Summery </h3></div>
         <div className="text-xl md:w-1/2 flex flex-col justify-center items-center text-center"><h3>Total Price {ordertotal[0].totalprice}/-</h3>
            <h3><b>Total GST @ 5%:</b>  {ordertotal[0].gst}/-</h3>
-           <h3><b>Total C.F.(@2.5%)</b>  = {ordertotal[0].totalcarbonemiison}/-</h3>
+           <h3><b>Total C.F.(@2.5%)</b>  = {Math.ceil(ordertotal[0].totalcarbonemiison)}/-</h3>
            <h3><b>Grand Total</b> {ordertotal[0].grand}  /-</h3>
            {isadvance === "yes" ? <h3><b>Advance Booked</b> {+amount/100}  /-</h3>:""}
            {isadvance === "yes" ? <h3><b>Will be paid at arival</b> {(ordertotal[0].grand - +amount/100).toFixed(2)}  /-</h3>:""}
