@@ -165,6 +165,7 @@ if(getdata){
 
                   })
     setIsloading(false);
+    setAddtocartdata([]);
 }
 
 //makePayment({...submission ,...submissiondata}); 
