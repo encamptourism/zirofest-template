@@ -224,7 +224,7 @@ return (
            { packages ? packages.map((data , key)=>{
                    return (
 
-                <div key ={"assw" + key} className="shadow-md rounded-lg border-2 border-gray-200">
+                <div key ={"assw" + key} className="bg-slate-100 shadow-md rounded-lg border-2 border-gray-200">
                   
                   { viewDetails && viewDetails.id === data.packageid + key ? 
                     <div className="rounded-lg p-3">
@@ -322,7 +322,7 @@ return (
                     
                     </div>
 
-                    <div className="flex flex-row md:flex-row justify-between">
+                    <div className="mt-5 mb-5 flex flex-row md:flex-row justify-between">
                          <div>
                            <div className="font-thin text-xs">Carbon Footprint</div>
                            <div className=" text-basic font-semibold">
