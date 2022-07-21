@@ -3,10 +3,21 @@ import{Transition} from "@headlessui/react";
 import{Link} from "react-scroll";
 import Links from 'next/link';
 
+
 function Header(props) {
 const[isOpen, setIsOpen]= useState(false);
 const {addtocartdata} = props;
-const[cartnumber,setCartnumber] = useState(0);
+const [cartnumber,setCartnumber] = useState(0);
+
+
+const close=()=>{
+if(isOpen){
+setIsOpen(false);
+}else{
+setIsOpen(true);    
+}
+
+}
 useEffect(()=>{
 if(addtocartdata){
 if(addtocartdata.length > 0){
@@ -18,6 +29,16 @@ setCartnumber(0);
 }
 
 },["",addtocartdata])
+
+useEffect(() => {
+const onScroll = () =>{
+ setIsOpen(false);
+        }
+window.addEventListener('scroll', onScroll, true);
+return () => window.removeEventListener('scroll', onScroll);
+    
+    }, []);
+
   return (
     <div id ="header" style={{zIndex:"999",position:"relative"}}>
         {/* for main Nav container */}
@@ -63,7 +84,7 @@ setCartnumber(0);
                     </div>
                     {/* This is the mobile menu */}
                     <div className='mr-5 sm:mr-10 flex lg:hidden'>
-                        <button onClick={()=>setIsOpen(!isOpen)} type="button" className='bg-green-600 inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-green-600 focus:outline-none focus:ring-offset-2 focus: ring-offset-green-800 focus:ring-white' aria-controls='mobile-menu' aria-expanded='false'>
+                        <button onClick={()=>close()} type="button" className='bg-green-600 inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-green-600 focus:outline-none focus:ring-offset-2 focus: ring-offset-green-800 focus:ring-white' aria-controls='mobile-menu' aria-expanded='false'>
                             <span className='sr-only'>Open Main Menu</span>
                             {!isOpen ? (
                                 <svg className='block h-6 w-6' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' aria-hidden='true'>
