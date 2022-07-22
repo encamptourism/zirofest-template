@@ -31,7 +31,7 @@ benefit not only our customers, but also local communities and the environment.
   </div>
 
     <div className="my-10 px-3">
-  <h2 className="text-xl my-3 px-2">Terms & Conditions</h2>
+  <h2 className="text-xl my-3 px-2">Campground Rules</h2>
   <hr className="mt-1 mb-10"/>
   <div className="container">
   
