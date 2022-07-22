@@ -108,11 +108,11 @@ for (let std of combine) {
 }
 
 setAddtocartdata(Object.values(combined));
-setAllselected("");
+//setAllselected("");
 }else{
 updatedcartdata = [{...allselected}];
 setAddtocartdata(updatedcartdata);
-setAllselected(""); 
+//setAllselected(""); 
 }
 }else{
 
