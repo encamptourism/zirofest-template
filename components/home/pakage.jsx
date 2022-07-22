@@ -322,7 +322,7 @@ return (
                     
                     </div>
 
-                    <div className="mt-5 mb-5 flex flex-row md:flex-row justify-between">
+                    <div className="mt-3 mb-2 flex flex-row md:flex-row justify-between">
                          <div>
                            <div className="font-thin text-xs">Carbon Footprint</div>
                            <div className=" text-basic font-semibold">
