@@ -6,7 +6,7 @@ export const PackageData=[
                     carbonemiison:30,
                     packagename:"1N/2D Package",
                     packageprice:[{Alpine:3499},{Dome:2499},{BYOT:1499}],
-                    packagetype:["Alpine","Dome","BYOT"],
+                    packagetype:["BYOT","Alpine","Dome"],
                     packageimage:"https://i.picsum.photos/id/466/100/100.jpg?hmac=15Hjzs5oHgFaNN41Kurw7PjUxX-7Bkg6Macv3z2p47c",
                     packagedescription:[
                                          {Alpine:"A haven of 7 feet by 7 feet, the alpine tent is a testament of why ‘Space is luxury’.Featuring a double layered protection from rain along with a fly mesh for extra protection and air circulation, it can easily accommodate a batch of 4. And in case you’re travelling with your better half, you can also go for the 5 feet by 7 feet alpine quite cosily makes a spacious room for 2."},
@@ -27,7 +27,7 @@ export const PackageData=[
                     carbonemiison:20,
                     packagename:"2N/3D Package",
                     packageprice:[{Alpine:6999},{Dome:4999},{BYOT:2999}],
-                    packagetype:["Alpine","Dome","BYOT"],
+                    packagetype:["BYOT","Alpine","Dome"],
                     packageimage:"https://i.picsum.photos/id/177/100/100.jpg?hmac=H08LssfWnbwwby_PCc3hZ4-QIOtO0FLmkcebIcP3O-U",
                     packagedescription:[
                                          {Alpine:"A haven of 7 feet by 7 feet, the alpine tent is a testament of why ‘Space is luxury’.Featuring a double layered protection from rain along with a fly mesh for extra protection and air circulation, it can easily accommodate a batch of 4. And in case you’re travelling with your better half, you can also go for the 5 feet by 7 feet alpine quite cosily makes a spacious room for 2."},
@@ -47,7 +47,7 @@ export const PackageData=[
                     defaultqts:4,
                    	packagename:"4N/5D Package",
                    	packageprice:[{Alpine:13999},{Dome:9999},{BYOT:5999}],
-                   	packagetype:["Alpine","Dome","BYOT"],
+                   	packagetype:["BYOT","Alpine","Dome"],
                    	packageimage:"https://i.picsum.photos/id/117/100/100.jpg?hmac=J2cABsNnkFL3LYpgaBy38oyKQN792Ul0X89GcHT-cfY",
                    	packagedescription:[
                                          {Alpine:"A haven of 7 feet by 7 feet, the alpine tent is a testament of why ‘Space is luxury’.Featuring a double layered protection from rain along with a fly mesh for extra protection and air circulation, it can easily accommodate a batch of 4. And in case you’re travelling with your better half, you can also go for the 5 feet by 7 feet alpine quite cosily makes a spacious room for 2."},

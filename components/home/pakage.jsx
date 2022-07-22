@@ -336,11 +336,11 @@ return (
                        
                          }
                            </div>
-                           <div className="font-thin text-sm">KgCO2/person</div>
+                           <div className="font-thin text-xs">KgCO2/person</div>
                         </div>
                         <div>
-                           
-                           <div className=" text-basic font-semibold"><span className="text-xs font-semibold">Rs.</span>{data.packageprice ? data.packageprice.map((dd,kk)=>{     
+                           <div className="font-thin text-xs">Price</div>
+                           <div className="text-basic font-semibold"><span className="text-xs font-semibold">Rs.</span>{data.packageprice ? data.packageprice.map((dd,kk)=>{     
                             return (
                   dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
                        
@@ -349,7 +349,7 @@ return (
                         }):""
                        
                          }/-</div>
-                           <div className="font-thin text-sm">per person</div>
+                           <div className="font-thin text-sm">per Person</div>
                         </div>
                     </div>
                     <div className="flex flex-row my-1 justify-between">
@@ -361,14 +361,15 @@ return (
                          return (
                                ((data.packageid + datas.packagetype) === datas.id) ? 
                                 <div key={key} onClick={()=>RemoveItem(data.packageid + datas.packagetype , "jkjkjk")} style={{cursor:"pointer"}}
-                         className="bg-red-600 border-2 border-red-100 rounded-full py-2 px-4 text-white hover:text-gray-200 hover:bg-gray-400 text-sm flex flex-row my-2 justify-center">
+                         className="bg-red-600 border-2 border-red-100 rounded-full py-2 px-4 text-white text-sm flex flex-row my-2 justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                               </svg>
                               Remove
                         </div> : (key === 0) ?
                         <div key={key} onClick={()=>addtoCart(data.packageid)} style={{cursor:"pointer"}}
-                         className="bg-gray-600 border-2 border-gray-100 rounded-full py-2 px-4 text-white hover:text-gray-200 hover:bg-gray-400 text-sm flex flex-row my-2 justify-center">
+                         className="bg-green-500 border-2 border-gray-100 rounded-full py-2 px-4 text-white  text-sm flex flex-row my-2 justify-center">
+                         
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                               </svg>
@@ -376,7 +377,7 @@ return (
                         </div>:""
                                 )
                         }):<div key={key} onClick={()=>addtoCart(data.packageid)} style={{cursor:"pointer"}}
-                         className="bg-gray-600 border-2 border-gray-100 rounded-full py-2 px-4 text-white hover:text-gray-200 hover:bg-gray-400 text-sm flex flex-row my-2 justify-center">
+                         className="bg-green-500 border-2 border-gray-100 rounded-full py-2 px-4 text-white text-sm flex flex-row my-2 justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                               </svg>

@@ -108,16 +108,19 @@ are a few that are add-ons.
                            <div className=" text-xl font-semibold">{data.carbonemiison ? data.carbonemiison.toFixed(2) : 0.00}</div>
                            <div className="font-thin text-sm">KgCO2/person</div>
                         </div>
-                        <div className="p-3 text-xl font-semibold">Rs. {data.packageprice}/-</div>
-                       
+                        <div>
+                        <div className="px-3 font-thin text-xs">Price</div>
+                        <div className="px-3 text-basic font-semibold">Rs. {data.packageprice}/-</div>
+                        <div className="px-3 font-thin text-xs">{(data.packagename === 'Lunch' || data.packagename === 'Dinner') ? 'per Meal' : 'per Person'}</div>
+                        </div>
                     </div>
-                {removalid[data.packageid] ?  <div onClick={()=>RemoveItem(data.packageid , "dsd")} style={{cursor:"pointer"}}  className="bg-red-600 border-2 border-red-100 rounded-full py-2 px-4 text-white hover:text-gray-200 hover:bg-gray-400 text-sm flex flex-row my-2 justify-center">
+                {removalid[data.packageid] ?  <div onClick={()=>RemoveItem(data.packageid , "dsd")} style={{cursor:"pointer"}}  className="bg-red-600 border-2 border-red-100 rounded-full py-2 px-4 text-white text-sm flex flex-row my-2 justify-center">
                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                               </svg>
                               Remove
                         </div> :<div  onClick={()=>addtoCart(data.packageid)} style={{cursor:"pointer"}}
-                         className="bg-gray-600 border-2 border-gray-100 rounded-full py-2 px-4 text-white hover:text-gray-200 hover:bg-gray-400 text-sm flex flex-row my-2 justify-center">
+                         className="bg-green-500 border-2 border-gray-100 rounded-full py-2 px-4 text-white text-sm flex flex-row my-2 justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                               </svg>
