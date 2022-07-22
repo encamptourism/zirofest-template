@@ -49,7 +49,7 @@ return () => window.removeEventListener('scroll', onScroll);
                     <div className='flex items items-center mx-5 sm:mx-10 justify-between w-full'>
                         <div className='flex justify-center items-center flex-shrink-0'>
                         <Links href='/'>
-                            <img src="https://encampadventures.com/images/logo1.png" alt="Encamp Adventures" className="h-12"/>
+                            <img src="https://encampadventures.com/images/logo1.png" alt="Encamp Adventures" className="h-12" width="98px" height="48px"/>
                         </Links>  
                         </div>
                         <div className='hidden lg:block'>
