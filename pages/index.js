@@ -5,9 +5,9 @@ import Heads from "../components/common/Heads";
 import Header from "../components/common/header";
 import Footer from "../components/common/footer";
 import Cartpane from "../components/common/cartpane";
-import Topsection from "../components/home/topsection";
-import Pakage from "../components/home/pakage";
-import Addonservices from "../components/home/addonservices";
+//import Topsection from "../components/home/topsection";
+//import Pakage from "../components/home/pakage";
+//import Addonservices from "../components/home/addonservices";
 import {PackageData} from "../components/home/packagedata/packagedata";
 import {AditionalData} from "../components/home/addondata/additional";
 import LoginSpinner from "../components/common/LoginSpinner";
@@ -66,10 +66,10 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
     <>
     <Heads/> 
     <Header addtocartdata = {addtocartdata} />
-    <Topsection/>
+   {/* <Topsection/>*/}
     <div className="container mx-auto p-1">
     <LoginSpinner isloading={isloading}/>
-      <Pakage packages = {PackageData}
+ {/*     <Pakage packages = {PackageData}
        addtocartdata={addtocartdata}
         setAddtocartdata ={setAddtocartdata} addpersona ={addpersona} setAddpersona={setAddpersona}/>
       <Addonservices
@@ -78,7 +78,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
        setAddtocartdata ={setAddtocartdata}
        removalid={removalid}
        setRemovalid={setRemovalid}
-      />
+      />*/}
       <Campsitefacilities/>
       <OtherDetails/>
       <Faq faqdata={faqdata}/>
