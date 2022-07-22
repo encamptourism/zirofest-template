@@ -1,7 +1,7 @@
 const Footer=()=>{
 return (
 	    <>
-	     <div id="footer" className="my-10">
+	     <div id="footer" className="my-14">
                 <h2  className="text-xl text-center">Contact us</h2>
                 <hr className="mt-2 mb-5"/>
                 <div className="container" style={{margin:"0 auto"}}>

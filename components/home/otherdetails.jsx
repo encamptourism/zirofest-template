@@ -1,4 +1,9 @@
+import {useState} from "react";
 const OtherDetails=()=>{
+const [show,setShow] = useState(false);
+const readmore=()=>{
+  setShow(!show);
+}
 return (
 	<>
   <div id="aboutmobile" className="my-10 px-3">
@@ -37,6 +42,9 @@ benefit not only our customers, but also local communities and the environment.
   
    <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}><span className="font-bold">Your decency shall be our pride:</span> We request you to not get involved in any anti-social or unsolicited activities during the trip and at the campsite. The organizers reserve the right to withdraw all of your services in such cases with deep regrets</li><br/>
    <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}><span className="font-bold">We (Humans) are nothing in front of Nature:</span> The organizers are in no way obligated / responsible for any refund arising out of any natural or man-made calamities which are beyond our control. Rains and muddy fields are a thing at Ziro. Request you to book with the right expectations set.</li><br/>
+   
+   {show ?
+   <> 
    <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}><span className="font-bold">Furnish documents at Check-in:</span> Kindly carry valid ID proof and a payment receipt while on the trip. We appreciate mobile receipts, so does nature.</li><br/>
    <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}><span className="font-bold">Accommodation:</span> Tents are on a sharing basis, equipped with sleeping mats and bags. In case you need anything extra, please be patient with our team members.</li><br/>
    <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}><span className="font-bold">Patience is solicited:</span> Ours is a campsite and not a resort. We request you to please be patient with our team members in case you need them to help out with anything. They are catering to 100+ guests at the campsite and someone else might be needing their immediate attention as well.</li><br/>
@@ -45,8 +53,11 @@ benefit not only our customers, but also local communities and the environment.
    <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}><span className="font-bold">Ignore at your own risk:</span> Please read all the information carefully. You can also call / mail us to understand all the terms and conditions.</li><br/>
    <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}><span className="font-bold">Tourism infrastructure:</span> The tourism infrastructure in the mentioned destinations is not very developed and one should not expect or compare it with the standards of plains & other developed destinations. The roads to camp could be slightly muddy and we recommend that you carry the right clothing and shoes for this wonderful adventurous experience. If these experiences are not your kind, then you might be coming to the wrong place.</li><br/>
    <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}><span className="font-bold">Transportation:</span> Transfers from Naharlagun Railway Station to Ziro will be in a Tata Sumo on a sharing basis of 9-10 passengers per vehicle. In case you need a more comfortable vehicle for transfer you can connect with our team and they will help you get a private vehicle with a driver to chauffeur you for an added cost.</li><br/>
-   <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}><span className="font-bold">Rare occurrences:</span> Management has the right to alter the itinerary, and further holds all rights to cancel trips in case of unavoidable circumstances.</li><br/>
-  
+   <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}><span className="font-bold">Rare occurrences:</span> Management has the right to alter the itinerary, and further holds all rights to cancel trips in case of unavoidable circumstances.</li><br/> 
+   </>
+   :""}
+   <div className="text-xl text-green-500" style={{width:"100%",textAlign:"right",fontWeight: '600',cursor:"pointer",paddingRight: '3vw'}} onClick={()=>readmore()}>{show ? 'Read Less' : 'Read More'}</div>
+ 
     
   </div>
   </div>
