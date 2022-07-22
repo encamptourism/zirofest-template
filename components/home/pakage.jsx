@@ -7,6 +7,7 @@ const {packages , addtocartdata , setAddtocartdata , addpersona , setAddpersona}
 const [selectedpack , setSelectedpack] = useState({});
 const [allselected,setAllselected] = useState("");
 const [viewDetails,setViewDetails] = useState({});
+const [searchdata,setSearchdata] = useState({});
 
 
 
@@ -78,6 +79,7 @@ hdfata.packageimagelink.map((data)=>{
 
 setAllselected({...hdfata,id:pid + ds,packageimage:selectdataimage});
 setSelectedpack({[pid]:ds});
+setSearchdata({...searchdata,[pid]:ds})
 setAddpersona({});
 }
 
@@ -108,11 +110,11 @@ for (let std of combine) {
 }
 
 setAddtocartdata(Object.values(combined));
-//setAllselected("");
+setAllselected("");
 }else{
 updatedcartdata = [{...allselected}];
 setAddtocartdata(updatedcartdata);
-//setAllselected(""); 
+setAllselected(""); 
 }
 }else{
 
@@ -121,7 +123,12 @@ let defaulttype;
 let packagedescription,essentials,carbonemiison,bestfor,size;
 packages.map((katcha)=>{
 if(id === katcha.packageid){
-defaulttype = katcha.defaulttype;
+if(searchdata[id]){
+  defaulttype = searchdata[id];  
+}else{
+ defaulttype = katcha.defaulttype;   
+}
+
   katcha.packageprice.map((sd)=> {
     if(sd[defaulttype]){
      price = sd[defaulttype];   
@@ -232,7 +239,7 @@ return (
                       <div style={{marginTop:"15%"}}>
                       {data.packagedescription ? data.packagedescription.map((dd,kk)=>{     
                             return (
-                 (dd[selectedpack[data.packageid] || data.defaulttype])  ? dd[selectedpack[data.packageid] || data.defaulttype]:""                       
+                 (dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype])  ? dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]:""                       
                           )
 
                         }):""
@@ -242,7 +249,7 @@ return (
                     <div className="py-1">
                     <span style={{fontWeight:"600"}}>Carbon FootPrint</span>          {data.carbonemiison ? data.carbonemiison.map((dd,kk)=>{     
                             return (
-                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
+                  dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]:""
                        
                           )
 
@@ -254,7 +261,7 @@ return (
                     <span style={{fontWeight:"600"}}>Size of Tent: </span>
                     {data.size ? data.size.map((dd,kk)=>{     
                             return (
-                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
+                  dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]:""
                        
                           )
 
@@ -266,7 +273,7 @@ return (
                     <span style={{fontWeight:"600"}}>Essentials: </span>
                     {data.essentials ? data.essentials.map((dd,kk)=>{     
                             return (
-                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
+                  dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]:""
                        
                           )
 
@@ -278,7 +285,7 @@ return (
                     <span style={{fontWeight:"600"}}>Best For: </span>
                     {data.bestfor ? data.bestfor.map((dd,kk)=>{     
                             return (
-                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
+                  dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]:""
                        
                           )
 
@@ -291,7 +298,7 @@ return (
 <div>
 {data.packageimagelink ? data.packageimagelink.map((dd,kk)=>{     
                             return (
-                 (dd[selectedpack[data.packageid] || data.defaulttype])  ? <Image alt="encamp" key={kk} width={60} height={40} layout='responsive'  src = {dd[selectedpack[data.packageid] || data.defaulttype]} className="w-full rounded-tl-lg rounded-tr-lg"/>:""                       
+                 (dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype])  ? <Image alt="encamp" key={kk} width={60} height={40} layout='responsive'  src = {dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]} className="w-full rounded-tl-lg rounded-tr-lg"/>:""                       
                           )
 
                         }):""
@@ -308,8 +315,7 @@ return (
                     <div className="flex flex-row my-1" >
                     {data.packagetype ? data.packagetype.map((ds,k)=>{
                          return (
-                        <div key={"ewe" + k} style={{cursor:"pointer"}} className={(ds === data.defaulttype && allselected.packageid !== data.packageid) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200  bg-gray-500":(data.packageid === allselected.packageid && ds === allselected.packagetype) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200  bg-gray-500":"border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2"} onClick={()=>Selectpack(ds,data.packageid)}>{ds}</div>       
-                          
+                         <div key={"ewe" + k} style={{cursor:"pointer"}} className={(data.packageid === allselected.packageid && ds === allselected.packagetype) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200 bg-gray-500":(searchdata[data.packageid] === ds) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200 bg-gray-500" : (ds === data.defaulttype && allselected.packageid !== data.packageid && !searchdata[data.packageid]) ? "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2 text-gray-200  bg-gray-500" : "border-2 border-gray-300 rounded-md text-xs px-2 py-1 mr-2" } onClick={()=>Selectpack(ds,data.packageid)}>{ds}</div>
                     )}):""}
                     </div>
                        {
@@ -328,7 +334,7 @@ return (
                            <div className=" text-basic font-semibold">
                                 {data.carbonemiison ? data.carbonemiison.map((dd,kk)=>{     
                             return (
-                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
+                  dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]:""
                        
                           )
 
@@ -342,7 +348,7 @@ return (
                            <div className="font-thin text-xs">Price</div>
                            <div className="text-basic font-semibold"><span className="text-xs font-semibold">Rs.</span>{data.packageprice ? data.packageprice.map((dd,kk)=>{     
                             return (
-                  dd[selectedpack[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || data.defaulttype]:""
+                  dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]  ? dd[selectedpack[data.packageid] || searchdata[data.packageid] || data.defaulttype]:""
                        
                           )
 
