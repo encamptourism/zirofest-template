@@ -8,6 +8,7 @@ import Success from "../components/cart/success";
 import {initializeRazorpay} from "../components/functions/razorpay/initializerazorpay"
 import LoginSpinner from "../components/common/LoginSpinner";
 import {makeBypassPayment} from "../components/functions/makebypasspayment";
+import TagManager from 'react-gtm-module';
 
 const Cart=()=>{
 const [addtocartdata,setAddtocartdata] = useState([]);
@@ -73,6 +74,7 @@ if(data.packageid === "1n2d2999" || data.packageid === "2n3d4999" || data.packag
 setSetter(true);
 setIsloading(false);
 setPaymentdetails("");
+TagManager.initialize({ gtmId: 'GTM-PB3PWCK' });
 },[])
 
 

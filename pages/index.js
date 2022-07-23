@@ -14,7 +14,8 @@ import LoginSpinner from "../components/common/LoginSpinner";
 import Faq from "../components/faq/Faq";
 import {Datafaq} from "../components/faq/Datafaq";
 import Campsitefacilities from "../components/home/campsitefacilites"
-import OtherDetails from "../components/home/otherdetails"
+import OtherDetails from "../components/home/otherdetails";
+import TagManager from 'react-gtm-module';
 
 export default function Home({PackageData,faqdata}) {
 const [addtocartdata,setAddtocartdata] = useState([]);
@@ -53,6 +54,7 @@ removal = {...removal,[data.packageid] : 1}
 
 }):""
 setRemovalid(removal);
+TagManager.initialize({ gtmId: 'GTM-PB3PWCK' });
 },[])
 
 useEffect(()=>{
