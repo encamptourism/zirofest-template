@@ -69,7 +69,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
     <Topsection/>
     <div className="container mx-auto p-1">
     <LoginSpinner isloading={isloading}/>
-      <Pakage packages = {PackageData}
+    <Pakage packages = {PackageData}
        addtocartdata={addtocartdata}
         setAddtocartdata ={setAddtocartdata} addpersona ={addpersona} setAddpersona={setAddpersona}/>
       <Addonservices

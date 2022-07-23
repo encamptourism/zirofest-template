@@ -163,6 +163,18 @@ html {
     border-radius: 5px;
     text-align: left;
 }
+.slidertext1{
+    position: absolute;
+    bottom: 1.5rem;
+    z-index: 850;
+    left: 3rem;
+    text-transform: capitalize;
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: left;
+}
 .aadga{
   text-align: center;
   margin: 0 auto;
