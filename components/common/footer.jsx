@@ -14,6 +14,7 @@ return (
         <SocialIcon style={{width:'30px',height:"30px"}} url="https://www.facebook.com/encampadventures/"/>
         <SocialIcon style={{width:'30px',height:"30px"}} url="https://www.instagram.com/encampadventures/"/>
         <SocialIcon style={{width:'30px',height:"30px"}} url="https://www.youtube.com/channel/UCKT1ZC-dMCQr3fBTr57rKAQ"/>
+        <SocialIcon style={{width:'30px',height:"30px"}} url="https://twitter.com/intent/tweet?text=Encamp%20Adventures%20-%20home&url=https%3A%2F%2Fencampadventures.com%2F%23.YtutOF3bpgs.twitter&related="/>
         <SocialIcon style={{width:'30px',height:"30px"}} label="google" url="https://tinyurl.com/yx8nblk6"/>
         </div>
 	     </div>	
