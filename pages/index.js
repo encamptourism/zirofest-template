@@ -16,7 +16,7 @@ import {Datafaq} from "../components/faq/Datafaq";
 import Campsitefacilities from "../components/home/campsitefacilites"
 import OtherDetails from "../components/home/otherdetails";
 import TagManager from 'react-gtm-module';
-import {useHasNewDeploy} from "next-deploy-notifications";
+
 
 
 export default function Home({PackageData,faqdata}) {
@@ -24,7 +24,7 @@ const [addtocartdata,setAddtocartdata] = useState([]);
 const [addpersona , setAddpersona] = useState({});
 const [isloading,setIsloading] = useState(true);
 const [removalid , setRemovalid] = useState({});
-let { hasNewDeploy } = useHasNewDeploy();
+
 
 useEffect(()=>{ 
 let uniqueid = (localStorage.getItem('cartid') && localStorage.getItem('cartid') !=="") ? localStorage.getItem('cartid') : uuidv4();
@@ -90,13 +90,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
       <Footer/>
      </div>
      <Cartpane addtocartdata = {addtocartdata} setAddtocartdata ={setAddtocartdata}/>
-    
- {hasNewDeploy && (
-    
-          <div>New version available!
-          <button onClick={() => window.location.reload()}>Refresh</button>
-          </div>     
-      )}
+
     </>
   )
 }
