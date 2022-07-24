@@ -92,10 +92,10 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
      <Cartpane addtocartdata = {addtocartdata} setAddtocartdata ={setAddtocartdata}/>
     
  {hasNewDeploy && (
-        <Notification>
-          New version available!
+    
+          <div>New version available!
           <button onClick={() => window.location.reload()}>Refresh</button>
-        </Notification>
+          </div>     
       )}
     </>
   )
