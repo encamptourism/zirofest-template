@@ -149,7 +149,7 @@ if(localresponse.data !== 400){
                     checkindate:data.checkindate,
                     isadvance:data.isadvance
 
-                  })
+                  });
         
         let uniqueid = localStorage.getItem('cartid');
         localStorage.removeItem(uniqueid);
