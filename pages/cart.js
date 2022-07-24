@@ -9,6 +9,7 @@ import {initializeRazorpay} from "../components/functions/razorpay/initializeraz
 import LoginSpinner from "../components/common/LoginSpinner";
 import {makeBypassPayment} from "../components/functions/makebypasspayment";
 import TagManager from 'react-gtm-module';
+import {useRouter} from 'next/router';
 
 const Cart=()=>{
 const [addtocartdata,setAddtocartdata] = useState([]);
@@ -21,6 +22,7 @@ const [isloading,setIsloading] = useState(true);
 const [numberofperson,setNumberofperson] = useState(0);
 const [isChecked,setIsChecked] = useState(false);
 const [advance,setAdvance] = useState(0);
+const {pathname} = useRouter();
 
 const calcTotal=()=>{
 setIsloading(true);   
@@ -180,7 +182,7 @@ if(localresponse.data !== 400){
 
 return (
 	<>
-	<Heads/> 
+	<Heads pathname={pathname} paymentdetails={paymentdetails}/> 
      <Header addtocartdata = {addtocartdata} />
      <div className="py-14">
      <LoginSpinner isloading={isloading}/>

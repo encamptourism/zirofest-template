@@ -16,6 +16,7 @@ import {Datafaq} from "../components/faq/Datafaq";
 import Campsitefacilities from "../components/home/campsitefacilites"
 import OtherDetails from "../components/home/otherdetails";
 import TagManager from 'react-gtm-module';
+import {useRouter} from 'next/router';
 
 
 
@@ -24,7 +25,7 @@ const [addtocartdata,setAddtocartdata] = useState([]);
 const [addpersona , setAddpersona] = useState({});
 const [isloading,setIsloading] = useState(true);
 const [removalid , setRemovalid] = useState({});
-
+const {pathname} = useRouter();
 
 useEffect(()=>{ 
 let uniqueid = (localStorage.getItem('cartid') && localStorage.getItem('cartid') !=="") ? localStorage.getItem('cartid') : uuidv4();
@@ -58,6 +59,7 @@ removal = {...removal,[data.packageid] : 1}
 }):""
 setRemovalid(removal);
 TagManager.initialize({ gtmId: 'GTM-PB3PWCK' });
+
 },[])
 
 useEffect(()=>{
@@ -69,7 +71,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
 },[addtocartdata]) 
   return (
     <>
-    <Heads/> 
+    <Heads pathname={pathname}/> 
     <Header addtocartdata = {addtocartdata} />
     <Topsection/>
     <div className="container mx-auto p-1">
