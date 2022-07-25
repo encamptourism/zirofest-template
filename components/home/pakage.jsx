@@ -223,12 +223,12 @@ const styles={
              }
 return (
         <>
-          <div id="pakage" className="my-5 px-3">
+          <div id="pakage" className="mt-8 px-3">
                 <h1 className="text-center md:text-left text-2xl uppercase">Our Camping Packages</h1>
           
-          <hr className="mt-2 mb-5"/>
+          <hr className="mt-2 mb-5 border-slate-400"/>
           <div className='text-center md:text-left px-5 pb-5 text-gray-600'>
-            While the music keeps you alive, your abode should certainly be a place of utmost comfort. Sit back and catch up with your friends or tent mates, or simply snooze off after a heavy day of blissful experiences. Choose from an array of package designed to delight you.
+          While the music keeps you alive, your abode should certainly be a place of utmost comfort. Sit back and catch up with your friends or tent mates, or simply snooze off after a heavy day of blissful experiences. Choose from an array of packages designed to delight you.
           </div>
           <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-5">
            { packages ? packages.map((data , key)=>{
