@@ -28,7 +28,7 @@ return (
     <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}><span className="font-bold">Rare occurrences:</span> Management has the right to alter the itinerary, and further holds all rights to cancel trips in case of unavoidable circumstances.</li><br/> 
     </>
     :""}
-    <div className="text-xl text-green-500" style={{width:"100%",textAlign:"right",fontWeight: '600',cursor:"pointer",paddingRight: '3vw'}} onClick={()=>readmore()}>{show ? 'Read Less' : 'Read More'}</div>
+    <div id ="sustainability" className="text-xl text-green-500" style={{width:"100%",textAlign:"right",fontWeight: '600',cursor:"pointer",paddingRight: '3vw'}} onClick={()=>readmore()}>{show ? 'Read Less' : 'Read More'}</div>
   
       
     </div>
@@ -39,7 +39,7 @@ return (
     <hr className="mt-2 mb-5 border-slate-400"/>
     <div className="container px-1">
     <p>With a focus on transforming tourism through a responsible travel tech platform, which calculates carbon emission, promotes conscious reduction and provides offset options to make every travel itinerary nature-positive, we at Encamp, stand by an environment-first approach in design and operation. We subscribe to practices that benefit not only our customers but also local communities and the environment.</p>
-    <p className="pt-3">We offer means to offset emissions, by supporting carbon offset programs in order to make travel a low carbon footprint experience. We implement measurement and reduction practices using technology intervention mixed with physical projects involving afforestation projects and other nature-based solutions. As a strong commitment toward greener tourism, we aim to enable each Encamper to leave every place better than they found it.</p> 
+    <p id="about" className="pt-3">We offer means to offset emissions, by supporting carbon offset programs in order to make travel a low carbon footprint experience. We implement measurement and reduction practices using technology intervention mixed with physical projects involving afforestation projects and other nature-based solutions. As a strong commitment toward greener tourism, we aim to enable each Encamper to leave every place better than they found it.</p> 
     <p className="pt-3 text-sm italic text-gray-600">Encamp Adventures is supported by UNDP, SAP ARIBA, CISCO, and HDFC to enable a behavioural change and drive climate action.</p> 
     </div>
   </div>

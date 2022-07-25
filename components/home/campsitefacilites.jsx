@@ -11,7 +11,7 @@ return (
     <hr className="mt-2 mb-10 border-slate-400"/>
   <div className="grid grid-cols-3 md:grid-cols-5 gap-4 justify-evenly">
  
- <div id="about"  className="text-center"><div style={styles.circle}><Image alt="encamp" src="/images/icons/JamSessions.png" layout='responsive' width={60} height={60}/></div><div><h3 className="my-5">Jam Sessions</h3></div></div>
+ <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="/images/icons/JamSessions.png" layout='responsive' width={60} height={60}/></div><div><h3 className="my-5">Jam Sessions</h3></div></div>
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="/images/icons/Hiking.png" layout='responsive' width={60} height={60}/></div><div><h3 className="my-5">Hiking</h3></div></div>
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="/images/icons/Bonfire.png" layout='responsive' width={60} height={60}/></div><div><h3 className="my-5">Bonfire</h3></div></div>
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="/images/icons/DryWetWasteDustbins.png" layout='responsive' width={60} height={60}/></div><div><h3 className="my-5">Dry &amp; Wet Waste Dustbins</h3></div></div>
