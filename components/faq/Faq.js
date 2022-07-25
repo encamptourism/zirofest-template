@@ -40,9 +40,9 @@ setFaqss(faqdata);
 },[])  
 
 return(
-<div className="px-3">
-<h2 className="text-xl  px-2">FAQs</h2>
-<hr className="mt-2 mb-10"/>
+<div className="mt-10 px-3">
+<h1 className="text-center md:text-left text-2xl uppercase">FAQs</h1>
+<hr className="mt-2 mb-5 border-slate-400"/>
 <div className="container my-10" style={{maxWidth:"1400px",margin:"0 auto"}}>
  <div className="flex flex-row justify-between">
 
