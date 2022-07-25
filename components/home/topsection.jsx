@@ -18,13 +18,6 @@ return (
           disableOnInteraction: false,
         }} 
 className="mySwiper">
-<SwiperSlide>
- <div className="slidertext1 font-bold text-white uppercase">
- 
-  <a href="#pakage" className="bg-gradient-to-r from-green-600 to-green-500 rounded-full py-2 px-8 text-gray-50 text-base uppercase md:self-start mt-4">Book Your Experience</a>
-  </div>
-   <Image alt="zerofestival" src="/images/mobile.jpg" layout='fill'  objectFit='cover'/>
-</SwiperSlide>
 
 <SwiperSlide>
  <div className="slidertext font-bold text-white uppercase">WELCOME TO A MULTIVERSE..
