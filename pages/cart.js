@@ -177,6 +177,7 @@ if(localresponse.data !== 400){
 
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
+paymentdetails && paymentdetails !=="" ? TagManager.dataLayer({dataLayer:paymentdetails,dataLayerName:"Paymentdatails"}):"";
 
 }
 

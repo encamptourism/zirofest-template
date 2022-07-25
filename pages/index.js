@@ -78,6 +78,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
     <LoginSpinner isloading={isloading}/>
     <Pakage packages = {PackageData}
        addtocartdata={addtocartdata}
+       TagManager={TagManager}
         setAddtocartdata ={setAddtocartdata} addpersona ={addpersona} setAddpersona={setAddpersona}/>
       <Addonservices
        packages = {AditionalData}
@@ -85,6 +86,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
        setAddtocartdata ={setAddtocartdata}
        removalid={removalid}
        setRemovalid={setRemovalid}
+       TagManager={TagManager}
       />
       <Campsitefacilities/>
       <OtherDetails/>
