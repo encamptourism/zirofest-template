@@ -33,14 +33,14 @@ export const AditionalData=[
                    },
                     {
                     packageid:"villagetrack999",
-                    packagename:"Village Track",
+                    packagename:"Village Trek",
                     packageprice:999,
                     packagedescription:"When you stay at a UNSECO World Heritage Site, you better be exploring the place and its past. We make sure you take more than mere memories from the time you spend. Reminisce the past with a guided trek around the village that makes you fall in love with the place, all the more.",
                     carbonemiison:5,
                    },
                    {
                     packageid:"ilp499",
-                    packagename:"ILP",
+                    packagename:"ILP-Inner Line Permit",
                     packageprice:499,
                     packagedescription:"It’s time to let your hair down and take a backseat. No more chasing the peons and waiting in queues to get your permits. We will assist you and arrange your ILP before your touchdown in the state. After all, we want you in a happy state of mind.",
                     carbonemiison:10,
