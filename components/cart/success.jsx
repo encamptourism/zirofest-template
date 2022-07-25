@@ -6,7 +6,7 @@ const {amount,name,order_id,ordertotal,payment_id,prductdetails,signature,contac
 
 return (<>
 	<div className="container px-3">
-   <h2 className="text-3xl uppercase text-gray-500 mb-2 text-center py-10">Booking Summery</h2>
+   <h2 className="text-3xl uppercase text-gray-500 mb-2 text-center py-10">Booking Summary</h2>
 	 <div className="md:w-4/4 flex flex-col justify-center items-center py-5">
       <div style={{width:"100%",textAlign:"center"}} className="text-xl text-gray-700">{order_id?`Order Id:-  ${order_id}`:""}</div>
       <div style={{width:"100%",textAlign:"center"}} className="text-xl text-gray-700">{name?`Name:-  ${name}`:""}</div>
@@ -40,7 +40,7 @@ return (<>
           </tbody>
             </table>
         <div  className="md:flex md:flex-row mt-5">
-        <div className="text-xl md:w-1/2 flex flex-col justify-center items-center text-center"><h3>Total Summery </h3></div>
+        <div className="text-xl md:w-1/2 flex flex-col justify-center items-center text-center"><h3>Total Summary </h3></div>
         <div className="text-xl md:w-1/2 flex flex-col justify-center items-center text-center"><h3>Total Price : {ordertotal[0].totalprice}/-</h3>
            <h3><b>Total GST @ 5%:</b>  {ordertotal[0].gst}/-</h3>
            <h3><b>Total C.F.(@2.5%):</b>  {Math.ceil(ordertotal[0].totalcarbonemiison)}/-</h3>
