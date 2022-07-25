@@ -86,12 +86,7 @@ return (
           <div id="addons" className="mt-8 px-3">
                 <h1 className="text-center md:text-left text-2xl uppercase">Add-On Services</h1>
             <hr className="mt-2 mb-5 border-slate-400"/>
-               <div className='text-center md:text-left px-5 pb-5 text-gray-600'>If you thought ZIRO was all about music, good vibes, culture and socialising, well
-you were bang on! But, with us, there’s more to ZIRO. It’s a multitude of experiences
-
-waiting to mesmerise you. While you will explore much of it with our packages, there
-are a few that are add-ons.
-</div>
+               <div className='text-center md:text-left px-5 pb-5 text-gray-600'>If you thought ZIRO was all about music, good vibes, culture, and socialising, well you were bang on! But, with us, there’s more to ZIRO. It’s a multitude of experiences waiting to mesmerise you. While you will explore much of it with our packages, there are a few that are add-ons.</div>
             <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-8">
                 { packages ? packages.map((data , key)=>{
                    return (
