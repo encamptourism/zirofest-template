@@ -6,9 +6,9 @@ const styles={
 
 return (
 <>
- <div className="my-10">
-  <h2 className="text-xl my-10 px-5">Campsite Facilities</h2>
-  <hr className="mt-1 mb-10"/>
+ <div className="mt-10 px-3">
+  <h1 className="text-center md:text-left text-2xl uppercase">Campsite Facilities</h1>
+    <hr className="mt-2 mb-10 border-slate-400"/>
   <div className="grid grid-cols-3 md:grid-cols-5 gap-4 justify-evenly">
  
  <div id="about"  className="text-center"><div style={styles.circle}><Image alt="encamp" src="/images/icons/JamSessions.png" layout='responsive' width={60} height={60}/></div><div><h3 className="my-5">Jam Sessions</h3></div></div>

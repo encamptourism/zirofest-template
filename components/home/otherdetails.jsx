@@ -6,9 +6,9 @@ const readmore=()=>{
 }
 return (
 	<>
-  <div id="aboutmobile" className="my-10 px-3">
-  <h2 id="sustainability"  className="text-xl my-3 px-2">About Encamp</h2>
-  <hr className="mt-1 mb-10"/>
+  <div id="aboutmobile" className="mt-10 px-3">
+  <h1 id="sustainability"  className="text-center md:text-left text-2xl uppercase">About Encamp</h1>
+  <hr className="mt-2 mb-5 border-slate-400"/>
   <div className="container px-1">
   <p>Started in 2018, Encamp Adventures have been partnering with ZIRO since 2019
 and have been a pivotal force in driving, promoting and inspiring environment-first
@@ -20,9 +20,9 @@ activities to camping services in the most exotic locations, they deliver the be
 standard of services with unrivalled amenities and experiences.</p> 
   </div>
   </div>
-  <div id="sustainabilitymobile" className="my-10 px-3">
-  <h2 className="text-xl my-3 px-2">Our Sustainability Pledge</h2>
-  <hr className="mt-1 mb-10"/>
+  <div id="sustainabilitymobile" className="mt-10 px-3">
+  <h1 className="text-center md:text-left text-2xl uppercase">Our Sustainability Pledge</h1>
+  <hr className="mt-2 mb-5 border-slate-400"/>
   <div className="grid grid-cols-1 gap-4 justify-evenly">
   <div>
 With a focus on transforming tourism through a responsible travel tech platform,
@@ -35,9 +35,9 @@ benefit not only our customers, but also local communities and the environment.
   </div>
   </div>
 
-    <div className="my-10 px-3">
-  <h2 className="text-xl my-3 px-2">Campground Rules</h2>
-  <hr className="mt-1 mb-10"/>
+    <div className="mt-10 px-3">
+  <h1 className="text-center md:text-left text-2xl uppercase">Campground Rules</h1>
+  <hr className="mt-2 mb-5 border-slate-400"/>
   <div className="container">
   
    <li style={{maxWidth:"1400px",textAlign: 'left',margin:"0 auto"}}><span className="font-bold">Your decency shall be our pride:</span> We request you to not get involved in any anti-social or unsolicited activities during the trip and at the campsite. The organizers reserve the right to withdraw all of your services in such cases with deep regrets</li><br/>

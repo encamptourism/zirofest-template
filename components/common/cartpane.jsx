@@ -30,10 +30,10 @@ return (
 {cartNumber && cartNumber > 0 ? 
 <div  className="flexcontainer">
 <div className="aadga">
-<div style={{fontSize:"0.9rem"}}>{cartNumber} item.</div>
-<div style={{fontSize:"0.9rem"}}>Rs.{total} / + Taxes</div>
+<div style={{fontSize:"0.8rem"}}>{cartNumber} item</div>
+<div style={{fontSize:"0.9rem"}}>Rs.{total}/ + Taxes</div>
 </div>
-<div className="aadga" style={{marginTop:"0.5rem"}}><Link href="/cart"><a className="bg-gradient-to-r from-green-600 to-green-500 rounded-full  px-6 text-gray-50 text-sm md:self-start">Cart</a></Link></div>
+<div className="aadga"><Link href="/cart"><a className="bg-gradient-to-r from-green-600 to-green-500 rounded-md mt-5  py-2 px-5 text-gray-50 text-sm md:self-start">View Cart</a></Link></div>
 </div>:""}
 </>
 )
