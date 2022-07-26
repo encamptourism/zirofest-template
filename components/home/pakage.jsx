@@ -85,6 +85,7 @@ setAddpersona({});
 }
 
 const addtoCart=(id)=>{
+
 let updatedcartdata;
 if(allselected !== "" && id === allselected.packageid){
 let uniqueid = localStorage.getItem('cartid');
@@ -97,8 +98,11 @@ if(preparsedata && preparsedata.filter(x => x.id === allselected.id)){
 updatedcartdata = [allselected];
 
 }else{
- updatedcartdata = [...preparsedata,allselected];   
+ //updatedcartdata = [...preparsedata,allselected];
+ updatedcartdata = [allselected];   
 }
+Tagmanageri(updatedcartdata);
+
 let combine = [...updatedcartdata];
 const combined = {};
 for (let std of combine) {
@@ -111,12 +115,12 @@ for (let std of combine) {
 }
 
 setAddtocartdata(Object.values(combined));
-Tagmanageri(Object.values(combined));
+
 setAllselected("");
 }else{
 updatedcartdata = [{...allselected}];
 setAddtocartdata(updatedcartdata);
-Tagmanageri(updatedcartdata);
+
 setAllselected(""); 
 }
 }else{
@@ -187,6 +191,7 @@ hdfata.packageimagelink.map((data)=>{
 updatedcartdata = [{...hdfata,id:id + defaulttype,packageimage:selectdataimage}];
 setAddtocartdata(updatedcartdata);
 Tagmanageri(updatedcartdata);
+
 }
 }
 

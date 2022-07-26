@@ -13,6 +13,21 @@ if(tag === "generate_lead"){
 window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({event:'generate_lead' , items:{currency , value}});
 }
+if(tag === "begin_checkout"){
+	if(data && data.length > 0){
+let total = 0;
+let currency ='INR';
+let items = [];
+data.map((tdata)=>{
+total = +total + (+tdata.packageprice || 0);
+items = [...items,{item_id : tdata.packageid || '',item_name: tdata.packagename|| '',price:tdata.packageprice || 0,item_variant:tdata.packagetype || '',quantity : tdata.packageqts || 1}];
+
+})
+
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({event:'begin_checkout' , items : {total , currency , items}});
+}
+}
 
 
 }else{

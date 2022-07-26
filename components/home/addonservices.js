@@ -9,6 +9,8 @@ setRemovalid({...removalid,[id]:1});
 let uniqueid,updatedcartdata;
 let allselected = packages.find(x=>x.packageid === id);
 allselected.id = allselected.packageid;
+Tagmanageri([allselected]);
+
 
 uniqueid = (localStorage.getItem('cartid') && localStorage.getItem('cartid') !=="") ? localStorage.getItem('cartid') : uuidv4();
 if(uniqueid !== localStorage.getItem('cartid')){
@@ -60,7 +62,7 @@ data.packagepricetotal = data.packageqts * data.packageprice;
 
 }
 setAddtocartdata(finalcheck);
-Tagmanageri(finalcheck);
+
 }
 const RemoveItem=(id,pkid)=>{
 let removal = {...removalid};

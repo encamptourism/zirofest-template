@@ -95,6 +95,13 @@ return;
     
 }
 setShow(!show);
+
+if(show){
+if(addtocartdata && addtocartdata.length > 0){
+  Tagmanageri(addtocartdata,'begin_checkout');  
+}    
+}
+
 }
 const checkout= async (e)=>{
 e.preventDefault();
