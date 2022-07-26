@@ -66,8 +66,9 @@ if(addtocartdata && addtocartdata.length > 0){
 let uniqueid = localStorage.getItem('cartid');
 localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
 }
-Tagmanageri(addtocartdata);
-},[addtocartdata]) 
+
+},[addtocartdata]);
+
   return (
     <>
     <Heads pathname={pathname}/> 
@@ -77,13 +78,20 @@ Tagmanageri(addtocartdata);
     <LoginSpinner isloading={isloading}/>
     <Pakage packages = {PackageData}
        addtocartdata={addtocartdata}
-        setAddtocartdata ={setAddtocartdata} addpersona ={addpersona} setAddpersona={setAddpersona}/>
+       setAddtocartdata ={setAddtocartdata}
+       addpersona ={addpersona}
+       setAddpersona={setAddpersona}
+       Tagmanageri={Tagmanageri}
+
+       />
+       
       <Addonservices
        packages = {AditionalData}
        addtocartdata={addtocartdata}
        setAddtocartdata ={setAddtocartdata}
        removalid={removalid}
        setRemovalid={setRemovalid}
+       Tagmanageri={Tagmanageri}
       />
       <Campsitefacilities/>
       <OtherDetails/>

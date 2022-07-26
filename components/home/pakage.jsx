@@ -3,7 +3,7 @@ import {useState,useEffect} from "react";
 import Image from "next/image";
 import Incrementor from "../functions/incrementor";
 const Pakage=(props)=>{
-const {packages , addtocartdata , setAddtocartdata , addpersona , setAddpersona} = props;
+const {packages , addtocartdata , setAddtocartdata , addpersona , setAddpersona , Tagmanageri} = props;
 const [selectedpack , setSelectedpack] = useState({});
 const [allselected,setAllselected] = useState("");
 const [viewDetails,setViewDetails] = useState({});
@@ -111,10 +111,12 @@ for (let std of combine) {
 }
 
 setAddtocartdata(Object.values(combined));
+Tagmanageri(Object.values(combined));
 setAllselected("");
 }else{
 updatedcartdata = [{...allselected}];
 setAddtocartdata(updatedcartdata);
+Tagmanageri(updatedcartdata);
 setAllselected(""); 
 }
 }else{
@@ -184,6 +186,7 @@ hdfata.packageimagelink.map((data)=>{
 })
 updatedcartdata = [{...hdfata,id:id + defaulttype,packageimage:selectdataimage}];
 setAddtocartdata(updatedcartdata);
+Tagmanageri(updatedcartdata);
 }
 }
 

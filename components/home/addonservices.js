@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import {useState,useEffect} from "react";
 const Addonservices=(props)=>{
-const {packages , addtocartdata , setAddtocartdata,removalid,setRemovalid} = props;
+const {packages , addtocartdata , setAddtocartdata,removalid,setRemovalid ,Tagmanageri} = props;
 
 const addtoCart=(id)=>{
 setRemovalid({...removalid,[id]:1});
@@ -60,7 +60,7 @@ data.packagepricetotal = data.packageqts * data.packageprice;
 
 }
 setAddtocartdata(finalcheck);
-
+Tagmanageri(finalcheck);
 }
 const RemoveItem=(id,pkid)=>{
 let removal = {...removalid};
