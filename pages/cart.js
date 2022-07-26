@@ -152,6 +152,7 @@ if(localresponse.data !== 400){
                     isadvance:data.isadvance
 
                   });
+Tagmanageri(ordertotal,'generate_lead');
         
         let uniqueid = localStorage.getItem('cartid');
         localStorage.removeItem(uniqueid);
@@ -186,7 +187,7 @@ return (
      <Header addtocartdata = {addtocartdata} />
      <div className="py-14">
      <LoginSpinner isloading={isloading}/>
-     {paymentdetails && paymentdetails.order_id  ?<Success paymentdetails={paymentdetails} Tagmanageri={Tagmanageri}/> :
+     {paymentdetails && paymentdetails.order_id  ?<Success paymentdetails={paymentdetails} /> :
      <Cartc 
      addtocartdata = {addtocartdata}
      setAddtocartdata={setAddtocartdata}
