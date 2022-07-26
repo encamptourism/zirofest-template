@@ -3,7 +3,7 @@ import {useState,useEffect} from "react";
 import Image from "next/image";
 import Incrementor from "../functions/incrementor";
 const Pakage=(props)=>{
-const {packages , addtocartdata , setAddtocartdata , addpersona , setAddpersona , TagManager} = props;
+const {packages , addtocartdata , setAddtocartdata , addpersona , setAddpersona} = props;
 const [selectedpack , setSelectedpack] = useState({});
 const [allselected,setAllselected] = useState("");
 const [viewDetails,setViewDetails] = useState({});
@@ -82,7 +82,6 @@ let datalayerdata ={...hdfata,id:pid + ds,packageimage:selectdataimage};
 setSelectedpack({[pid]:ds});
 setSearchdata({...searchdata,[pid]:ds})
 setAddpersona({});
-TagManager.dataLayer({dataLayer:datalayerdata,dataLayerName:"selecteddata"});
 }
 
 const addtoCart=(id)=>{
@@ -185,8 +184,6 @@ hdfata.packageimagelink.map((data)=>{
 })
 updatedcartdata = [{...hdfata,id:id + defaulttype,packageimage:selectdataimage}];
 setAddtocartdata(updatedcartdata);
-
-TagManager.dataLayer({dataLayer:updatedcartdata,dataLayerName:"packageaddtothecart"});
 }
 }
 
@@ -196,7 +193,6 @@ let removabledata = [...addtocartdata];
 removabledata.splice(id, 1);
 setAddtocartdata(removabledata);
 setAddpersona({})
-TagManager.dataLayer({dataLayer: removabledata,dataLayerName:"packageremovetothecart"});
 }
 
 

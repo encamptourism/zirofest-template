@@ -15,8 +15,8 @@ import Faq from "../components/faq/Faq";
 import {Datafaq} from "../components/faq/Datafaq";
 import Campsitefacilities from "../components/home/campsitefacilites"
 import OtherDetails from "../components/home/otherdetails";
-import TagManager from 'react-gtm-module';
 import {useRouter} from 'next/router';
+import {Tagmanageri} from "../components/common/tagmanageri";
 
 
 
@@ -58,8 +58,7 @@ removal = {...removal,[data.packageid] : 1}
 
 }):""
 setRemovalid(removal);
-TagManager.initialize({ gtmId: 'GTM-PB3PWCK' });
-
+Tagmanageri();
 },[])
 
 useEffect(()=>{
@@ -67,7 +66,7 @@ if(addtocartdata && addtocartdata.length > 0){
 let uniqueid = localStorage.getItem('cartid');
 localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
 }
-
+Tagmanageri(addtocartdata);
 },[addtocartdata]) 
   return (
     <>
@@ -78,7 +77,6 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
     <LoginSpinner isloading={isloading}/>
     <Pakage packages = {PackageData}
        addtocartdata={addtocartdata}
-       TagManager={TagManager}
         setAddtocartdata ={setAddtocartdata} addpersona ={addpersona} setAddpersona={setAddpersona}/>
       <Addonservices
        packages = {AditionalData}
@@ -86,7 +84,6 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
        setAddtocartdata ={setAddtocartdata}
        removalid={removalid}
        setRemovalid={setRemovalid}
-       TagManager={TagManager}
       />
       <Campsitefacilities/>
       <OtherDetails/>
