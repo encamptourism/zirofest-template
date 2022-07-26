@@ -1,8 +1,8 @@
 import {useState,useEffect} from "react";
 const Success=(props)=>{
 const {amount,name,order_id,ordertotal,payment_id,prductdetails,signature,contact,email,checkindate,isadvance} = props.paymentdetails;
-
-
+const {Tagmanageri} = props;
+Tagmanageri(ordertotal,'generate_lead');
 
 return (<>
 	<div className="container px-3">

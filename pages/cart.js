@@ -186,7 +186,7 @@ return (
      <Header addtocartdata = {addtocartdata} />
      <div className="py-14">
      <LoginSpinner isloading={isloading}/>
-     {paymentdetails && paymentdetails.order_id  ?<Success paymentdetails={paymentdetails}/> :
+     {paymentdetails && paymentdetails.order_id  ?<Success paymentdetails={paymentdetails} Tagmanageri={Tagmanageri}/> :
      <Cartc 
      addtocartdata = {addtocartdata}
      setAddtocartdata={setAddtocartdata}
