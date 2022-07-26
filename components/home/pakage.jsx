@@ -98,10 +98,10 @@ if(preparsedata && preparsedata.filter(x => x.id === allselected.id)){
 updatedcartdata = [allselected];
 
 }else{
- //updatedcartdata = [...preparsedata,allselected];
- updatedcartdata = [allselected];   
+updatedcartdata = [...preparsedata,allselected];
+//updatedcartdata = [allselected];   
 }
-Tagmanageri(updatedcartdata);
+Tagmanageri([allselected]);
 
 let combine = [...updatedcartdata];
 const combined = {};
