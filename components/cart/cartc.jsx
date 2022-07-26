@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 function Cartc(props) {
 const router = useRouter();
-const {setIsloading,addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,numberofperson,setNumberofperson,isChecked,setIsChecked,advance,setAdvance,makeBypassPayment,setPaymentdetails} = props;
+const {setIsloading,addtocartdata , setAddtocartdata,calcTotal,total,setSubmission,submission,makePayment,isloading,numberofperson,setNumberofperson,isChecked,setIsChecked,advance,setAdvance,makeBypassPayment,setPaymentdetails , Tagmanageri} = props;
 const [error,setError]=useState({name:"",email:"",mobile:"",checkindate:""})
 const [add , setAdd] = useState("");
 const [addperson , setAddperson] = useState("");
@@ -166,6 +166,7 @@ if(getdata){
                   })
     setIsloading(false);
     setAddtocartdata([]);
+    Tagmanageri(getdata.ordertotal , 'generate_lead');
 }
 
 //makePayment({...submission ,...submissiondata}); 

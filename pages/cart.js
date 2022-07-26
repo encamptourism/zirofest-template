@@ -152,7 +152,7 @@ if(localresponse.data !== 400){
                     isadvance:data.isadvance
 
                   });
-Tagmanageri(data.ordertotal,'generate_lead');
+
         
         let uniqueid = localStorage.getItem('cartid');
         localStorage.removeItem(uniqueid);
@@ -197,6 +197,7 @@ return (
      setSubmission={setSubmission}
      makePayment={makePayment}
      makeBypassPayment={makeBypassPayment}
+     Tagmanageri = {Tagmanageri}
      setIsloading={setIsloading}
      numberofperson={numberofperson}
      setNumberofperson={setNumberofperson}
