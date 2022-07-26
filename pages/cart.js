@@ -152,7 +152,7 @@ if(localresponse.data !== 400){
                     isadvance:data.isadvance
 
                   });
-Tagmanageri(ordertotal,'generate_lead');
+Tagmanageri(data.ordertotal,'generate_lead');
         
         let uniqueid = localStorage.getItem('cartid');
         localStorage.removeItem(uniqueid);
