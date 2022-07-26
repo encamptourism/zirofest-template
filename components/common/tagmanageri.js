@@ -1,7 +1,11 @@
 import {useState,useEffect} from 'react';
 import TagManager from 'react-gtm-module';
 const Tagmanageri=(data)=>{
-TagManager.initialize({ gtmId: 'GTM-PB3PWCK' });
+let init;
+if(!init){
+init = TagManager.initialize({ gtmId: 'GTM-PB3PWCK' });	
+}
+
 
 if(data && data.length > 0){
 let total = 0;
