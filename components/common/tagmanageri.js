@@ -12,6 +12,13 @@ if(tag === "generate_lead"){
 	let value = data[0].grand;
 window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({event:'generate_lead' , items:{currency , value}});
+
+if(typeof fbq !== 'undefined'){
+	fbq('track', 'Lead');
+
+}
+
+
 }
 if(tag === "begin_checkout"){
 	if(data && data.length > 0){
@@ -26,6 +33,11 @@ items = [...items,{item_id : tdata.packageid || '',item_name: tdata.packagename|
 
 window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({event:'begin_checkout' , items : {total , currency , items}});
+
+if(typeof fbq !== 'undefined'){
+	fbq('track', 'InitiateCheckout');
+	
+}
 }
 }
 
@@ -44,6 +56,11 @@ items = [...items,{item_id : tdata.packageid || '',item_name: tdata.packagename|
 
 window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({event:'add_to_cart' , items : {total , currency , items}});
+
+if(typeof fbq !== 'undefined'){
+	fbq('track', 'AddToCart');
+	
+}
 }
 
 }

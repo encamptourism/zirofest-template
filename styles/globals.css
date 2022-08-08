@@ -88,8 +88,19 @@ html {
     border: 0.25em solid;
     border-right-color: transparent;
 }
+.jingala{
+  width: 29vw;
+  font-size: 0.6rem;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  padding: 0 5px;
+  font-weight: 400;
+}
 
 @media only screen and (max-width: 767px) {
+  .jingala{
+  width: 90vw;
+}
   .flexcontainer{
     flex-direction: row;
     padding: 3px 5px;

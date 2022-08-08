@@ -70,7 +70,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
 },[addtocartdata]);
 
   return (
-    <>
+       <>
     <Heads pathname={pathname}/> 
     <Header addtocartdata = {addtocartdata} />
     <Topsection/>

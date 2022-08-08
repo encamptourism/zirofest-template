@@ -8,6 +8,7 @@ const [selectedpack , setSelectedpack] = useState({});
 const [allselected,setAllselected] = useState("");
 const [viewDetails,setViewDetails] = useState({});
 const [searchdata,setSearchdata] = useState({});
+const [istoggle,setIstoggle] = useState("");
 
 
 
@@ -219,7 +220,16 @@ setAddtocartdata(addqtsdata);
 
 },[addpersona])
 
+const toggleDatainfo=(id)=>{
+let newid = id + 'openclose';
+if(istoggle === ""){
+    setIstoggle(newid);
+}else{
+  setIstoggle('');  
+}
 
+
+}
 
 const styles={
               overlap:{textAlign:"center",marginTop: '-5rem',position:"relative",zIndex:"600",color:"white",fontWeight: '600',fontSize:"1.4rem",backgroundColor:"rgba(0,0,0,0.4)",padding:"0.5rem",width:"auto"},
@@ -349,7 +359,8 @@ return (
                        
                          }
                            </div>
-                           <div className="font-thin text-xs">KgCO2/person</div>
+                           <div className="font-thin text-xs">KgCO2/person<span style={{float:'right', marginLeft: '15px',cursor:'pointer'}} onClick={()=>toggleDatainfo(data.packageid)}><img  width="15px" height="15px" src="https://img.icons8.com/flat-round/64/000000/info.png"/></span></div>
+                           {istoggle && istoggle ===(data.packageid + 'openclose')  ? <div style={{position:"absolute"}} className="text-xs jingala">*Carbon Emission values are calculated based on Encamp CF tool and cover your end-to-end environmental footprint on this travel itinerary to Ziro and back. These are approximate values and are dependent upon the source location of your travel.</div>:""}
                         </div>
                         <div>
                            <div className="font-thin text-xs">Price</div>

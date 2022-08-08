@@ -20,6 +20,10 @@ return (
 className="mySwiper">
 
 <SwiperSlide>
+   <Image alt="zerofestival" src="/images/mobilebanner.jpg" layout='fill'  objectFit='cover' objectPosition='center'/>
+</SwiperSlide>
+
+<SwiperSlide>
  <div className="slidertext font-bold text-white uppercase">WELCOME TO A MULTIVERSE..
   <div className="font-normal text-sm text-center md:text-left text-white" style={{maxWidth:"800px"}}>
   Ideal for those who wanna have a memorable time yet leave no carbon footprint.

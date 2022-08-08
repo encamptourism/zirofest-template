@@ -20,7 +20,7 @@ export const PackageData=[
                     packageimagelink:[{Alpine:"/images/alpine.jpg"},
                     {Dome:"/images/dome.jpg"},
                     {BYOT:"/images/byot.jpg"}],
-                    carbonemiison:[{Alpine:0.025},{Dome:0.037},{BYOT:0.009}],
+                    carbonemiison:[{Alpine:425},{Dome:375},{BYOT:325}],
                    },{
                     packageid:"2n3d4999",
                     defaultqts:2,
@@ -41,7 +41,7 @@ export const PackageData=[
                     packageimagelink:[{Alpine:"/images/alpine.jpg"},
                     {Dome:"/images/dome.jpg"},
                     {BYOT:"/images/byot.jpg"}],
-                    carbonemiison:[{Alpine:0.025},{Dome:0.037},{BYOT:0.009}],
+                    carbonemiison:[{Alpine:425},{Dome:375},{BYOT:325}],
                    },
                    	{packageid:"4n5d6999",
                     defaultqts:4,
@@ -61,7 +61,7 @@ export const PackageData=[
                     packageimagelink:[{Alpine:"/images/alpine.jpg"},
                     {Dome:"/images/dome.jpg"},
                     {BYOT:"/images/byot.jpg"}],
-                    carbonemiison:[{Alpine:0.025},{Dome:0.037},{BYOT:0.009}],
+                    carbonemiison:[{Alpine:425},{Dome:375},{BYOT:325}],
                    }
                    ]
                     

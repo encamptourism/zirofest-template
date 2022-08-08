@@ -5,7 +5,7 @@ export const AditionalData=[
                     packagename:"Vehicle",
                     packageprice:2999,
                     packagedescription:"While the destination is breathtaking, the journey should be thrilling too, right? Well, our side pick-up and drop services ensure you get only the right kind of thrills as you arrive and depart the festival.",
-                    carbonemiison:23,
+                    carbonemiison:0,
 
                    },
                     {
@@ -13,7 +13,7 @@ export const AditionalData=[
                     packagename:"Lunch",
                     packageprice:449,
                     packagedescription:"To taste a culture, you must try their food. Taste it on every smack of delightful local and popular meals, served exclusively at our  campteen. After all, you need that healthy meal to stay up through every performance.",
-                    carbonemiison:0.009,
+                    carbonemiison:0,
 
                    },
                     {
@@ -21,7 +21,7 @@ export const AditionalData=[
                     packagename:"Dinner",
                     packageprice:449,
                     packagedescription:"Meals that make you wonder, why just here? Well, that’s what our dinner menu is spruced up with. Local delicacies alongside vegan meal options let you savour the most lip-smacking food so you can break a leg at the bonfire or simply end the day on a high note with a pint of the local rice beer.",
-                    carbonemiison:0.009,
+                    carbonemiison:0,
 
                    },
                     {
@@ -36,14 +36,14 @@ export const AditionalData=[
                     packagename:"Village Tour",
                     packageprice:999,
                     packagedescription:"When you stay at a UNESCO World Heritage Site, you better be exploring the place and its past. We make sure you take more than mere memories from the time you spend. Reminisce the past with a guided trek around the village that makes you fall in love with the place, all the more.",
-                    carbonemiison:5,
+                    carbonemiison:0,
                    },
                    {
                     packageid:"ilp499",
                     packagename:"ILP-Inner Line Permit",
                     packageprice:499,
                     packagedescription:"It’s time to let your hair down and take a backseat. No more chasing the peons and waiting in queues to get your permits. We will assist you and arrange your ILP before your touchdown in the state. After all, we want you in a happy state of mind.",
-                    carbonemiison:10,
+                    carbonemiison:0,
                    },
 
                   ]

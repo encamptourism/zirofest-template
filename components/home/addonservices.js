@@ -96,10 +96,11 @@ return (
                         <p className="text-sm text-gray-500 p-1">{data.packagedescription}</p>
                     </div>
                     <div className="flex flex-row p-2 justify-between">
-                        <div>
+                       <div>
                            <div className="text-xs font-semibold">Carbon Footprint</div>
-                           <div className=" text-xl font-semibold">{data.carbonemiison ? data.carbonemiison.toFixed(2) : 0.00}</div>
+                           <div className=" text-xl font-semibold">{data.carbonemiison && data.carbonemiison > 0 ? data.carbonemiison.toFixed(2) : 0.00}</div>
                            <div className="font-thin text-sm">KgCO2/person</div>
+
                         </div>
                         <div>
                         <div className="px-3 font-thin text-xs">Price</div>
