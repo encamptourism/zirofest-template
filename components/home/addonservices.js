@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {useState,useEffect} from "react";
 const Addonservices=(props)=>{
 const {packages , addtocartdata , setAddtocartdata,removalid,setRemovalid ,Tagmanageri} = props;
-
+const [istoggle,setIstoggle] = useState("");
 const addtoCart=(id)=>{
 setRemovalid({...removalid,[id]:1});
 
@@ -80,6 +80,16 @@ if(data.packageid !== id){
 setAddtocartdata(updated);
 }
 
+const toggleDatainfo=(id)=>{
+let newid = id + 'openclose';
+if(istoggle === ""){
+    setIstoggle(newid);
+}else{
+  setIstoggle('');  
+}
+
+
+}
 
 return (
           <>
@@ -97,7 +107,8 @@ return (
                     </div>
                     <div className="flex flex-row p-2 justify-between">
                        <div>
-                           <div className="text-xs font-semibold">Carbon Footprint</div>
+                           <div className="text-xs font-semibold">Carbon Footprint<span style={{float:'right', marginLeft: '15px',cursor:'pointer'}} onClick={()=>toggleDatainfo(data.packageid)}><img  width="15px" height="15px" src="https://img.icons8.com/flat-round/64/000000/info.png"/></span></div>
+                            {istoggle && istoggle ===(data.packageid + 'openclose')  ? <div style={{position:"absolute"}} className="text-xs jingala">*Carbon Emission values are calculated based on Encamp CF tool and cover your end-to-end environmental footprint on this travel itinerary to Ziro and back. These are approximate values and are dependent upon the source location of your travel.</div>:""}
                            <div className=" text-xl font-semibold">{data.carbonemiison && data.carbonemiison > 0 ? data.carbonemiison.toFixed(2) : 0.00}</div>
                            <div className="font-thin text-sm">KgCO2/person</div>
 
