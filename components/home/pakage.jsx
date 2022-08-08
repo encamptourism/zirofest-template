@@ -347,7 +347,8 @@ return (
 
                     <div className="mt-3 mb-2 flex flex-row md:flex-row justify-between">
                          <div>
-                           <div className="font-thin text-xs">Carbon Footprint</div>
+                           <div className="font-thin text-xs">Carbon Footprint<span style={{float:'right', marginLeft: '15px',cursor:'pointer'}} onClick={()=>toggleDatainfo(data.packageid)}><img  width="15px" height="15px" src="https://img.icons8.com/flat-round/64/000000/info.png"/></span></div>
+                           {istoggle && istoggle ===(data.packageid + 'openclose')  ? <div style={{position:"absolute"}} className="text-xs jingala">*Carbon Emission values are calculated based on Encamp CF tool and cover your end-to-end environmental footprint on this travel itinerary to Ziro and back. These are approximate values and are dependent upon the source location of your travel.</div>:""}
                            <div className=" text-basic font-semibold">
                                 {data.carbonemiison ? data.carbonemiison.map((dd,kk)=>{     
                             return (
@@ -359,8 +360,8 @@ return (
                        
                          }
                            </div>
-                           <div className="font-thin text-xs">KgCO2/person<span style={{float:'right', marginLeft: '15px',cursor:'pointer'}} onClick={()=>toggleDatainfo(data.packageid)}><img  width="15px" height="15px" src="https://img.icons8.com/flat-round/64/000000/info.png"/></span></div>
-                           {istoggle && istoggle ===(data.packageid + 'openclose')  ? <div style={{position:"absolute"}} className="text-xs jingala">*Carbon Emission values are calculated based on Encamp CF tool and cover your end-to-end environmental footprint on this travel itinerary to Ziro and back. These are approximate values and are dependent upon the source location of your travel.</div>:""}
+                           <div className="font-thin text-xs">KgCO2/person</div>
+                          
                         </div>
                         <div>
                            <div className="font-thin text-xs">Price</div>
