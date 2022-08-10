@@ -105,20 +105,20 @@ return (
                         <h3 className="text-xl p-2 text-gray-900 font-semibold">{data.packagename}</h3>
                         <p className="text-sm text-gray-500 p-1">{data.packagedescription}</p>
                     </div>
-                    <div className="flex flex-row p-2 justify-between">
+                   {/*  <div className="flex flex-row p-2 justify-between">
                        <div>
-                           <div className="text-xs font-semibold">Carbon Footprint<span style={{float:'right', marginLeft: '15px',cursor:'pointer'}} onClick={()=>toggleDatainfo(data.packageid)}><img  width="15px" height="15px" src="https://img.icons8.com/flat-round/64/000000/info.png"/></span></div>
+                          <div className="text-xs font-semibold">Carbon Footprint<span style={{float:'right', marginLeft: '15px',cursor:'pointer'}} onClick={()=>toggleDatainfo(data.packageid)}><img  width="15px" height="15px" src="https://img.icons8.com/flat-round/64/000000/info.png"/></span></div>
                             {istoggle && istoggle ===(data.packageid + 'openclose')  ? <div style={{position:"absolute"}} className="text-xs jingala">*Carbon Emission values are calculated based on Encamp CF tool and cover your end-to-end environmental footprint on this travel itinerary to Ziro and back. These are approximate values and are dependent upon the source location of your travel.</div>:""}
                            <div className=" text-xl font-semibold">{data.carbonemiison && data.carbonemiison > 0 ? data.carbonemiison.toFixed(2) : 0.00}</div>
                            <div className="font-thin text-sm">KgCO2/person</div>
 
-                        </div>
+                        </div>*/}
                         <div>
                         <div className="px-3 font-thin text-xs">Price</div>
                         <div className="px-3 text-basic font-semibold">Rs. {data.packageprice}/-</div>
                         <div className="px-3 font-thin text-xs">{(data.packagename === 'Lunch' || data.packagename === 'Dinner') ? 'per Meal' : 'per Person'}</div>
                         </div>
-                    </div>
+                    {/*</div>*/}
                 {removalid[data.packageid] ?  <div onClick={()=>RemoveItem(data.packageid , "dsd")} style={{cursor:"pointer"}}  className="bg-red-600 border-2 border-red-100 rounded-full py-2 px-4 text-white text-sm flex flex-row my-2 justify-center">
                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
