@@ -19,7 +19,7 @@ return (
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="/images/icons/ClotheslinewithClips.png" layout='responsive' width={60} height={60}/></div><div><h3 className="my-5">Clothesline with Clips</h3></div></div>
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="/images/icons/CleanDrinkingWater.png" layout='responsive' width={60} height={60}/></div><div><h3 className="my-5">Hot &amp; Cold Drinking Water</h3></div></div>
  <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="/images/icons/HygienicandConcreteWashrooms.png" layout='responsive' width={60} height={60}/></div><div><h3 className="my-5">Hygienic Washrooms</h3></div></div>
- {/* <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="/images/icons/SnackBar.png" layout='responsive' width={60} height={60}/></div><div><h3 className="my-5">Snackbar</h3></div></div> */}
+ <div className="text-center"><div style={styles.circle}><Image alt="encamp" src="/images/icons/SnackBar.png" layout='responsive' width={60} height={60}/></div><div><h3 className="my-5">Snackbar</h3></div></div>
 </div>
 </div>
 
