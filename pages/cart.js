@@ -10,6 +10,7 @@ import LoginSpinner from "../components/common/LoginSpinner";
 import {makeBypassPayment} from "../components/functions/makebypasspayment";
 import {useRouter} from 'next/router';
 import {Tagmanageri} from "../components/common/tagmanageri";
+import Footer from "../components/common/footer";
 
 const Cart=()=>{
 const [addtocartdata,setAddtocartdata] = useState([]);
@@ -207,7 +208,7 @@ return (
      setAdvance={setAdvance}
      setPaymentdetails={setPaymentdetails}
       />}  
-      
+     <Footer/> 
      </div>
 	</>
 	)
