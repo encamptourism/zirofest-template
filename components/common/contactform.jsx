@@ -148,7 +148,7 @@ return (
 <>
 
  <div className="circle" onClick={()=>setToggle(!toggle)}>
- Enquey
+ Enquiry
  </div>
  { toggle ? <div>
 	    <div id="yusu" className="bg-gray-50 flex-grow p-3">
