@@ -3,8 +3,8 @@ import {DataSubmittedtoapi} from '../functions/enquiry';
 
 const Contactform=()=>{
 const [toggle,setToggle] = useState(false);
-const [contactform,setContactform] = useState({name:"",email:"",mobile:"",message:""});
-const [contactformerror,setContactformerror] = useState({name:"",email:"",mobile:"",message:""});
+const [contactform,setContactform] = useState({name:"",email:"",phone:"",message:""});
+const [contactformerror,setContactformerror] = useState({name:"",email:"",phone:"",message:""});
 const [issuccess,setIssuccess] = useState({success:false,message:""});
 const [isloading,setIsloading] = useState(false);
  function validateEmail(email) {
@@ -46,20 +46,20 @@ if(!validateEmail(datatsubmit.email)){
  setContactformerror({...contactformerror , email:""});
  formactivate = true;
  }
- if(datatsubmit.mobile && isNaN(datatsubmit.mobile)){
-   setContactformerror({...contactformerror , mobile:"Invalid mobile number"});
+ if(datatsubmit.phone && isNaN(datatsubmit.phone)){
+   setContactformerror({...contactformerror , phone:"Invalid mobile number"});
     formactivate = false;
     setIsloading(false);
     return;
 
  } 
-else if(datatsubmit.mobile.length !== 10){
- setContactformerror({...contactformerror , mobile:"Enter 10 digit mobile number"});
+else if(datatsubmit.phone.length !== 10){
+ setContactformerror({...contactformerror , phone:"Enter 10 digit mobile number"});
   formactivate = false;
   setIsloading(false);
   return;
  }else{
- setContactformerror({...contactformerror , mobile:""});
+ setContactformerror({...contactformerror , phone:""});
   formactivate = true;
 
  }
@@ -80,7 +80,7 @@ let dataSubmitted = await DataSubmittedtoapi(datatsubmit);
 
 if(dataSubmitted && dataSubmitted.success === true){
 setIssuccess({...issuccess, success: true ,message: `Your Message has been sent Successfully with Reference id ${dataSubmitted.message}. We'll revert back you within couple of hours.` });
-setContactform({name:"",email:"",mobile:"",message:""});
+setContactform({name:"",email:"",phone:"",message:""});
   setIsloading(false);
 }else{
  setIssuccess({...issuccess, success: false ,message: dataSubmitted.message || "Something wnt wrong. Please try after sometime" }); 
@@ -104,15 +104,15 @@ if(!validateEmail(val)){
  }
  }
 
- if(e.target.name === 'mobile'){
+ if(e.target.name === 'phone'){
  if(val && isNaN(val)){
-   setContactformerror({...contactformerror , mobile:"Invalid mobile number"});
+   setContactformerror({...contactformerror , phone:"Invalid mobile number"});
 
  } 
 else if(val && val.length !== 10){
- setContactformerror({...contactformerror , mobile:"Enter 10 digit mobile number"});
+ setContactformerror({...contactformerror , phone:"Enter 10 digit mobile number"});
  }else{
- setContactformerror({...contactformerror , mobile:""});
+ setContactformerror({...contactformerror , phone:""});
  }
  }
   if(e.target.name === 'name'){
@@ -136,7 +136,7 @@ else if(val && val.length !== 10){
 }
 useEffect(()=>{
 if(!toggle){
-  setContactform({name:"",email:"",mobile:"",message:""});
+  setContactform({name:"",email:"",phone:"",message:""});
   setIssuccess({success:false,message:""});
   setIsloading(false);
 }
@@ -188,17 +188,17 @@ return (
             
               <div className="mb-4">
               <label
-                htmlFor="mobiles"
+                htmlFor="phones"
                 className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
-                >Contact Number<span className="error">{contactformerror.mobile || ""}</span></label
+                >Contact Number<span className="error">{contactformerror.phone || ""}</span></label
               >
               <input
                 type="text"
-                name="mobile"
-                id="mobile"
-                value={contactform.mobile  || ""}
+                name="phone"
+                id="phone"
+                value={contactform.phone  || ""}
                 onChange={(e)=>onChangeHandler(e)}
-                placeholder="Enter Your 10 digit Mobile Number"
+                placeholder="Enter Your 10 digit phone Number"
                 required
                 className="w-full px-3 py-1 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
               />
