@@ -96,7 +96,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
       <Campsitefacilities/>
       <OtherDetails/>
       <Faq faqdata={faqdata}/>
-      <Footer/>
+      <Footer Tagmanageri={Tagmanageri}/>
      </div>
      <Cartpane addtocartdata = {addtocartdata} setAddtocartdata ={setAddtocartdata}/>
 

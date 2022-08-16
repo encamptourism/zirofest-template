@@ -1,7 +1,9 @@
 import {useState,useEffect} from 'react';
 import {DataSubmittedtoapi} from '../functions/enquiry';
 
-const Contactform=()=>{
+const Contactform=(props)=>{
+const {Tagmanageri} = props;
+
 const [toggle,setToggle] = useState(false);
 const [contactform,setContactform] = useState({name:"",email:"",phone:"",message:""});
 const [contactformerror,setContactformerror] = useState({name:"",email:"",phone:"",message:""});
@@ -80,6 +82,8 @@ let dataSubmitted = await DataSubmittedtoapi(datatsubmit);
 
 if(dataSubmitted && dataSubmitted.success === true){
 setIssuccess({...issuccess, success: true ,message: `Your Message has been sent Successfully with Reference id ${dataSubmitted.message}. We'll revert back you within couple of hours.` });
+
+Tagmanageri([{...datatsubmit}],'begin_checkout'); 
 setContactform({name:"",email:"",phone:"",message:""});
   setIsloading(false);
 }else{

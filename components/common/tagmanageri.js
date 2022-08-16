@@ -40,6 +40,24 @@ if(typeof fbq !== 'undefined'){
 }
 }
 }
+if(tag === "new_enquiry"){
+	if(data && data.length > 0){
+let id = "";
+let items = [];
+data.map((tdata)=>{
+items = [...items,{item_name: tdata.name|| '',email:tdata.email || 0,item_phone:tdata.phone || ''}];
+id = tdata.phone || '';
+})
+
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({event:'new_enquiry' , items : {id ,items}});
+
+if(typeof fbq !== 'undefined'){
+	fbq('track', 'NewEnquiry');
+	
+}
+}
+}
 
 
 }else{
