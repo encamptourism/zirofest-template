@@ -10,7 +10,7 @@ let amount,isadvance;
     }
 let uuid = uuidv4();
 let ordertotal = cartdata.total[0];
-ordertotal.paymentobj = [{order_id:uuid,amount:cartdata.total[0].grand,payment_url:"",payment_id:'',payment_link_id:'',status:'pending',t_date:""}];
+ordertotal.paymentobj = [{order_id:uuid,amount:(cartdata.total[0].grand) * 100,payment_url:"",payment_id:'',payment_link_id:'',status:'pending',t_date:""}];
 let datatosave = {
         payment_id:"",
         order_id: uuid,
