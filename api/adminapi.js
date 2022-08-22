@@ -1,4 +1,5 @@
 import axios from "axios";
+
 let token ="";
 let head = {};
 if (typeof window !== 'undefined') {

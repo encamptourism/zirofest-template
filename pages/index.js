@@ -17,6 +17,7 @@ import Campsitefacilities from "../components/home/campsitefacilites"
 import OtherDetails from "../components/home/otherdetails";
 import {useRouter} from 'next/router';
 import {Tagmanageri} from "../components/common/tagmanageri";
+import Login from "../components/common/login";
 
 
 
@@ -27,7 +28,9 @@ const [isloading,setIsloading] = useState(true);
 const [removalid , setRemovalid] = useState({});
 const {pathname} = useRouter();
 
-useEffect(()=>{ 
+useEffect(()=>{
+
+    
 let uniqueid = (localStorage.getItem('cartid') && localStorage.getItem('cartid') !=="") ? localStorage.getItem('cartid') : uuidv4();
 
 if(uniqueid !== localStorage.getItem('cartid')){
@@ -71,6 +74,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
 
   return (
        <>
+    <Login/>
     <Heads pathname={pathname}/> 
     <Header addtocartdata = {addtocartdata} />
     <Topsection/>

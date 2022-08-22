@@ -11,6 +11,7 @@ import {makeBypassPayment} from "../components/functions/makebypasspayment";
 import {useRouter} from 'next/router';
 import {Tagmanageri} from "../components/common/tagmanageri";
 import Footer from "../components/common/footer";
+import Login from "../components/common/login";
 
 const Cart=()=>{
 const [addtocartdata,setAddtocartdata] = useState([]);
@@ -119,6 +120,9 @@ var options = {
       handler: async function (response) {
        if(data.id == await response.razorpay_order_id){
   let path = `/payment/${response.razorpay_order_id}`;
+  let ordertotal = data.ordertotal[0];
+  ordertotal.paymentobj = [{order_id:response.razorpay_order_id,amount:data.amount,payment_url:"https://paidbydirect.com",payment_id:response.razorpay_payment_id,payment_link_id:response.razorpay_payment_id,status:'success',t_date:""}];
+
   const localresponse = await adminapi.put(path,JSON.stringify({
                                                           payment_id:response.razorpay_payment_id,
                                                           order_id:response.razorpay_order_id,
@@ -126,7 +130,7 @@ var options = {
                                                           name:data.name,
                                                           amount:data.amount,
                                                           prductdetails:data.prductdetails,
-                                                          ordertotal:data.ordertotal,
+                                                          ordertotal:[ordertotal],
                                                           contact:data.phone,
                                                           email:data.email,
                                                           checkindate:data.checkindate,
@@ -184,6 +188,7 @@ if(localresponse.data !== 400){
 
 return (
 	<>
+    <Login/>
 	<Heads pathname={pathname} paymentdetails={paymentdetails}/> 
      <Header addtocartdata = {addtocartdata} />
      <div className="py-14">
