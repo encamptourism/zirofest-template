@@ -4,6 +4,11 @@ import {useState,useEffect} from "react";
 const Login=()=>{
 useEffect(()=>{
 const logincheck=async()=>{
+if(localStorage.getItem('userwebsite')){
+ adminapi.defaults.headers.common={'Authorization': 'Bearer ' + localStorage.getItem('userwebsite')};
+
+}else{
+
 try{
 const response = await adminapi.post("/login",JSON.stringify({email:'website@encamp.com',password:'Website@#123'}));
 
@@ -20,6 +25,9 @@ if(response.data.sucess){
 
 
 }
+	
+}
+
 logincheck();
 
 },[])
