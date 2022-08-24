@@ -41,10 +41,6 @@ if(balance < 0){
 
 return balance.toFixed(2);
 }
-useEffect(()=>{
-localStorage.getItem('userwebsite') ? adminapi.defaults.headers.common={'Authorization': 'Bearer ' + localStorage.getItem('userwebsite')} :""
-
-},[])
 
 
 useEffect(()=>{
