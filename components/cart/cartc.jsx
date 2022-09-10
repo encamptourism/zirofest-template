@@ -154,8 +154,8 @@ submissiondata = {...submission,packagedetail:addtocartdata,total,advance:advanc
 }else{
  submissiondata = {...submission,packagedetail:addtocartdata,total};   
 }
-
-let getdata = await makeBypassPayment({...submission ,...submissiondata});
+//bypass payment gateway
+/*let getdata = await makeBypassPayment({...submission ,...submissiondata});
 if(getdata){
     setPaymentdetails({
                     payment_id:'',
@@ -174,9 +174,9 @@ if(getdata){
     setIsloading(false);
     setAddtocartdata([]);
     Tagmanageri(getdata.ordertotal , 'generate_lead');
-}
-
-//makePayment({...submission ,...submissiondata}); 
+}*/
+//route to payment gateway
+makePayment({...submission ,...submissiondata}); 
 setSubmission([]);
 submissiondata = [];
 }else{
@@ -276,11 +276,11 @@ const advcheck=(e)=>{
                                                 <p className="text-2xl font-bold leading-normal text-right text-gray-800">Rs. {totalgrand ? totalgrand : ""} /-</p>
 
                                             </div>
-                                           {/* <div className="flex items-center justify-between pb-6">
+                                           <div className="flex items-center justify-between pb-6">
                                              <p className="text-sm font-bold leading-normal text-right text-gray-800">
                                              <input type="checkbox" name="ispartial" onClick={(e)=>partial(e)}/>Pay Advance and book ?</p>
                                         
-                                             </div>*/}
+                                             </div>
                                             {isChecked ? <div className="flex items-center justify-between pb-6">
                                                 <input type="text" name="advancepayment" placeholder="Enter amount 50% of invoice value or higher" style={{padding:"8px 3px", width:"100%"}} value={advance} onChange ={(e)=>advcheck(e)}/>
                                             </div> :""}

@@ -213,8 +213,9 @@ return (
      setAdvance={setAdvance}
      setPaymentdetails={setPaymentdetails}
       />}  
-     <Footer/> 
+     
      </div>
+     
 	</>
 	)
 }
