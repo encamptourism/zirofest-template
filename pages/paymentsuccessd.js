@@ -42,17 +42,12 @@ if(balance < 0){
 
 return balance.toFixed(2);
 }
-
-
-
-
-//login
 useEffect(()=>{
 setUserwebsite(localStorage.getItem(userwebsite));
 },[]);
 
 useEffect(()=>{
-if(userwebsite !==""){
+
 setSuccessdata({...successdata,payment_id:payment_id,
 	payment_link_reference_id:payment_link_reference_id,
 	payment_link_id : payment_link_id,
@@ -60,10 +55,8 @@ setSuccessdata({...successdata,payment_id:payment_id,
 	
 });
 
-}
 
-},[payment_id,userwebsite]);
-
+},[userwebsite])
 useEffect(()=>{
 const fetchData=async ()=>{
 let mreference_id;
@@ -81,6 +74,7 @@ if(mreference_id){
   const localresponse = await adminapi.get(path);
 if(localresponse.data !== 400){
 let data = localresponse.data;
+
 let paymentobj = data.ordertotal[0].paymentobj;
 let vamount = 0;
 paymentobj && paymentobj.map((res,key)=>{
@@ -89,11 +83,12 @@ if(payment_link_id === res.payment_link_id && res.payment_id === "" ){
 res.payment_id = payment_id;
 res.status= payment_status;
 res.t_date = new Date();
-vamount = (res.amount);
+//vamount = (res.amount) * 100 ;
 res.amount = vamount;
 
 }
 })
+
 data.ordertotal[0].paymentobj = paymentobj;
 data.payment_id = payment_id;
 data.status = 'success';
@@ -101,15 +96,15 @@ data.amount = vamount;
 let today = new Date().toISOString().slice(0, 10);
 data.t_date = today;
 setOrderData(data);
-}
 
 }
-
+}
 }catch(e){
-	console.log(e);
+  alert(e);
 }
 
 }
+
 fetchData();
 },[successdata])
 
@@ -157,8 +152,6 @@ if(trigger){
 
 
 },[orderData])
-
-
 
 return (
 	     <>
@@ -216,4 +209,4 @@ return (
 
 
 }
-export default Paymentsuccess;
+export default Paymentsuccess
