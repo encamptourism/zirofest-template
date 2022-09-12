@@ -10,13 +10,12 @@ const [successdata,setSuccessdata] = useState({
 	payment_link_reference_id:"",
 	payment_link_id : "",
 	payment_status : ""
-})
+});
+const [checklogin,setChecklogin] = useState(false);
+
 const [orderData,setOrderData] = useState('');
 const [userwebsite,setUserwebsite] = useState('');
-let payment_id = router.query['razorpay_payment_id'] ||"";
-let payment_link_reference_id = router.query['razorpay_payment_link_reference_id'] || "";
-let payment_link_id = router.query['razorpay_payment_link_id'] || "";
-let payment_status = router.query['razorpay_payment_link_status'] || "";
+
 
 const balanceamount=(ordertotal)=>{
 let paymentobj = [];
@@ -49,10 +48,14 @@ return balance.toFixed(2);
 //login
 useEffect(()=>{
 setUserwebsite(localStorage.getItem(userwebsite));
-},[]);
+},[checklogin]);
 
 useEffect(()=>{
-if(userwebsite !==""){
+if(userwebsite !=="" && checklogin){
+let payment_id = router.query['razorpay_payment_id'] ||"";
+let payment_link_reference_id = router.query['razorpay_payment_link_reference_id'] || "";
+let payment_link_id = router.query['razorpay_payment_link_id'] || "";
+let payment_status = router.query['razorpay_payment_link_status'] || "";
 setSuccessdata({...successdata,payment_id:payment_id,
 	payment_link_reference_id:payment_link_reference_id,
 	payment_link_id : payment_link_id,
@@ -62,7 +65,7 @@ setSuccessdata({...successdata,payment_id:payment_id,
 
 }
 
-},[payment_id,userwebsite]);
+},[userwebsite]);
 
 useEffect(()=>{
 const fetchData=async ()=>{
@@ -109,8 +112,11 @@ setOrderData(data);
 }
 
 }
-fetchData();
-},[successdata])
+if(checklogin){
+ fetchData(); 
+}
+
+},[successdata,checklogin])
 
 useEffect(()=>{
 let trigger = false;
@@ -161,7 +167,7 @@ if(trigger){
 
 return (
 	     <>
-	  <Login/>
+	  <Login setChecklogin={setChecklogin}/>
 	  {orderData && successdata ? 
       <div className="md:w-4/4 flex flex-col justify-center items-center py-8">
       <h2 className="text-3xl py-8">Order Summery</h2>
