@@ -5,6 +5,10 @@ import Login from "../components/common/login";
 
 const Paymentsuccess=()=>{
 const router = useRouter();
+let payment_id = router.query['razorpay_payment_id'] ||"";
+let payment_link_reference_id = router.query['razorpay_payment_link_reference_id'] || "";
+let payment_link_id = router.query['razorpay_payment_link_id'] || "";
+let payment_status = router.query['razorpay_payment_link_status'] || "";
 const [successdata,setSuccessdata] = useState({
 	payment_id:"",
 	payment_link_reference_id:"",
@@ -52,10 +56,7 @@ setUserwebsite(localStorage.getItem(userwebsite));
 
 useEffect(()=>{
 if(userwebsite !==""){
-let payment_id = router.query['razorpay_payment_id'] ||"";
-let payment_link_reference_id = router.query['razorpay_payment_link_reference_id'] || "";
-let payment_link_id = router.query['razorpay_payment_link_id'] || "";
-let payment_status = router.query['razorpay_payment_link_status'] || "";
+
 setSuccessdata({...successdata,payment_id:payment_id,
 	payment_link_reference_id:payment_link_reference_id,
 	payment_link_id : payment_link_id,
@@ -65,8 +66,9 @@ setSuccessdata({...successdata,payment_id:payment_id,
 
 }
 
-},[userwebsite]);
-console.log(successdata);
+},[userwebsite,payment_id]);
+
+
 useEffect(()=>{
 const fetchData=async ()=>{
 let mreference_id;
