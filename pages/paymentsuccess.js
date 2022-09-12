@@ -28,7 +28,7 @@ let grandtotal = ordertotal[0] ? ordertotal[0].grand : 0 ;
 let totalpaid = 0;
 if(ordertotal[0] && ordertotal[0].hasOwnProperty('paymentobj')){
 paymentobj = ordertotal[0].paymentobj;
-
+console.log(paymentobj);
 if(paymentobj.length > 0){
 paymentobj.map((ad)=>{
 if(ad.payment_id !=="" && ad.status === 'success' || ad.status === 'paid'){
@@ -36,6 +36,7 @@ if(ad.payment_id !=="" && ad.status === 'success' || ad.status === 'paid'){
 }
 })
 }
+console.log(totalpaid);
 balance = grandtotal - totalpaid;
 if(balance < 0){
   return 0;
