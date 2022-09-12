@@ -29,7 +29,7 @@ paymentobj = ordertotal[0].paymentobj;
 if(paymentobj.length > 0){
 paymentobj.map((ad)=>{
 if(ad.payment_id !=="" && ad.status === 'success' || ad.status === 'paid'){
- totalpaid += +(ad.amount/100);  
+ totalpaid += +(ad.amount);  
 }
 })
 }
@@ -90,7 +90,6 @@ res.payment_id = payment_id;
 res.status= payment_status;
 res.t_date = new Date();
 vamount = (res.amount);
-res.amount = vamount;
 
 }
 })
@@ -203,7 +202,7 @@ return (
            <h3><b>Total GST @ 5%:</b>  {orderData.ordertotal[0].gst}/-</h3>
            <h3><b>Total C.F.(@2.5%):</b>  {Math.ceil(orderData.ordertotal[0].totalcarbonemiison)}/-</h3>
            <h3><b>Grand Total:</b> {orderData.ordertotal[0].grand}  /-</h3>
-           {<h3><b>Paid</b> {+orderData.amount/100}  /-</h3>}
+           {<h3><b>Paid</b> {+orderData.amount}  /-</h3>}
            {<h3><b>Balance</b> {balanceamount(orderData)}  /-</h3>}
          
         </div>

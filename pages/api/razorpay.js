@@ -46,6 +46,17 @@ export default async function handler(req, res) {
 
       }
 //saving the order in our database
+let paymentobj = [{ 
+                   order_id:response.id,
+                   payment_id:"",
+                   payment_link_id:"",
+                   payment_url:"",
+                   status:'pending',
+                   t_date:"",
+                   amount:Math.ceil(amount) 
+                }];
+let ordertotal = req.body.total[0];
+ordertotal.paymentobj = paymentobj;
 
  
 let datatosave = {
@@ -58,7 +69,7 @@ let datatosave = {
         currency: response.currency,
         amount:req.body.total[0].grand,
         prductdetails:req.body.packagedetail,
-        ordertotal:req.body.total,
+        ordertotal:[ordertotal],
         status:"pending",
         checkindate:req.body.checkindate,
         isadvance:isadvance
