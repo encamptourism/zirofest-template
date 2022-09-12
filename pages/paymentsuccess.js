@@ -51,7 +51,7 @@ setUserwebsite(localStorage.getItem(userwebsite));
 },[checklogin]);
 
 useEffect(()=>{
-if(userwebsite !=="" && checklogin){
+if(userwebsite !==""){
 let payment_id = router.query['razorpay_payment_id'] ||"";
 let payment_link_reference_id = router.query['razorpay_payment_link_reference_id'] || "";
 let payment_link_id = router.query['razorpay_payment_link_id'] || "";
