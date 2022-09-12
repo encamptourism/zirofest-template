@@ -27,6 +27,7 @@ const [addpersona , setAddpersona] = useState({});
 const [isloading,setIsloading] = useState(true);
 const [removalid , setRemovalid] = useState({});
 const {pathname} = useRouter();
+const [checklogin,setChecklogin] = useState(false);
 
 useEffect(()=>{
 
@@ -74,7 +75,7 @@ localStorage.setItem(uniqueid,JSON.stringify(addtocartdata));
 
   return (
        <>
-    <Login/>
+    <Login setChecklogin={setChecklogin}/>
     <Heads pathname={pathname}/> 
     <Header addtocartdata = {addtocartdata} />
     <Topsection/>
