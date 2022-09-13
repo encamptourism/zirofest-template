@@ -28,7 +28,6 @@ let grandtotal = ordertotal[0] ? ordertotal[0].grand : 0 ;
 let totalpaid = 0;
 if(ordertotal[0] && ordertotal[0].hasOwnProperty('paymentobj')){
 paymentobj = ordertotal[0].paymentobj;
-console.log(paymentobj);
 if(paymentobj.length > 0){
 paymentobj.map((ad)=>{
 if(ad.payment_id !=="" && ad.status === 'success' || ad.status === 'paid'){
@@ -36,8 +35,8 @@ if(ad.payment_id !=="" && ad.status === 'success' || ad.status === 'paid'){
 }
 })
 }
-console.log(totalpaid);
-balance = grandtotal - totalpaid;
+
+balance = Math.ceil(grandtotal) - Math.ceil(totalpaid);
 if(balance < 0){
   return 0;
 }
@@ -179,6 +178,8 @@ return (
       <div style={{width:"100%",textAlign:"center"}} className="text-xl text-gray-700">{orderData.email?`Email:-  ${orderData.email}`:""}</div>
       <div style={{width:"100%",textAlign:"center"}} className="text-xl text-gray-700">{orderData.contact?`Contact-Details:-  ${orderData.contact}`:""}</div>
       <div style={{width:"100%",textAlign:"center"}} className="text-xl text-gray-700">{orderData.checkindate?`CheckIn Date:-  ${orderData.checkindate}`:""}</div>
+      <div style={{width:"100%",textAlign:"center"}} className="text-xl text-gray-700">{orderData.payment_id?`Transaction Id:-  ${orderData.payment_id}`:""}</div>
+     
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg py-5 px-3">
        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
          <thead className="text-xs text-gray-700 uppercase dark:text-gray-400">
