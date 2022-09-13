@@ -25,6 +25,7 @@ const [numberofperson,setNumberofperson] = useState(0);
 const [isChecked,setIsChecked] = useState(false);
 const [advance,setAdvance] = useState(0);
 const {pathname} = useRouter();
+const [checklogin,setChecklogin] = useState(false);
 
 const calcTotal=()=>{
 setIsloading(true);   
@@ -188,7 +189,7 @@ if(localresponse.data !== 400){
 
 return (
 	<>
-    <Login/>
+     <Login setChecklogin={setChecklogin}/>
 	<Heads pathname={pathname} paymentdetails={paymentdetails}/> 
      <Header addtocartdata = {addtocartdata} />
      <div className="py-14">
