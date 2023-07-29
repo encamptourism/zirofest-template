@@ -1,0 +1,11 @@
+[[redirects]]
+from = "https://www.zirofestival.encampadventures.com/*"
+to = "https://encampadventures.com/ziro_camping"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://zirofestival.encampadventures.com/*"
+to = "https://encampadventures.com/ziro_camping"
+status = 301
+force = true
